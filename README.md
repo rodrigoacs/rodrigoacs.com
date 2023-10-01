@@ -1,2 +1,0 @@
-# rodrigoacs.com
-<rodrigoacs.com>
