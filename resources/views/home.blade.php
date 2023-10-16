@@ -11,6 +11,7 @@
   <!-- Cooltipz.css v:2.1.1 | MIT License | github.com/jackdomleo7/Cooltipz.css -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cooltipz-css@2.1.1/cooltipz.min.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="shortcut icon" href="./resources/images/favicon/favicon.ico" type="image/x-icon">
   @vite(['resources/css/home.css'])
 </head>
 
