@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="../resources/images/favicon/favicon.png" type="image/x-icon">
+  <!-- <link rel="shortcut icon" href="../resources/images/favicon/favicon.png" type="image/x-icon"> -->
   @vite(['resources/css/ch.css'])
   @vite(['resources/js/ch.js'])
   <link
@@ -34,7 +34,5 @@
     <input type="text">
   </div>
 </body>
-
-<script src="ch.js"></script>
 
 </html>
