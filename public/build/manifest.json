@@ -1,7 +1,17 @@
 {
+  "resources/css/ch.css": {
+    "file": "assets/ch-d72b421d.css",
+    "isEntry": true,
+    "src": "resources/css/ch.css"
+  },
   "resources/css/home.css": {
     "file": "assets/home-5c46dad9.css",
     "isEntry": true,
     "src": "resources/css/home.css"
+  },
+  "resources/js/ch.js": {
+    "file": "assets/ch-48ff1847.js",
+    "isEntry": true,
+    "src": "resources/js/ch.js"
   }
 }
