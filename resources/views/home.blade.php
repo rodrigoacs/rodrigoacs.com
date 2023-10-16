@@ -7,7 +7,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
   <title>RodrigoACS</title>
-  <link rel="icon" type="image/x-icon" href="./images/favicon/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="./images/favicon/favicon.png" />
   <!-- Cooltipz.css v:2.1.1 | MIT License | github.com/jackdomleo7/Cooltipz.css -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cooltipz-css@2.1.1/cooltipz.min.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -185,6 +185,5 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Font Awesome icons (free version)-->
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-<script src="./script.js"></script>
 
 </html>
