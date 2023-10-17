@@ -4,14 +4,19 @@
     "isEntry": true,
     "src": "resources/css/ch.css"
   },
-  "resources/css/home.css": {
-    "file": "assets/home-5c46dad9.css",
+  "resources/css/style.css": {
+    "file": "assets/style-695ff0d4.css",
     "isEntry": true,
-    "src": "resources/css/home.css"
+    "src": "resources/css/style.css"
   },
   "resources/js/ch.js": {
     "file": "assets/ch-eb8f0c5a.js",
     "isEntry": true,
     "src": "resources/js/ch.js"
+  },
+  "resources/js/script.js": {
+    "file": "assets/script-9f737951.js",
+    "isEntry": true,
+    "src": "resources/js/script.js"
   }
 }
