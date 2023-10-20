@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   @vite(['resources/css/style.css'])
-  @vite(['resources/js/script.js'])
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 | rodrigoacs.com</title>
@@ -15,7 +14,7 @@
 </head>
 <body style="display: flex;height: 100vh;flex-direction: column;align-items: center;justify-content:center">
   <p>404</p>
-  <a href="https://rodrigoacs.com">cd ./</a>
+  <a href="https://rodrigoacs.com/">cd ./</a>
 </body>
 </html>
 
