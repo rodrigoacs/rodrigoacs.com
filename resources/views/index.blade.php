@@ -6,7 +6,7 @@
   @vite(['resources/js/script.js'])
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RodrigoACS</title>
+  <title>rodrigoacs.com</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -22,7 +22,12 @@
       <a class="link" href="blog">blog</a>
       <a class="link" href="cv">cv</a>
     </div>
-    <a id="change-language"></a>
+    <div>
+      <a id="change-language"></a>
+      <a id="change-theme"><img
+          src="./assets/new_moon_3d.png"
+          alt="" id="change-theme-img" style="width: 1.5rem;"></a>
+    </div>
   </nav>
   <main class="ajax">
   </main>

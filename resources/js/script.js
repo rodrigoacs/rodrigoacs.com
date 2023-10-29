@@ -1,5 +1,11 @@
-const changeLanguageIcon = document.getElementById('change-language');
+loadPage('home')
+
+const changeLanguageIcon = document.getElementById('change-language')
 const main = document.querySelector('main')
+const root = document.documentElement
+const img = document.getElementById('change-theme-img')
+const theme = document.getElementById('change-theme')
+const projectSvg = document.querySelectorAll('.project-svg')
 const languageOptions = {
   'en-US': {
     icon: 'https://img.icons8.com/fluency/48/brazil-circular.png',
@@ -9,12 +15,10 @@ const languageOptions = {
     icon: 'https://img.icons8.com/fluency/48/usa-circular.png',
     jsonFile: './pt-BR.json',
   },
-};
-
-loadPage('home')
+}
 
 let language = navigator.language || navigator.userLanguage
-let links = document.querySelectorAll('a:not(#change-language')
+let links = document.querySelectorAll('.link:not(#change-language)')
 links.forEach(link => {
   link.addEventListener('click', function (e) {
     e.preventDefault()
@@ -26,10 +30,11 @@ links.forEach(link => {
 window.onload = function () {
   loadContent(language)
   updateLanguageIcon(language)
+  window.matchMedia('(prefers-color-scheme: dark)').matches ? setDark(root, img) : setLight(root, img)
 }
 
 function updateLanguageIcon(language) {
-  changeLanguageIcon.innerHTML = `<img width="24" height="24" src="${languageOptions[language].icon}" alt="${language}-circular"/>`;
+  changeLanguageIcon.innerHTML = `<img width="24" height="24" src="${languageOptions[language].icon}" alt="${language}-circular"/>`
 }
 
 function loadPage(pageId) {
@@ -50,8 +55,8 @@ function highlightLink(pageId) {
       link.classList.add('active')
     }
   })
+  root.classList.contains('dark-mode') ? setDark(root, img) : setLight(root, img)
 }
-
 
 function loadContent(language) {
   let elements = document.querySelectorAll('[translate]')
@@ -81,11 +86,53 @@ function activeDownload() {
       downloadButton.addEventListener('click', () => {
         window.print()
       })
-    }, 500);
+    }, 500)
   }
 }
 
 const observer = new MutationObserver(() => {
   loadContent(language)
   activeDownload()
-}).observe(document.body.querySelector('.ajax'), { attributes: true, childList: true, subtree: false });
+  let tech = document.getElementById("tech")
+  tech.addEventListener("change", (() => filterTech(tech.value)))
+}).observe(document.body.querySelector('.ajax'), { attributes: true, childList: true, subtree: false })
+
+theme.addEventListener('click', changeTheme)
+
+function changeTheme() {
+  root.classList.contains('light-mode') ? setDark(root, img) : setLight(root, img)
+}
+
+function setDark(root, img) {
+  let projectSvg = document.querySelectorAll('.project-svg')
+  root.classList.remove('light-mode')
+  root.classList.add('dark-mode')
+  img.src = './assets/sun_3d.png'
+  projectSvg.forEach(svg => {
+    svg.src = './assets/github-project-dark.svg'
+  })
+}
+
+function setLight(root, img) {
+  let projectSvg = document.querySelectorAll('.project-svg')
+  root.classList.remove('dark-mode')
+  root.classList.add('light-mode')
+  img.src = './assets/new_moon_3d.png'
+  projectSvg.forEach(svg => {
+    svg.src = './assets/github-project-light.svg'
+  })
+}
+
+function filterTech(tech) {
+  const projects = document.querySelectorAll('.project')
+  projects.forEach((project) => {
+    if (!project.children[2].firstChild.classList.contains(`${tech}`)) {
+      project.style.display = "none"
+    } else {
+      project.style.display = "block"
+    }
+    if (tech === "all") {
+      project.style.display = "block"
+    }
+  })
+}

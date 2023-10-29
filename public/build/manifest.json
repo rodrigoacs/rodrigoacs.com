@@ -5,7 +5,7 @@
     "src": "resources/css/ch.css"
   },
   "resources/css/style.css": {
-    "file": "assets/style-695ff0d4.css",
+    "file": "assets/style-b14a0761.css",
     "isEntry": true,
     "src": "resources/css/style.css"
   },
@@ -15,7 +15,7 @@
     "src": "resources/js/ch.js"
   },
   "resources/js/script.js": {
-    "file": "assets/script-9f737951.js",
+    "file": "assets/script-729b3dc4.js",
     "isEntry": true,
     "src": "resources/js/script.js"
   }
