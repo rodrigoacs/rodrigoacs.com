@@ -22,7 +22,7 @@
     </div>
     <div>
       <a id="change-language"></a>
-      <a id="change-theme"><img src="./assets/new_moon_3d.png" alt="" id="change-theme-img" style="width: 1.5rem;"></a>
+      <a id="change-theme"><img src="./assets/new_moon_3d.png" alt="change theme" id="change-theme-img" style="width: 1.5rem;"></a>
     </div>
   </nav>
   <main class="ajax">
