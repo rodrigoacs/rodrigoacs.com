@@ -1,5 +1,5 @@
 {
-  "header": "<img src=\"./assets/brain_3d.png\" class=\"icon\">olá, eu sou o Rodrigo!",
+  "header": "<img alt=\"brain\" src=\"./assets/brain_3d.png\" class=\"icon\">olá, eu sou o Rodrigo!",
   "home1": "Em 2018, tive meu primeiro contato com programação no ensino médio, onde aprendi a linguagem Pascal. Após uma pausa, retomei a programação em C na faculdade, atualmente cursando Sistemas de Informação.",
   "home2": "Durante esse período, desenvolvi interesse em desenvolvimento web, estudando HTML, CSS e JavaScript de forma independente. Atualmente, foco meus estudos no desenvolvimento back-end e trabalho principalmente com integração de dados, especialmente entre bancos de dados e APIs, utilizando SQL.",
   "home3": "Neste site, você encontrará informações sobre mim, meu <a onclick=\"loadPage('cv')\">currículo</a> e meu <a onclick=\"loadPage('blog')\">blog</a>, onde pretendo compartilhar meus conhecimentos e experiências. Além disso, você pode conferir alguns dos meus projetos logo abaixo.",
@@ -9,7 +9,7 @@
   "project2": "calcula intervalos de horas",
   "project3": "projeto 2",
   "project4": "projeto 2",
-  "name": "<img src=\"./assets/floppy_disk_3d.png\" class=\"icon\" id=\"download\" translate=\"download\"> Rodrigo Augusto Correa Soares ",
+  "name": "<img alt=\"save\" src=\"./assets/floppy_disk_3d.png\" class=\"icon\" id=\"download\" translate=\"download\"> Rodrigo Augusto Correa Soares ",
   "birth-date": " 14/05/2003",
   "location": " MINAS GERAIS, BRASIL",
   "github": "&nbsp;|&nbsp;GitHub&nbsp;|&nbsp;",
@@ -28,5 +28,5 @@
   "education": "Formação",
   "education1": "JANEIRO DE 2018 - ABRIL DE 2021 (CONCLUÍDO)<br>IFMG, Congonhas MG<br>Técnico Integrado em Mecânica",
   "education2": "SETEMBRO DE 2022 - (CURSANDO)<br>IFMG, Ouro Branco MG<br>Bacharelado em Sistemas de Informação",
-  "blog": "<img src=\"./assets/memo_3d.png\" class=\"icon\">leia alguns dos meus posts"
+  "blog": "<img alt=\"blog\" src=\"./assets/memo_3d.png\" class=\"icon\">leia alguns dos meus posts"
 }

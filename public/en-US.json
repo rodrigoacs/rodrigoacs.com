@@ -1,5 +1,5 @@
 {
-  "header": "<img src=\"./assets/brain_3d.png\" class=\"icon\">hello, I'm Rodrigo!",
+  "header": "<img alt=\"brain\"src=\"./assets/brain_3d.png\" class=\"icon\">hello, I'm Rodrigo!",
   "home1": "In 2018, I had my first experience with programming in high school, where I learned the Pascal language. After a break, I resumed programming in C in college, currently majoring in Information Systems",
   "home2": "During this period, I developed an interest in web development, studying HTML, CSS, and JavaScript independently. Currently, I am focusing my studies on back-end development and mainly work with data integration, especially between databases and APIs, using SQL.",
   "home3": "On this website, you will find information about me, my <a onclick=\"loadPage('cv')\">resume</a>, and my <a onclick=\"loadPage('blog')\">blog</a>, where I intend to share my knowledge and experiences. Additionally, you can check out some of my projects below.",
@@ -9,7 +9,7 @@
   "project2": "calculates time intervals",
   "project3": "projeto 2",
   "project4": "projeto 2",
-  "name": "<img src=\"./assets/floppy_disk_3d.png\" class=\"icon\" id=\"download\" translate=\"download\"> Rodrigo Augusto Correa Soares ",
+  "name": "<img alt=\"save\" src=\"./assets/floppy_disk_3d.png\" class=\"icon\" id=\"download\" translate=\"download\"> Rodrigo Augusto Correa Soares ",
   "birth-date": " 05/14/2003",
   "location": " MINAS GERAIS, BRAZIL",
   "github": "&nbsp;|&nbsp;GitHub&nbsp;|&nbsp;",
@@ -28,5 +28,5 @@
   "education": "Education",
   "education1": "JANUARY 2018 - APRIL 2021 (COMPLETED)<br>IFMG, Congonhas MG<br>Integrated Technical Degree in Mechanics",
   "education2": "SEPTEMBER 2022 - (ONGOING)<br>IFMG, Ouro Branco MG<br>Bachelor's Degree in Information Systems",
-  "blog": "<img src=\"./assets/memo_3d.png\" class=\"icon\">the posts are not yet available in english"
+  "blog": "<img alt=\"blog\" src=\"./assets/memo_3d.png\" class=\"icon\">the posts are not yet available in english"
 }
