@@ -6,9 +6,13 @@ const calculateButton = document.getElementById("calculate")
 const result = document.getElementById("result")
 const theme = document.getElementById('change-theme')
 const root = document.documentElement
+const close = document.getElementById('close')
+const help = document.getElementById('help')
 
 let current = new Date()
 let lastTotalTime = 0
+
+
 
 currentDate.value = getFormattedDate(current)
 document.addEventListener("DOMContentLoaded", loadIntervals)
@@ -142,6 +146,9 @@ function loadIntervals() {
       interval.children[4].value = intervalData.totalTime
     }
   })
+  if (!intervals) {
+    addActivity()
+  }
 }
 
 function getIntervalsQuantity() {
@@ -191,6 +198,14 @@ nextDate.addEventListener("click", () => {
   changeDate(1)
   clearIntervals()
   loadIntervals()
+})
+
+close.addEventListener('click', () => {
+  document.querySelector('.modal').style.display = 'none'
+})
+
+help.addEventListener('click', () => {
+  document.querySelector('.modal').style.display = 'flex'
 })
 
 theme.addEventListener('click', changeTheme)
