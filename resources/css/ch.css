@@ -18,7 +18,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
+  font-family: monospace;
   transition: all 0.3s;
 }
 
@@ -139,6 +140,50 @@ button {
   justify-content: space-between;
   align-items: center;
   margin: 1rem;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: var(--color-bg);
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content button {
+  color: var(--color-red);
+  font-size: 1.2rem;
+}
+
+.modal-content img {
+  transform: scale(0.8);
+}
+
+.modal-content p {
+  font-size: 1rem;
+  color: var(--color-text);
+  font-weight: 300;
+  text-align: justify;
+}
+
+.modal-content button:hover {
+  opacity: .5;
 }
 
 @media only screen and (max-width: 625px) {

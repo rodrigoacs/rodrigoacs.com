@@ -14,23 +14,33 @@
 </head>
 
 <body>
+  <div class="modal">
+    <div class="modal-content">
+      <button id="close">&times;</button>
+      <img src="./assets/ch_modal.png" alt="">
+      <p>
+        [1] insira o horário de início da tarefa. <br>
+        [2] insira o horário de conclusão da tarefa. <br>
+        [3] insira uma breve descrição da tarefa <br>
+        [4] tempo total gasto na tarefa <br>
+        [5] navegação de datas <br>
+        [6] tempo total gasto em todas as tarefas <br>
+        [7] adicionar nova tarefa
+      </p>
+    </div>
+  </div>
   <div class="inside">
     <div class="menu">
-      <button id="change-theme" style="width: auto;">🌙/☀️</button>
+      <div>
+        <button id="change-theme" style="width: auto;">🌙/☀️</button>
+        <button id="help">(?)</button>
+      </div>
       <div>
         <button id="previousDate">&lt;</button>
         <input type="date" id="currentDate"></input>
         <button id="nextDate">&gt;</button>
       </div>
       <span id="result">00:00</span>
-    </div>
-
-    <div class="interval">
-      <button disabled></button>
-      <input type="time">
-      <input type="time">
-      <input type="text">
-      <input type="time" readonly></input>
     </div>
   </div>
   <button id="add" style="width: 100%;">+</button>
