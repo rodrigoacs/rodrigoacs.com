@@ -4,25 +4,34 @@ const currentDate = document.getElementById("currentDate")
 const addActivityButton = document.getElementById("add")
 const calculateButton = document.getElementById("calculate")
 const result = document.getElementById("result")
+const theme = document.getElementById('change-theme')
+const root = document.documentElement
 
 let current = new Date()
 let lastTotalTime = 0
 
-currentDate.innerText = getFormattedDate(current)
+currentDate.value = getFormattedDate(current)
+document.addEventListener("DOMContentLoaded", loadIntervals)
 
-previousDate.addEventListener("click", () => changeDate(-1))
-nextDate.addEventListener("click", () => changeDate(1))
 addActivityButton.addEventListener("click", addActivity)
 
-setInterval(calculateTotal, 500)
+setInterval(calculateTotal, 200)
+setInterval(saveTasksInLocalStorage, 500)
+
+currentDate.addEventListener("change", () => {
+  const [year, month, day] = currentDate.value.split("-")
+  current = new Date(year, month - 1, day)
+  clearIntervals()
+  loadIntervals()
+})
 
 function changeDate(days) {
   current.setDate(current.getDate() + days)
-  currentDate.innerText = getFormattedDate(current)
+  currentDate.value = getFormattedDate(current)
 }
 
 function getFormattedDate(date) {
-  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
+  return `${date.getFullYear()}-${(date.getMonth() + 1)}-${date.getDate()}`
 }
 
 function getTaskTotal(initial, final) {
@@ -56,17 +65,15 @@ function calculateTotal() {
     }
   }
 
-  if (totalTime === lastTotalTime) {
-    return
-  }
+  if (totalTime === lastTotalTime) return
 
   lastTotalTime = totalTime
 
   const totalFormattedTime = formatTime(totalTime)
-  console.log(totalFormattedTime)
   if (totalFormattedTime[0] < 0 || totalFormattedTime[1] < 0) {
     addActivityButton.disabled = true
-    return result.innerText = "horas inválidas"
+    result.innerText = "horas inválidas"
+    return
   } else {
     addActivityButton.disabled = false
   }
@@ -85,6 +92,7 @@ function formatTime(time) {
 }
 
 function addActivity() {
+  const inside = document.querySelector(".inside")
   const task = document.createElement("div")
   task.classList.add("interval")
 
@@ -95,7 +103,7 @@ function addActivity() {
   const deleteButton = document.createElement("button")
   deleteButton.innerText = "✖"
   deleteButton.classList.add("delete")
-  deleteButton.addEventListener("click", () => task.remove())
+  deleteButton.addEventListener("click", () => deleteTaskInLocalStorage(task) && task.remove())
 
   task.appendChild(deleteButton)
   task.appendChild(startTime)
@@ -103,7 +111,7 @@ function addActivity() {
   task.appendChild(description)
   task.appendChild(totalTime)
 
-  document.body.appendChild(task)
+  inside.appendChild(task)
 }
 
 function createInputElement(type, readOnly = false) {
@@ -111,4 +119,82 @@ function createInputElement(type, readOnly = false) {
   input.type = type
   if (readOnly) input.readOnly = true
   return input
+}
+
+function clearIntervals() {
+  const intervals = document.querySelectorAll(".interval")
+  for (const interval of intervals) {
+    interval.remove()
+  }
+}
+
+function loadIntervals() {
+  for (let i = 0; i < getIntervalsQuantity(); i++) {
+    addActivity()
+  }
+  const intervals = document.querySelectorAll(".interval")
+  intervals.forEach((interval, index) => {
+    const intervalData = JSON.parse(localStorage.getItem(`${index + " " + getFormattedDate(current)}`))
+    if (intervalData) {
+      interval.children[1].value = intervalData.startTime
+      interval.children[2].value = intervalData.endTime
+      interval.children[3].value = intervalData.description
+      interval.children[4].value = intervalData.totalTime
+    }
+  })
+}
+
+function getIntervalsQuantity() {
+  let i = 0
+  while (localStorage.getItem(`${i + " " + getFormattedDate(current)}`)) {
+    i++
+  }
+  return i
+}
+
+function saveTasksInLocalStorage() {
+  let intervals = document.querySelectorAll(".interval")
+  intervals = Array.from(intervals)
+  intervals = intervals.map((interval) => {
+    return {
+      startTime: interval.children[1].value,
+      endTime: interval.children[2].value,
+      description: interval.children[3].value,
+      totalTime: interval.children[4].value
+    }
+  }).filter((interval) => interval.startTime && interval.endTime && interval.description && interval.totalTime)
+  intervals.forEach((interval, index) => {
+    localStorage.setItem(`${index + " " + getFormattedDate(current)}`, JSON.stringify(interval))
+  })
+}
+
+function deleteTaskInLocalStorage() {
+  let quantity = getIntervalsQuantity()
+  for (let i = 0; i < quantity; i++) {
+    localStorage.removeItem(`${i + " " + getFormattedDate(current)}`)
+  }
+  quantity--
+  for (let i = 0; i < quantity; i++) {
+    localStorage.setItem(`${i + " " + getFormattedDate(current)}`, localStorage.getItem(`${i + 1 + " " + getFormattedDate(current)}`))
+  }
+  localStorage.removeItem(`${quantity + " " + getFormattedDate(current)}`)
+  return true
+}
+
+previousDate.addEventListener("click", () => {
+  changeDate(-1)
+  clearIntervals()
+  loadIntervals()
+})
+
+nextDate.addEventListener("click", () => {
+  changeDate(1)
+  clearIntervals()
+  loadIntervals()
+})
+
+theme.addEventListener('click', changeTheme)
+
+function changeTheme() {
+  root.classList.contains('light-mode') ? root.classList.remove('light-mode') : root.classList.add('light-mode')
 }

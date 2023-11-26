@@ -1,6 +1,6 @@
 {
   "resources/css/ch.css": {
-    "file": "assets/ch-90adc784.css",
+    "file": "assets/ch-c5b61a29.css",
     "isEntry": true,
     "src": "resources/css/ch.css"
   },
@@ -10,7 +10,7 @@
     "src": "resources/css/style.css"
   },
   "resources/js/ch.js": {
-    "file": "assets/ch-73c7e706.js",
+    "file": "assets/ch-5a9f8853.js",
     "isEntry": true,
     "src": "resources/js/ch.js"
   },
