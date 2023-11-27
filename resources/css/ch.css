@@ -18,8 +18,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: 'Poppins', sans-serif; */
-  font-family: monospace;
+  font-family: 'Poppins', sans-serif;
+  /* font-family: monospace; */
   transition: all 0.3s;
 }
 
@@ -72,6 +72,10 @@ input[type=text] {
   height: 2.5rem;
   font-size: 1rem;
   flex: 1;
+}
+
+input#currentDate {
+  width: auto;
 }
 
 button {
@@ -171,8 +175,12 @@ button {
   font-size: 1.2rem;
 }
 
-.modal-content img {
+.img-desktop {
   transform: scale(0.8);
+}
+
+.img-mobile {
+  display: none;
 }
 
 .modal-content p {
@@ -197,5 +205,17 @@ button {
     flex: auto;
   }
 
+  .modal-content {
+    width: 80%;
+  }
+
+  .img-desktop {
+    display: none;
+  }
+
+  .img-mobile {
+    display: block;
+    transform: scale(0.8);
+  }
 
 }

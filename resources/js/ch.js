@@ -12,10 +12,11 @@ const help = document.getElementById('help')
 let current = new Date()
 let lastTotalTime = 0
 
-
-
 currentDate.value = getFormattedDate(current)
-document.addEventListener("DOMContentLoaded", loadIntervals)
+document.addEventListener("DOMContentLoaded", () => {
+  loadIntervals()
+  localStorage.getItem('help') === 'false' ? document.querySelector('.modal').style.display = 'none' : document.querySelector('.modal').style.display = 'flex'
+})
 
 addActivityButton.addEventListener("click", addActivity)
 
@@ -202,6 +203,7 @@ nextDate.addEventListener("click", () => {
 
 close.addEventListener('click', () => {
   document.querySelector('.modal').style.display = 'none'
+  localStorage.setItem('help', false)
 })
 
 help.addEventListener('click', () => {
