@@ -17,7 +17,8 @@
   <div class="modal">
     <div class="modal-content">
       <button id="close">&times;</button>
-      <img src="./assets/ch_modal.png" alt="">
+      <img src="./assets/ch_modal.png" class="img-desktop">
+      <img src="./assets/ch_modal_mobile.png" class="img-mobile">
       <p>
         [1] insira o horário de início da tarefa. <br>
         [2] insira o horário de conclusão da tarefa. <br>
