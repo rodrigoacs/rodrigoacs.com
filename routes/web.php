@@ -28,3 +28,7 @@ Route::get('/cv', function () {
 Route::get('/blog', function () {
     return view('blog');
 });
+
+Route::get('/real', function () {
+    return view('real');
+});
