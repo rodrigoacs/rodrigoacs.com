@@ -13,7 +13,8 @@
   <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 </head>
 <body style="display: flex;height: 100vh;flex-direction: column;align-items: center;justify-content:center">
-  <p>404</p>
+  <h1>404</h1>
+  <p>you shall not pass</p>
   <a href="https://rodrigoacs.com/">cd ./</a>
 </body>
 </html>
