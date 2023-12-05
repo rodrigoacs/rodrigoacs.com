@@ -6,6 +6,7 @@
   @vite(['resources/js/script.js'])
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bem-vindo ao meu site pessoal! Explore meu portfólio, descubra mais sobre minha jornada profissional e meus estudos sobre desenvolvimento backend/fullstack. Navegue pelo meu currículo para conhecer minha experiência, habilidades e conquistas. Encontre meus projetos.">
   <title>rodrigoacs.com</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +23,8 @@
     </div>
     <div>
       <a id="change-language"></a>
-      <a id="change-theme"><img src="./assets/new_moon_3d.png" alt="change theme" id="change-theme-img" style="width: 1.5rem;"></a>
+      <a id="change-theme"><img src="./assets/new_moon_3d.png" alt="change theme" id="change-theme-img"
+          style="width: 1.5rem;"></a>
     </div>
   </nav>
   <main class="ajax">
