@@ -12,7 +12,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="language" content="Portuguese">
   <meta name="author" content="Rodrigo Soares">
-  <meta property="og:image" content="https://rodrigoacs.com/favicon.ico" />
+  <meta property="og:image" content="https://rodrigoacs.com/favicon.png" />
   <title>rodrigoacs.com</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
