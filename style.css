@@ -75,6 +75,7 @@ a {
 img {
   width: 1.5rem;
   height: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 /* Rodapé */
@@ -99,6 +100,11 @@ p {
   color: var(--color-text-secondary);
 }
 
+.ajax {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Projetos */
 .project {
   display: block;
@@ -119,6 +125,8 @@ p {
   flex-wrap: wrap;
   justify-content: space-around;
   font-size: .9rem;
+  width: 52rem;
+  align-self: center;
 }
 
 .project:hover {
@@ -313,6 +321,10 @@ option:hover {
 @media screen and (max-width: 768px) {
   body {
     margin: 0 1rem;
+  }
+
+  .projects {
+    width: 100%;
   }
 }
 
