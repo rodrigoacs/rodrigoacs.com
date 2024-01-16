@@ -2,6 +2,7 @@ const root = document.documentElement;
 const img = document.getElementById("change-theme-img");
 const theme = document.getElementById("change-theme");
 let language = navigator.language || navigator.userLanguage;
+language = language === "en-US" || language === "pt-BR" ? language : "en-US";
 const languageOptions = {
   "en-US": {
     icon: "https://img.icons8.com/fluency/48/brazil-circular.png",
@@ -13,7 +14,7 @@ const languageOptions = {
   },
 };
 
-const links = document.querySelectorAll(".link:not(#change-language)");
+let links = document.querySelectorAll(".link:not(#change-language)");
 links.forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
