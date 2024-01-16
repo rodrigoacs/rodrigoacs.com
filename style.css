@@ -75,7 +75,6 @@ a {
 img {
   width: 1.5rem;
   height: 1.5rem;
-  margin-bottom: 1rem;
 }
 
 /* Rodapé */
@@ -106,14 +105,6 @@ p {
 }
 
 /* Projetos */
-.project {
-  display: block;
-  width: 20rem;
-  border: 1px solid var(--color-text-unfocused);
-  border-radius: .5rem;
-  padding: 1rem;
-  margin: .5rem;
-}
 
 .project-description {
   margin-top: .5rem;
@@ -129,9 +120,6 @@ p {
   align-self: center;
 }
 
-.project:hover {
-  background-color: var(--color-hover);
-}
 
 .project-header {
   display: flex;
@@ -209,7 +197,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 4rem 0px;
+  margin: 4rem 0px 2rem 0px;
 }
 
 .link {
@@ -296,6 +284,10 @@ option {
 option:hover {
   background-color: var(--color-hover);
   color: var(--color-text-primary);
+}
+
+.hide {
+  display: none;
 }
 
 /* Seleção de texto personalizada */
