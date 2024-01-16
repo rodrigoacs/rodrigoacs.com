@@ -99,15 +99,12 @@ p {
   color: var(--color-text-secondary);
 }
 
-/* Projetos */
-.project {
-  display: block;
-  width: 20rem;
-  border: 1px solid var(--color-text-unfocused);
-  border-radius: .5rem;
-  padding: 1rem;
-  margin: .5rem;
+.ajax {
+  display: flex;
+  flex-direction: column;
 }
+
+/* Projetos */
 
 .project-description {
   margin-top: .5rem;
@@ -119,11 +116,10 @@ p {
   flex-wrap: wrap;
   justify-content: space-around;
   font-size: .9rem;
+  width: 52rem;
+  align-self: center;
 }
 
-.project:hover {
-  background-color: var(--color-hover);
-}
 
 .project-header {
   display: flex;
@@ -201,7 +197,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 4rem 0px;
+  margin: 4rem 0px 2rem 0px;
 }
 
 .link {
@@ -290,6 +286,10 @@ option:hover {
   color: var(--color-text-primary);
 }
 
+.hide {
+  display: none;
+}
+
 /* Seleção de texto personalizada */
 ::selection {
   color: var(--color-text-primary);
@@ -313,6 +313,10 @@ option:hover {
 @media screen and (max-width: 768px) {
   body {
     margin: 0 1rem;
+  }
+
+  .projects {
+    width: 100%;
   }
 }
 
