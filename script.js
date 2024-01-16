@@ -18,6 +18,8 @@ const languageOptions = {
 };
 
 let language = navigator.language || navigator.userLanguage;
+language = language === "en-US" || language === "pt-BR" ? language : "en-US";
+
 let links = document.querySelectorAll(".link:not(#change-language)");
 links.forEach((link) => {
   link.addEventListener("click", function (e) {
