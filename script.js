@@ -1,5 +1,4 @@
 const root = document.documentElement
-const img = document.getElementById('change-theme-img')
 const theme = document.getElementById('change-theme')
 let language = navigator.language || navigator.userLanguage
 language = language === 'en-US' || language === 'pt-BR' ? language : 'en-US'
@@ -75,7 +74,7 @@ function initialize() {
 }
 
 function setColorScheme(isDark) {
-  isDark ? setDark(root, img) : setLight(root, img)
+  isDark ? setDark(root) : setLight(root)
 }
 
 window.addEventListener('load', initialize)
@@ -183,7 +182,6 @@ if (changeLanguage) {
 
     updateLanguageIcon(language)
     loadContent(language)
-
     activeDownload()
   })
 } else {
@@ -225,18 +223,20 @@ function techChangeListener(event) {
 theme.addEventListener('click', changeTheme)
 
 function changeTheme() {
-  root.classList.contains('light-mode') ? setDark(root, img) : setLight(root, img)
+  root.classList.contains('light-mode') ? setDark(root) : setLight(root)
 }
 
-function setDark(root, img) {
+function setDark(root) {
   root.classList.remove('light-mode')
   root.classList.add('dark-mode')
+  theme.checked = true
   updateProjectsTheme()
 }
 
-function setLight(root, img) {
+function setLight(root) {
   root.classList.remove('dark-mode')
   root.classList.add('light-mode')
+  theme.checked = false
   updateProjectsTheme()
 }
 

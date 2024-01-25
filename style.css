@@ -147,26 +147,6 @@ p {
   padding: 0 .7rem;
 }
 
-/* Ícones de linguagens */
-.js,
-.php {
-  position: relative;
-  top: 1px;
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin-right: .5rem;
-}
-
-.js {
-  background-color: var(--color-javascript);
-}
-
-.php {
-  background-color: var(--color-php);
-}
-
 /* Redes Sociais */
 .socials {
   display: flex;
@@ -382,6 +362,10 @@ input:checked+.slider:before {
   * {
     color: #000 !important;
     background-color: #fff !important;
+  }
+
+  .switch {
+    display: none;
   }
 
   .navbar {
