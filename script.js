@@ -231,14 +231,12 @@ function changeTheme() {
 function setDark(root, img) {
   root.classList.remove('light-mode')
   root.classList.add('dark-mode')
-  img.src = './assets/sun_3d.png'
   updateProjectsTheme()
 }
 
 function setLight(root, img) {
   root.classList.remove('dark-mode')
   root.classList.add('light-mode')
-  img.src = './assets/new_moon_3d.png'
   updateProjectsTheme()
 }
 
