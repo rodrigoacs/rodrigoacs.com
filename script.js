@@ -14,6 +14,19 @@ const languageOptions = {
   },
 }
 
+const projectsCards = {
+  'time-tracker': {
+    light:
+      'https://github-readme-stats.vercel.app/api/pin?title_color=000000&icon_color=ff3300&text_color=000000&bg_color=f0f0f0&hide_border=true&username=rodrigoacs&repository=time-tracker&locale=en&show_icons=false&repo=time-tracker&description_lines_count=1',
+    dark: 'https://github-readme-stats.vercel.app/api/pin?title_color=ffffff&icon_color=79ff97&text_color=d4d4d4&bg_color=212121&hide_border=true&username=rodrigoacs&repository=time-tracker&locale=en&show_icons=false&repo=time-tracker&description_lines_count=1',
+  },
+  'git-aesthetics': {
+    light:
+      'https://github-readme-stats.vercel.app/api/pin?title_color=000000&icon_color=ff3300&text_color=000000&bg_color=f0f0f0&hide_border=true&username=rodrigoacs&repository=git-aesthetics&locale=en&show_icons=false&repo=git-aesthetics&description_lines_count=1',
+    dark: 'https://github-readme-stats.vercel.app/api/pin?title_color=ffffff&icon_color=79ff97&text_color=d4d4d4&bg_color=212121&hide_border=true&username=rodrigoacs&repository=git-aesthetics&locale=en&show_icons=false&repo=git-aesthetics&description_lines_count=1',
+  },
+}
+
 let links = document.querySelectorAll('.link:not(#change-language)')
 links.forEach(link => {
   link.addEventListener('click', e => {
@@ -63,7 +76,7 @@ function updateLanguageIcon(language) {
 
 function updateProjectsTheme() {
   const isDarkMode = root.classList.contains('dark-mode')
-  const theme = isDarkMode ? 'dark' : 'swift'
+  const theme = isDarkMode ? 'dark' : 'light'
   const projects = document.querySelectorAll('.project')
 
   if (projects.length === 0) {
@@ -71,7 +84,7 @@ function updateProjectsTheme() {
   }
 
   projects.forEach(project => {
-    project.src = `https://github-readme-stats.vercel.app/api/pin/?username=rodrigoacs&repo=time-tracker&theme=${theme}&hide_border=true&description_lines_count=1`
+    project.src = projectsCards[project.id][theme]
   })
 }
 
