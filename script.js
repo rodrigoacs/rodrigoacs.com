@@ -14,16 +14,38 @@ const languageOptions = {
   },
 }
 
+const generateGithubStatsUrl = (username, repository, theme) => {
+  const themeSettings = {
+    light: {
+      title_color: '000000',
+      icon_color: '8338ec',
+      text_color: '000000',
+      bg_color: 'f0f0f0',
+    },
+    dark: {
+      title_color: 'ffffff',
+      icon_color: '9381ff',
+      text_color: 'd4d4d4',
+      bg_color: '161616',
+    },
+  }
+
+  const { title_color, icon_color, text_color, bg_color } = themeSettings[theme]
+  return `https://github-readme-stats.vercel.app/api/pin?title_color=${title_color}&icon_color=${icon_color}&text_color=${text_color}&bg_color=${bg_color}&hide_border=true&username=${username}&locale=en&show_icons=false&repo=${repository}&description_lines_count=1`
+}
+
 const projectsCards = {
   'time-tracker': {
-    light:
-      'https://github-readme-stats.vercel.app/api/pin?title_color=000000&icon_color=ff3300&text_color=000000&bg_color=f0f0f0&hide_border=true&username=rodrigoacs&repository=time-tracker&locale=en&show_icons=false&repo=time-tracker&description_lines_count=1',
-    dark: 'https://github-readme-stats.vercel.app/api/pin?title_color=ffffff&icon_color=79ff97&text_color=d4d4d4&bg_color=212121&hide_border=true&username=rodrigoacs&repository=time-tracker&locale=en&show_icons=false&repo=time-tracker&description_lines_count=1',
+    light: generateGithubStatsUrl('rodrigoacs', 'time-tracker', 'light'),
+    dark: generateGithubStatsUrl('rodrigoacs', 'time-tracker', 'dark'),
   },
   'git-aesthetics': {
-    light:
-      'https://github-readme-stats.vercel.app/api/pin?title_color=000000&icon_color=ff3300&text_color=000000&bg_color=f0f0f0&hide_border=true&username=rodrigoacs&repository=git-aesthetics&locale=en&show_icons=false&repo=git-aesthetics&description_lines_count=1',
-    dark: 'https://github-readme-stats.vercel.app/api/pin?title_color=ffffff&icon_color=79ff97&text_color=d4d4d4&bg_color=212121&hide_border=true&username=rodrigoacs&repository=git-aesthetics&locale=en&show_icons=false&repo=git-aesthetics&description_lines_count=1',
+    light: generateGithubStatsUrl('rodrigoacs', 'git-aesthetics', 'light'),
+    dark: generateGithubStatsUrl('rodrigoacs', 'git-aesthetics', 'dark'),
+  },
+  'rodrigoacs.com': {
+    light: generateGithubStatsUrl('rodrigoacs', 'rodrigoacs.com', 'light'),
+    dark: generateGithubStatsUrl('rodrigoacs', 'rodrigoacs.com', 'dark'),
   },
 }
 
