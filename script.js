@@ -106,7 +106,9 @@ function loadPage(pageId) {
       main.innerHTML = data
       document.title = `${pageId} | rodrigoacs.com`
       highlightLink(pageId)
-
+      if (pageId === 'home') {
+        updateProjectsTheme()
+      }
       main.focus()
     })
     .catch(error => console.error('Error:', error))
