@@ -1,35 +1,5 @@
-# portfolio
+# rodrigoacs.com
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+PT-BR: Bem-vindo ao repositório do meu site pessoal. Este site foi criado para expor meus projetos e servir para publicar sobre o que me interessar. Você pode acessar o meu site em [rodrigoacs.com](https://rodrigoacs.com/).
+ 
+EN-US: Welcome to the repository of my personal website. This website was created to showcase my projects and to serve as a platform for publishing about topics of interest to me. You can access my website at [rodrigoacs.com](https://rodrigoacs.com/).
