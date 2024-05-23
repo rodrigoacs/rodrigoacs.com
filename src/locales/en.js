@@ -12,20 +12,19 @@ export const en = {
     title: 'the posts are not yet available in english',
   },
   cv: {
-    birthDate: '05/14/2003',
-    home: 'MINAS GERAIS, BRAZIL',
+    home: 'Minas Gerais, Brazil - Intermediate English',
     resume: 'Summary',
     resumeText:
-      'I am currently in the third semester of Information Systems at IFMG Campus Ouro Branco. I am interested in improving my technical skills in backend and/or full-stack development. I am currently working as a data engineering intern building data integration solutions for the tertiary sector, especially retail, in Brazil.',
+      'Currently, I work as a data engineer, building data integration solutions for the tertiary sector, especially retail, in Brazil. I mainly use the SQL language to do the job. In addition, I am constantly improving my technical skills in backend and fullstack development. I am proficient in JavaScript, especially using Node.js and the Vue.js framework. I am a professional committed to delivering efficient solutions, always looking for ways to optimize processes and improve system performance. My goal is to continue growing in the information technology area, contributing to challenging and innovative projects.',
     education: 'Education',
     educations: [
       {
-        time: 'JANUARY 2018 - APRIL 2021 (COMPLETED)',
+        time: 'JANUARY 2018 - APRIL 2021',
         local: 'IFMG, Congonhas MG',
         course: 'Integrated Technical in Mechanics',
       },
       {
-        time: 'SEPTEMBER 2021 - (ONGOING)',
+        time: 'SEPTEMBER 2021 - ONGOING',
         local: 'IFMG, Ouro Branco MG',
         course: 'Bachelor of Information Systems',
       },
@@ -33,16 +32,21 @@ export const en = {
     experience: 'Experience',
     experiences: [
       {
-        time: 'FEBRUARY 2023 - PRESENT',
+        time: 'FEBRUARY 2023 - MARCH 2024',
         title: 'CLI Consulting - Data Engineering Intern',
         description:
-          'Building data integrations between relational databases and MongoDB-based APIs, maintaining legacy applications, data pipeline management. Internal technical support for Linux systems (Ubuntu, CentOS). Managing AWS EC2 instances.',
+          'Developed and implemented data integrations between relational databases and MongoDB APIs, maintained legacy applications, improving system stability and fixing any bugs, managed data pipelines. Provided technical support for Linux systems (Ubuntu, CentOS) and managed AWS EC2 instances.',
+      },
+      {
+        time: 'MARCH 2024 - PRESENT',
+        title: 'CLI Consulting - Data Engineering Entry-Level',
+        description:
+          'Continued to develop data integrations and APIs, focusing on optimization and performance. In addition, I developed APIs for real-time data consumption and developed Java-based middlewares for data integration with third-party systems.',
       },
     ],
     skills: 'Languages, Tools, and Technologies',
-    skills1: 'SQL, JavaScript(Node.js), Python, HTML, CSS, Java, and C.',
-    skills2: 'Pentaho Data Integration, Postman, DBeaver, and SAPGUI.',
+    skills1: 'SQL, JavaScript(Node.js), Vue.js, Python, HTML, CSS, Java.',
+    skills2: 'Pentaho Data Integration, Postman, DBeaver and Mulesoft.',
     skills3: 'RDBMS: Oracle, PostgreSQL, and MySQL.',
-    skills4: 'Intermediate English.',
   },
 }

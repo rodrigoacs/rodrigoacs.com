@@ -10,12 +10,6 @@
 
     <p class="socials">
       <span>
-        {{ $t("cv.birthDate") }}
-      </span>
-    </p>
-
-    <p class="socials">
-      <span>
         {{ $t("cv.home") }}
       </span>
     </p>

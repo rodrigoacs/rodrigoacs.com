@@ -12,20 +12,19 @@ export const pt = {
     title: 'leia alguns dos meus posts',
   },
   cv: {
-    birthDate: '14/05/2003',
-    home: 'MINAS GERAIS, BRASIL',
+    home: 'Minas Gerais, Brasil - Inglês Intermediário',
     resume: 'Resumo',
     resumeText:
-      'Estou cursando o terceiro período de Sistemas de Informação no IFMG Campus Ouro Branco. Tenho interesse em aprimorar minhas habilidades técnicas em desenvolvimento backend e/ou fullstack.   Atualmente trabalho como estagiário de engenharia de dados construindo soluções de integração de dados voltadas ao setor terciário, especialmente de varejo, no Brasil.',
+      'Atualmente, trabalho como engenheiro de dados, construindo soluções de integração de dados voltadas ao setor terciário, especialmente ao varejo, no Brasil. Utilizo principalmente a linguagem SQL para realizar o trabalho. Além disso, estou constantemente aprimorando minhas habilidades técnicas em desenvolvimento backend e fullstack. Tenho proficiência em JavaScript, especialmente utilizando Node.js e o framework Vue.js. Sou um profissional comprometido com a entrega de soluções eficientes, sempre buscando maneiras de otimizar processos e melhorar a performance dos sistemas. Meu objetivo é continuar crescendo na área de tecnologia da informação, contribuindo para projetos desafiadores e inovadores.',
     education: 'Formação',
     educations: [
       {
-        time: 'JANEIRO DE 2018 - ABRIL DE 2021 (CONCLUÍDO)',
+        time: 'JANEIRO DE 2018 - ABRIL DE 2021',
         local: 'IFMG, Congonhas MG',
         course: 'Técnico Integrado em Mecânica',
       },
       {
-        time: 'SETEMBRO DE 2021 - (EM ANDAMENTO)',
+        time: 'SETEMBRO DE 2021 - EM ANDAMENTO',
         local: 'IFMG, Ouro Branco MG',
         course: 'Bacharelado Sistemas de Informação',
       },
@@ -33,16 +32,20 @@ export const pt = {
     experience: 'Experiência',
     experiences: [
       {
-        time: 'FEVEREIRO DE 2023 - ATUALMENTE',
+        time: 'FEVEREIRO DE 2023 - MARÇO DE 2024',
         title: 'CLI Consultoria - Estagiário de Engenharia de Dados',
         description:
-          'Construção de integrações de dados entre bancos de dados relacionais e APIs baseadas em MongoDB, manutenção em aplicações legado, gerenciamento de pipeline de dados. Suporte técnico interno para sistemas Linux (Ubuntu, CentOS). Gerenciamento de instâncias AWS EC2.',
+          'Desenvolvi e implementei integrações de dados entre bancos de dados relacionais e APIs MongoDB, realizei manutenção em aplicações legado, melhorando a estabilidade do sistema e corrigindo eventuais falhas, gerenciei pipelines de dados. Ofereci suporte técnico para sistemas Linux (Ubuntu, CentOS) e gerenciei instâncias AWS EC2.',
+      }, {
+        time: 'MARÇO DE 2024 - ATUALMENTE',
+        title: 'CLI Consultoria - Engenheiro de Dados Junior',
+        description:
+          'Continuei a desenvolver integrações e APIs de dados, com foco em otimização e performance. Além disso, desenvolvi APIs para consumo de dados em tempo real e desenvolvi middlewares baseados em Java, para integração de dados com sistemas de terceiros.',
       },
     ],
     skills: 'Linguagens, ferramentas e tecnologias',
-    skills1: 'SQL, JavaScript(Node.js), Python, HTML, CSS, Java e C.',
-    skills2: 'Pentaho Data Integration, Postman, DBeaver e SAPGUI.',
+    skills1: 'SQL, JavaScript(Node.js), Vue.js, Python, HTML, CSS, Java.',
+    skills2: 'Pentaho Data Integration, Postman, DBeaver e Mulesoft.',
     skills3: 'RDBMS: Oracle, PostgreSQL e MySQL.',
-    skills4: 'Inglês intermediário.',
   },
 }
