@@ -3,7 +3,7 @@
     <h2 class="header">
       <img
         src="../assets/images/floppy_disk_3d.png"
-        @click="print"
+        @click="downloadCV"
       >
       Rodrigo Augusto Correa Soares
     </h2>
@@ -119,8 +119,13 @@
 </template>
 
 <script setup>
-function print() {
-  window.print()
+function downloadCV() {
+  const link = document.createElement('a')
+  link.href = "http://3.139.63.73/cv.pdf"
+  link.download = "cv_rodrigosoares.pdf"
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
 }
 </script>
 
@@ -149,6 +154,4 @@ div li {
 .v-for-wrapper {
   margin-bottom: 1rem;
 }
-
-
 </style>
