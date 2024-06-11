@@ -111,10 +111,6 @@
     <p>
       &gt; {{ $t("cv.skills3") }}
     </p>
-
-    <p>
-      &gt; {{ $t("cv.skills4") }}
-    </p>
   </div>
 </template>
 
