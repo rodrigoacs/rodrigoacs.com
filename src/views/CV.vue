@@ -117,7 +117,7 @@
 <script setup>
 function downloadCV() {
   const link = document.createElement('a')
-  link.href = "http://3.139.63.73/cv.pdf"
+  link.href = "https://librishelf.com/download/cv_RodrigoSoares.pdf"
   link.download = "cv_rodrigosoares.pdf"
   document.body.appendChild(link)
   link.click()

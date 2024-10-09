@@ -1,9 +1,9 @@
 export const en = {
   bio: {
     hello: 'hi, I am Rodrigo!',
-    p1: 'In 2018, I had my first contact with programming in high school, where I learned the Pascal language. After a break, I resumed programming in C in college, currently studying Information Systems.',
-    p2: 'During this period, I developed an interest in web development, studying HTML, CSS and JavaScript independently. Currently, I focus my studies on back-end development and work mainly with data integration, especially between databases and APIs, using SQL.',
-    p3: 'On this site, you will find information about me, my resume and my blog, where I intend to share my knowledge and experiences. In addition, you can check out some of my projects below.',
+    p1: 'I am a Systems Development Analyst with a strong background in building integration solutions for the retail sector. I started programming in 2018 during high school with Pascal and later continued with C in college, where I currently study Information Systems.',
+    p2: 'Over the years, I have developed an interest in web development, focusing on backend and data integration using technologies like Node.js, SQL, and C#. I have also gained experience in developing middlewares in Java and APIs for real-time data processing.',
+    p3: 'On this site, you can find information about my career, my resume, and my blog, where I share my knowledge and experiences. Feel free to check out some of my projects below.',
   },
   projects: {
     title: 'projects',
@@ -15,7 +15,7 @@ export const en = {
     home: 'Minas Gerais, Brazil - Intermediate English',
     resume: 'Summary',
     resumeText:
-      'Currently, I work as a data engineer, building data integration solutions for the tertiary sector, especially retail, in Brazil. I mainly use the SQL language to do the job. In addition, I am constantly improving my technical skills in backend and fullstack development. I am proficient in JavaScript, especially using Node.js and the Vue.js framework. I am a professional committed to delivering efficient solutions, always looking for ways to optimize processes and improve system performance. My goal is to continue growing in the information technology area, contributing to challenging and innovative projects.',
+      'I am a systems development analyst with experience in building integration solutions for the retail sector. Proficient in JavaScript (Node.js, Vue.js) and middleware and API development in Java. Focused on optimizing processes and improving system performance, I aim to continue growing in the development field and contributing to challenging and innovative projects. Currently, I am developing web solutions using C# for frontend and backend.',
     education: 'Education',
     educations: [
       {
@@ -32,21 +32,26 @@ export const en = {
     experience: 'Experience',
     experiences: [
       {
-        time: 'FEBRUARY 2023 - MARCH 2024',
-        title: 'CLI Consulting - Data Engineering Intern',
+        time: 'AUGUST 2024 - PRESENT',
+        title: 'CSN - Software Developer',
         description:
-          'Developed and implemented data integrations between relational databases and MongoDB APIs, maintained legacy applications, improving system stability and fixing any bugs, managed data pipelines. Provided technical support for Linux systems (Ubuntu, CentOS) and managed AWS EC2 instances.',
+          'Developed C# solutions for web, backend, and frontend, performing requirements analysis, technical and functional documentation, demand management, and schedule planning. Knowledge in network architecture, servers, domains, applications, and databases. Experience in migrations, DDL/DML operations, application tuning, and support.',
       },
       {
-        time: 'MARCH 2024 - PRESENT',
+        time: 'MARCH 2024 - JULY 2024',
         title: 'CLI Consulting - Data Engineering Entry-Level',
         description:
           'Continued to develop data integrations and APIs, focusing on optimization and performance. In addition, I developed APIs for real-time data consumption and developed Java-based middlewares for data integration with third-party systems.',
       },
+      {
+        time: 'FEBRUARY 2023 - MARCH 2024',
+        title: 'CLI Consulting - Data Engineering Intern',
+        description:
+          'Developed and implemented data integrations between relational databases and MongoDB APIs, maintained legacy applications, improving system stability and fixing any bugs, managed data pipelines. Provided technical support for Linux systems (Ubuntu, CentOS) and managed AWS EC2 instances.',
+      }
     ],
     skills: 'Languages, Tools, and Technologies',
-    skills1: 'SQL, JavaScript(Node.js), Vue.js, Python, HTML, CSS, Java.',
-    skills2: 'Pentaho Data Integration, Postman, DBeaver and Mulesoft.',
-    skills3: 'RDBMS: Oracle, PostgreSQL, and MySQL.',
+    skills1: 'SQL, JavaScript(Node.js), Vue.js, Python, HTML, CSS, Java, C#, .NET Framework.',
+    skills3: 'RDBMS: Oracle, PostgreSQL, MySQL and SQL Server.',
   },
 }
