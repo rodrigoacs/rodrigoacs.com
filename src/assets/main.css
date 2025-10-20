@@ -1,25 +1,43 @@
 :root {
   transition: all .2s;
+  --tag-red-text-light: #ff4b78;
+  --tag-green-text-light: #9cff39;
+  --tag-blue-text-light: #4ed3fc;
+  --tag-purple-text-light: #8d78fa;
+  --tag-yellow-text-light: #fdd457;
+  --tag-orange-text-light: #ff8a50;
 }
 
 .light {
   --color-primary: #fff;
   --color-black: #f2f2f2;
-  --color-hover: #e8e8e8;
+  --color-hover: #d6d6d6;
   --color-text-primary: #000;
   --color-text-secondary: #333;
   --color-text-unfocused: #666;
-  --color-text-highlight: #007acc;
+
+  --tag-red-bg-light: #fff0f3;
+  --tag-green-bg-light: #f6fff0;
+  --tag-blue-bg-light: #f0fbff;
+  --tag-purple-bg-light: #f6f3ff;
+  --tag-yellow-bg-light: #fffcf0;
+  --tag-orange-bg-light: #fff6f0;
 }
 
 .dark {
   --color-primary: #101010;
   --color-black: #000;
-  --color-hover: #181818;
+  --color-hover: #2c2c2c;
   --color-text-primary: #fff;
   --color-text-secondary: #d4d4d4;
   --color-text-unfocused: #737373;
-  --color-text-highlight: #5df80f;
+
+  --tag-red-bg-light: #331e24;
+  --tag-green-bg-light: #2c3323;
+  --tag-blue-bg-light: #1c2d33;
+  --tag-purple-bg-light: #2b263d;
+  --tag-yellow-bg-light: #332f1e;
+  --tag-orange-bg-light: #33271f;
 }
 
 * {

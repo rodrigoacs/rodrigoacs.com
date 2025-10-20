@@ -1,12 +1,31 @@
 export const en = {
   bio: {
     hello: 'hi, I am Rodrigo!',
+    subtitle: 'Systems Developer',
+    subtitle_line2: 'Focused on data integration and backend solutions.',
+    links: {
+      github: 'GitHub',
+      linkedin: 'LinkedIn',
+      email: 'Email'
+    },
     p1: 'I am a Systems Development Analyst with a strong background in building integration solutions for the retail sector. I started programming in 2018 during high school with Pascal and later continued with C in college, where I currently study Information Systems.',
     p2: 'Over the years, I have developed an interest in web development, focusing on backend and data integration using technologies like Node.js, SQL, and C#. I have also gained experience in developing middlewares in Java and APIs for real-time data processing.',
     p3: 'On this site, you can find information about my career, my resume, and my blog, where I share my knowledge and experiences. Feel free to check out some of my projects below.',
   },
   projects: {
-    title: 'projects',
+    title: 'Projects',
+    timeTracker: {
+      title: 'Time Tracker',
+      description: 'A simple web app built with Vue.js to help you track your time across different tasks and projects.'
+    },
+    gitAesthetics: {
+      title: 'Git Aesthetics',
+      description: 'A generator for aesthetic git commit messages, making your commit history clean and readable.'
+    },
+    links: {
+      live: 'Live Demo',
+      repo: 'Repository'
+    }
   },
   blog: {
     title: 'the posts are not yet available in english',

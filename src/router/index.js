@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
 import Home from '../views/Home.vue'
 
 const router = createRouter({
@@ -26,6 +25,16 @@ const router = createRouter({
       component: () => import('../views/NotFound.vue'),
     },
   ],
+})
+
+router.afterEach((to) => {
+  let title = 'rodrigoacs'
+  if (to.name === 'home') title = 'home | rodrigoacs'
+  if (to.name === 'blog') title = 'blog | rodrigoacs'
+  if (to.name === 'cv') title = 'cv | rodrigoacs'
+  if (to.name === 'not-found') title = '404 | rodrigoacs'
+
+  document.title = title
 })
 
 export default router

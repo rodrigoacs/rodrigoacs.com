@@ -1,34 +1,15 @@
 <template>
   <main>
     <Bio />
-
+    <Skills />
     <Projects />
   </main>
 </template>
 
 <script setup>
 import Bio from '@/components/Bio.vue'
+import Skills from '@/components/Skills.vue' // << ADICIONE ESTA LINHA
 import Projects from '@/components/Projects.vue'
-
-import { onMounted } from 'vue'
-
-import { generateGithubStatsUrl } from '../composables/githubCard'
-
-onMounted(() => {
-  changeProjectCardTheme()
-})
-
-function changeProjectCardTheme() {
-  const projectsCards = document.querySelectorAll('.project-card')
-
-  projectsCards.forEach(card => {
-    document.documentElement.classList.contains('dark')
-      ? card.src = generateGithubStatsUrl(card.name, 'dark')
-      : card.src = generateGithubStatsUrl(card.name, 'light')
-  })
-}
-
-
 </script>
 
 <style scoped>

@@ -2,7 +2,7 @@
   <div>
     <h2 class="header">
       <img
-        src="../assets/images/floppy_disk_3d.png"
+        src="../assets/images/floppy_disk_3d.webp"
         @click="downloadCV"
       >
       Rodrigo Augusto Correa Soares

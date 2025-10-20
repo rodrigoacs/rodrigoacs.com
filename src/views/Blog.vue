@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2 class="header">
-      <img src="../assets/images/memo_3d.png">
+      <img src="../assets/images/memo_3d.webp">
       {{ $t("blog.title") }}
     </h2>
 

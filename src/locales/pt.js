@@ -1,12 +1,31 @@
 export const pt = {
   bio: {
     hello: 'olá, eu sou o Rodrigo!',
+    subtitle: 'Desenvolvedor de Sistemas',
+    subtitle_line2: 'Focado em integração de dados e soluções backend.',
+    links: {
+      github: 'GitHub',
+      linkedin: 'LinkedIn',
+      email: 'E-mail'
+    },
     p1: 'Sou Analista de Desenvolvimento de Sistemas com uma sólida experiência na construção de soluções de integração para o setor varejista. Comecei a programar em 2018 no ensino médio com Pascal e continuei com C na faculdade, onde atualmente curso Sistemas de Informação.',
     p2: 'Ao longo dos anos, desenvolvi um interesse por desenvolvimento web, com foco em backend e integração de dados utilizando tecnologias como Node.js, SQL e C#. Também adquiri experiência no desenvolvimento de middlewares em Java e APIs para processamento de dados em tempo real.',
     p3: 'Neste site, você encontrará informações sobre minha carreira, meu currículo e meu blog, onde compartilho meus conhecimentos e experiências. Confira alguns dos meus projetos logo abaixo.',
   },
   projects: {
-    title: 'projetos',
+    title: 'Projetos',
+    timeTracker: {
+      title: 'Monitor de Tempo',
+      description: 'Um aplicativo web simples construído com Vue.js para ajudar a monitorar seu tempo em diferentes tarefas e projetos.'
+    },
+    gitAesthetics: {
+      title: 'Git Aesthetics',
+      description: 'Um gerador de mensagens de commit estéticas para o Git, tornando seu histórico de commits limpo e legível.'
+    },
+    links: {
+      live: 'Site',
+      repo: 'Repositório'
+    }
   },
   blog: {
     title: 'leia alguns dos meus posts',
