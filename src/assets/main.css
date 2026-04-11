@@ -1,25 +1,37 @@
 :root {
-  transition: all .2s;
-}
+  /* Monokai Pro (Filter Spectrum) Theme Colors */
+  --vscode-bg: #222222;
+  --vscode-sidebar-bg: #1e1e1e;
+  --vscode-activity-bg: #191919;
+  --vscode-status-bg: #191919;
+  --vscode-status-fg: #939293;
+  --vscode-text: #fcfcfa;
+  --vscode-text-muted: #727072;
+  --vscode-tab-active: #222222;
+  --vscode-tab-inactive: #1e1e1e;
+  --vscode-border: #2c2c2c;
+  --vscode-hover: #363537;
+  --vscode-selection: #403e41;
 
-.light {
-  --color-primary: #fff;
-  --color-black: #f2f2f2;
-  --color-hover: #e8e8e8;
-  --color-text-primary: #000;
-  --color-text-secondary: #333;
-  --color-text-unfocused: #666;
-  --color-text-highlight: #007acc;
-}
+  /* Monokai Spectrum Accent */
+  --theme-accent: #fc9867;
+  /* Laranja Spectrum */
 
-.dark {
-  --color-primary: #101010;
-  --color-black: #000;
-  --color-hover: #181818;
-  --color-text-primary: #fff;
-  --color-text-secondary: #d4d4d4;
-  --color-text-unfocused: #737373;
-  --color-text-highlight: #5df80f;
+  /* Syntax Highlighting */
+  --syntax-keyword: #ff6188;
+  /* Rosa */
+  --syntax-string: #ffd866;
+  /* Amarelo */
+  --syntax-var: #fcfcfa;
+  /* Branco */
+  --syntax-property: #78dce8;
+  /* Ciano */
+  --syntax-func: #a9dc76;
+  /* Verde */
+  --syntax-comment: #727072;
+  /* Cinza */
+  --syntax-class: #ab9df2;
+  /* Roxo */
 }
 
 * {
@@ -28,64 +40,62 @@
   box-sizing: border-box;
 }
 
-html {
-  color: var(--color-text-primary);
-  background-color: var(--color-primary);
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  min-height: 100%;
+html,
+body {
+  background-color: var(--vscode-bg);
+  color: var(--vscode-text);
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 14px;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-body {
-  margin: 0 auto;
-  max-width: 42rem;
-  box-sizing: border-box;
-  min-height: 100%;
+#app {
+  width: 100%;
+  height: 100%;
 }
 
 a {
   text-decoration: none;
-  color: var(--color-text-primary);
+  color: inherit;
 }
 
-h2 {
-  font-weight: 600;
-}
-
-p {
-  text-align: justify;
-  color: var(--color-text-secondary);
-}
-
+/* Scrollbars */
 ::-webkit-scrollbar {
-  display: none;
+  width: 12px;
+  height: 12px;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-  margin-top: 2rem;
-  gap: 10px;
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #424242;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5c5c5c;
+  border: 3px solid transparent;
+  background-clip: padding-box;
 }
 
 @media print {
+
+  .vscode-activity-bar,
+  .vscode-sidebar,
+  .vscode-status-bar,
+  .editor-tabs,
+  .editor-breadcrumbs,
+  .line-numbers {
+    display: none !important;
+  }
+
   * {
     color: #000 !important;
-    background-color: #fff !important;
+    background: #fff !important;
   }
-
-  nav {
-    display: none !important;
-    padding: none;
-  }
-
-  .header img {
-    display: none;
-  }
-
-  .footer {
-    display: none;
-  }
-
 }
