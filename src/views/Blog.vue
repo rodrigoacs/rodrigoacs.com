@@ -1,43 +1,147 @@
 <template>
-  <div>
-    <h2 class="header">
-      <img src="../assets/images/memo_3d.png">
-      {{ $t("blog.title") }}
-    </h2>
+  <div class="vscode-code-block">
+    <div class="code-line"><span class="md-heading"># {{ $t("blog.title") }}</span></div>
+    <div class="code-line"></div>
+    <div class="code-line"><span class="md-quote">> Meus artigos, tutoriais e devaneios sobre desenvolvimento fullstack,
+        impressão 3D e tecnologia.</span></div>
+    <div class="code-line"></div>
+    <div class="code-line"><span class="md-hr">---</span></div>
+    <div class="code-line"></div>
 
-    <a
-      href="#"
-      class="blog-post-link"
-    >
-    </a>
+    <div class="code-line">
+      <span class="md-heading">## </span><a
+        href="#"
+        class="md-link"
+      >[Como estruturar uma API escalável com Node.js]</a><span
+        class="md-url">(https://rodrigoacs.com/blog/node-api-structure)</span>
+    </div>
+    <div class="code-line">
+      <span class="md-bold">**12 Out 2025**</span> <span class="text">|</span> <span class="md-italic">*Backend,
+        Node.js, Architecture*</span>
+    </div>
+    <div class="code-line">
+      <span class="text">Neste artigo, discuto as melhores práticas para organizar pastas, rotas e controllers em um
+        projeto backend...</span>
+    </div>
+    <div class="code-line"></div>
+    <div class="code-line"><span class="md-hr">---</span></div>
+    <div class="code-line"></div>
+
+    <div class="code-line">
+      <span class="md-heading">## </span><a
+        href="#"
+        class="md-link"
+      >[Avaliando a Bambu Lab A1 para iniciantes]</a><span
+        class="md-url">(https://rodrigoacs.com/blog/bambu-lab-a1-review)</span>
+    </div>
+    <div class="code-line">
+      <span class="md-bold">**28 Set 2025**</span> <span class="text">|</span> <span class="md-italic">*3D Printing,
+        Hardware*</span>
+    </div>
+    <div class="code-line">
+      <span class="text">Minhas primeiras impressões e configurações recomendadas após o primeiro mês imprimindo em PLA
+        e PETG.</span>
+    </div>
+    <div class="code-line"></div>
+    <div class="code-line"><span class="md-hr">---</span></div>
+    <div class="code-line"></div>
+
+    <div class="code-line"><span class="cursor"></span></div>
   </div>
 </template>
 
 <style scoped>
-img {
-  height: 1.6rem;
+.vscode-code-block {
+  font-size: 14px;
 }
 
-.blog-post b {
-  color: var(--color-text-secondary);
+/* Destaque da Linha Ativa */
+.code-line {
+  margin-bottom: 0;
+  white-space: pre-wrap;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  transition: background-color 0.1s;
+  line-height: 1.6;
 }
 
-.blog-post {
-  margin-top: 1rem;
-  padding-bottom: 0.5rem;
+.code-line:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.blog-post-link {
-  display: block;
-  margin-bottom: 2rem;
-  transition: all 0.3s;
+/* Destaque de Sintaxe - Markdown Monokai */
+.md-heading {
+  color: var(--syntax-keyword);
+  font-weight: bold;
 }
 
-.blog-post-link div b {
-  transition: all 0.3s;
+/* Rosa */
+.md-quote {
+  color: var(--syntax-comment);
+  font-style: italic;
+  border-left: 3px solid var(--vscode-border);
+  padding-left: 10px;
+  margin-left: 2px;
 }
 
-.blog-post-link:hover div b {
-  color: var(--color-text-primary);
+/* Cinza com borda lateral */
+.md-hr {
+  color: var(--vscode-text-muted);
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.md-link {
+  color: var(--syntax-property);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+/* Ciano */
+.md-link:hover {
+  text-decoration: underline;
+  color: var(--theme-accent);
+}
+
+.md-url {
+  color: var(--vscode-text-muted);
+}
+
+.md-bold {
+  color: var(--syntax-var);
+  font-weight: bold;
+}
+
+.md-italic {
+  color: var(--syntax-string);
+  font-style: italic;
+}
+
+/* Amarelo/Laranja */
+.text {
+  color: var(--vscode-text);
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.2em;
+  background-color: var(--theme-accent);
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 </style>

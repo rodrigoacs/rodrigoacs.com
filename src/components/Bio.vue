@@ -1,48 +1,47 @@
 <template>
   <div class="vscode-code-block">
-    <p><span class="comment">/**</span></p>
-    <p><span class="comment"> * {{ $t("bio.hello") }}</span></p>
-    <p><span class="comment"> */</span></p>
+    <div class="code-line"><span class="comment">/**</span></div>
+    <div class="code-line"><span class="comment"> * {{ $t("bio.hello") }}</span></div>
+    <div class="code-line"><span class="comment"> */</span></div>
 
-    <p>
+    <div class="code-line">
       <span class="keyword">const</span> <span class="var">developerProfile</span><span class="text">: </span><span
         class="type"
       >Developer</span> <span class="keyword">=</span> <span class="text">{</span>
-    </p>
-
-    <div class="indent">
-      <p>
-        <span class="property">name</span><span class="text">: </span><span class="string">'Rodrigo Augusto Correa
-          Soares'</span><span class="text">,</span>
-      </p>
-      <p>
-        <span class="property">role</span><span class="text">: </span><span class="string">'Fullstack
-          Developer'</span><span class="text">,</span>
-      </p>
-      <p>
-        <span class="property">location</span><span class="text">: </span><span class="string">'Minas Gerais,
-          Brasil'</span><span class="text">,</span>
-      </p>
-      <p>
-        <span class="property">bio</span><span class="text">: </span><span class="string">`{{ $t("bio.p1") }}</span>
-      </p>
-      <p class="indent-more">
-        <span class="string">{{ $t("bio.p2") }}</span>
-      </p>
-      <p class="indent-more">
-        <span class="string">{{ $t("bio.p3") }}`</span><span class="text">,</span>
-      </p>
-      <p>
-        <span class="property">hobbies</span><span class="text">: [</span><span class="string">'Magic: The
-          Gathering'</span><span class="text">, </span><span class="string">'3D Printing'</span><span
-          class="text">]</span>
-      </p>
     </div>
 
-    <p><span class="text">};</span></p>
+    <div class="code-line pl-1">
+      <span class="property">name</span><span class="text">: </span><span class="string">'Rodrigo Augusto Correa
+        Soares'</span><span class="text">,</span>
+    </div>
+    <div class="code-line pl-1">
+      <span class="property">role</span><span class="text">: </span>
+      <span class="string tooltip-trigger">'Fullstack Developer'</span><span class="text">,</span>
+    </div>
+    <div class="code-line pl-1">
+      <span class="property">location</span><span class="text">: </span><span class="string">'Minas Gerais,
+        Brasil'</span><span class="text">,</span>
+    </div>
+    <div class="code-line pl-1">
+      <span class="property">bio</span><span class="text">: </span><span class="string">`{{ $t("bio.p1") }}</span>
+    </div>
+    <div class="code-line pl-2">
+      <span class="string">{{ $t("bio.p2") }}</span>
+    </div>
+    <div class="code-line pl-2">
+      <span class="string">{{ $t("bio.p3") }}`</span><span class="text">,</span>
+    </div>
+    <div class="code-line pl-1">
+      <span class="property">hobbies</span><span class="text">: [</span><span class="string">'Magic: The
+        Gathering'</span><span class="text">, </span><span class="string">'3D Printing'</span><span
+        class="text">]</span>
+    </div>
+
+    <div class="code-line"><span class="text">};</span></div>
     <br />
-    <p><span class="keyword">export default</span> <span class="var">developerProfile</span><span
-        class="text">;</span><span class="cursor"></span></p>
+    <div class="code-line"><span class="keyword">export default</span> <span class="var">developerProfile</span><span
+        class="text"
+      >;</span><span class="cursor"></span></div>
   </div>
 </template>
 
@@ -51,17 +50,52 @@
   font-size: 14px;
 }
 
-p {
+.pl-1 {
+  padding-left: 2rem !important;
+}
+
+.pl-2 {
+  padding-left: 3rem !important;
+}
+
+/* Destaque da Linha Ativa com o padding embutido */
+.code-line {
   margin-bottom: 0;
   white-space: pre-wrap;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  transition: background-color 0.1s;
 }
 
-.indent {
-  margin-left: 2rem;
+.code-line:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.indent-more {
-  margin-left: 1rem;
+/* IntelliSense Tooltip */
+.tooltip-trigger {
+  text-decoration: underline dashed var(--vscode-text-muted);
+  cursor: help;
+  position: relative;
+}
+
+.tooltip-trigger:hover::after {
+  content: 'type DeveloperRole = "Frontend" | "Backend" | "Fullstack"';
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 5px;
+  background-color: var(--vscode-sidebar-bg);
+  border: 1px solid var(--vscode-border);
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: var(--vscode-text);
+  font-family: 'Consolas', monospace;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 100;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
 }
 
 /* Destaque de Sintaxe - Monokai */

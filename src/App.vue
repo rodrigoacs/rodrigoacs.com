@@ -1,12 +1,30 @@
 <template>
   <div class="vscode-app">
-    <div class="vscode-body">
 
+    <CommandPalette
+      ref="commandPalette"
+      @toggle-panel="toggleTerminal"
+    />
+
+    <div class="vscode-body">
       <div class="vscode-activity-bar">
-        <div class="activity-icon active">📄</div>
-        <div class="activity-icon">🔍</div>
-        <div class="activity-icon">⎇</div>
-        <div class="activity-icon bottom">⚙️</div>
+        <div
+          class="activity-icon active"
+          title="Explorer"
+        >📄</div>
+        <div
+          class="activity-icon"
+          title="Search"
+        >🔍</div>
+        <div
+          class="activity-icon"
+          title="Source Control"
+        >⎇</div>
+        <div
+          class="activity-icon bottom"
+          title="Manage"
+          @click="openCommandPalette"
+        >⚙️</div>
       </div>
 
       <div class="vscode-sidebar">
@@ -15,9 +33,12 @@
       </div>
 
       <div class="vscode-main">
+
         <div class="editor-tabs">
           <div class="tab active">
-            <span class="file-icon">{{ currentFileIcon }}</span> {{ currentFileName }}
+            <span class="file-icon">{{ currentFileIcon }}</span>
+            <span class="tab-name">{{ currentFileName }}</span>
+            <span class="close-icon">x</span>
           </div>
         </div>
 
@@ -37,6 +58,9 @@
             <RouterView />
           </div>
         </div>
+
+        <BottomPanel ref="bottomPanel" />
+
       </div>
     </div>
 
@@ -45,12 +69,17 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 import Navigation from '@/components/Navigation.vue'
 import FooterVue from '@/components/Footer.vue'
+import BottomPanel from '@/components/BottomPanel.vue'
+import CommandPalette from '@/components/CommandPalette.vue'
 
 const route = useRoute()
+
+const bottomPanel = ref(null)
+const commandPalette = ref(null)
 
 const currentFileName = computed(() => {
   switch (route.path) {
@@ -71,6 +100,36 @@ const currentFileIcon = computed(() => {
     default: return '📄'
   }
 })
+
+function openCommandPalette() {
+  commandPalette.value?.open()
+}
+
+function toggleTerminal() {
+  bottomPanel.value?.togglePanel()
+}
+
+function handleKeydown(e) {
+  // Command Palette: Ctrl+Shift+P ou Cmd+Shift+P
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'p') {
+    e.preventDefault()
+    openCommandPalette()
+  }
+
+  // Terminal: Ctrl+` (Crase) ou Ctrl+' (Aspas Simples para ABNT2)
+  if ((e.ctrlKey || e.metaKey) && (e.key === '`' || e.key === "'")) {
+    e.preventDefault()
+    toggleTerminal()
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', handleKeydown)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeydown)
+})
 </script>
 
 <style scoped>
@@ -87,6 +146,7 @@ const currentFileIcon = computed(() => {
   overflow: hidden;
 }
 
+/* Activity Bar */
 .vscode-activity-bar {
   width: 50px;
   background-color: var(--vscode-activity-bg);
@@ -103,6 +163,7 @@ const currentFileIcon = computed(() => {
   opacity: 0.5;
   width: 100%;
   text-align: center;
+  transition: opacity 0.2s;
 }
 
 .activity-icon:hover {
@@ -119,6 +180,7 @@ const currentFileIcon = computed(() => {
   margin-bottom: 10px;
 }
 
+/* Side Bar */
 .vscode-sidebar {
   width: 250px;
   background-color: var(--vscode-sidebar-bg);
@@ -133,14 +195,17 @@ const currentFileIcon = computed(() => {
   color: var(--vscode-text-muted);
 }
 
+/* Main Editor */
 .vscode-main {
   flex: 1;
   display: flex;
   flex-direction: column;
   background-color: var(--vscode-bg);
   overflow: hidden;
+  position: relative;
 }
 
+/* Tabs */
 .editor-tabs {
   display: flex;
   background-color: var(--vscode-sidebar-bg);
@@ -155,12 +220,13 @@ const currentFileIcon = computed(() => {
 .tab {
   display: flex;
   align-items: center;
-  padding: 0 15px;
+  padding: 0 10px 0 15px;
   background-color: var(--vscode-tab-inactive);
   color: var(--vscode-text-muted);
   border-right: 1px solid var(--vscode-border);
   cursor: pointer;
-  min-width: 120px;
+  min-width: 150px;
+  position: relative;
 }
 
 .tab.active {
@@ -169,11 +235,37 @@ const currentFileIcon = computed(() => {
   border-top: 2px solid var(--theme-accent);
 }
 
+.tab-name {
+  flex: 1;
+  margin-right: 10px;
+}
+
 .file-icon {
   margin-right: 5px;
   font-size: 0.9rem;
 }
 
+.close-icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.tab:hover .close-icon {
+  opacity: 1;
+}
+
+.close-icon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Breadcrumbs & Content */
 .editor-breadcrumbs {
   padding: 5px 15px;
   font-size: 0.85rem;

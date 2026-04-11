@@ -1,153 +1,165 @@
 <template>
-  <div>
-    <h2 class="header">
-      <img
-        src="../assets/images/floppy_disk_3d.png"
-        @click="downloadCV"
-      >
-      Rodrigo Augusto Correa Soares
-    </h2>
+  <div class="vscode-code-block">
+    <div class="code-line"><span class="text">{</span></div>
 
-    <p class="socials">
-      <span>
-        {{ $t("cv.home") }}
-      </span>
-    </p>
+    <div class="code-line pl-1">
+      <span class="property">"filename"</span><span class="text">: </span><span
+        class="string">"cv_rodrigosoares.pdf"</span><span class="text">,</span>
+    </div>
 
-    <p class="socials">
-      <a
-        target="_blank"
-        href="mailto:rodrigohths@gmail.com"
-      >
-        rodrigohths@gmail.com
-      </a>
+    <div class="code-line pl-1">
+      <span class="property">"contact"</span><span class="text">: {</span>
+    </div>
+    <div class="code-line pl-2"><span class="property">"email"</span><span class="text">: </span><span
+        class="string">"rodrigohths@gmail.com"</span><span class="text">,</span></div>
+    <div class="code-line pl-2"><span class="property">"github"</span><span class="text">: </span><span
+        class="string">"https://github.com/rodrigoacs"</span><span class="text">,</span></div>
+    <div class="code-line pl-2"><span class="property">"linkedin"</span><span class="text">: </span><span
+        class="string">"https://www.linkedin.com/in/rodrigoacsoares/"</span></div>
+    <div class="code-line pl-1"><span class="text">},</span></div>
 
-      <a
-        target="_blank"
-        href="https://github.com/rodrigoacs"
-      >
-        &nbsp;|&nbsp;GitHub&nbsp;|&nbsp;
-      </a>
+    <div class="code-line pl-1">
+      <span class="property">"education"</span><span class="text">: [</span>
+    </div>
 
-      <a
-        target="_blank"
-        href="https://www.linkedin.com/in/rodrigoacsoares/"
-      >
-        LinkedIn |
-      </a>
-
-      <a
-        target="_blank"
-        href="https://rodrigoacs.com"
-      >
-        &nbsp;Site
-      </a>
-    </p>
-
-    <h3>
-      {{ $t("cv.resume") }}
-    </h3>
-
-    <p>
-      {{ $t("cv.resumeText") }}
-    </p>
-
-    <h3>
-      {{ $t("cv.education") }}
-    </h3>
-
-    <div
+    <template
       v-for='(edu, index) in $tm("cv.educations")'
       :key='index'
-      class="v-for-wrapper"
     >
-      <p>
-        {{ edu.time }}
-      </p>
+      <div class="code-line pl-2"><span class="text">{</span></div>
+      <div class="code-line pl-3"><span class="property">"time"</span><span class="text">: </span><span
+          class="string">"{{ edu.time }}"</span><span class="text">,</span></div>
+      <div class="code-line pl-3"><span class="property">"local"</span><span class="text">: </span><span
+          class="string">"{{ edu.local }}"</span><span class="text">,</span></div>
+      <div class="code-line pl-3"><span class="property">"course"</span><span class="text">: </span><span
+          class="string">"{{ edu.course }}"</span></div>
+      <div class="code-line pl-2"><span class="text">}{{ index <
+        $tm("cv.educations").length
+            -
+            1
+            ? ','
+            : ''
+            }}</span
+          >
+      </div>
+    </template>
 
-      <p>
-        {{ edu.local }}
-      </p>
+    <div class="code-line pl-1"><span class="text">],</span></div>
 
-      <p>
-        {{ edu.course }}
-      </p>
+    <div class="code-line pl-1">
+      <span class="property">"skills"</span><span class="text">: [</span>
     </div>
+    <div class="code-line pl-2"><span class="string">"{{ $t("cv.skills1") }}"</span><span class="text">,</span></div>
+    <div class="code-line pl-2"><span class="string">"{{ $t("cv.skills2") }}"</span><span class="text">,</span></div>
+    <div class="code-line pl-2"><span class="string">"{{ $t("cv.skills3") }}"</span></div>
+    <div class="code-line pl-1"><span class="text">],</span></div>
 
-    <h3>
-      {{ $t("cv.experience") }}
-    </h3>
-
-    <div
-      v-for='(exp, index) in $tm("cv.experiences")'
-      :key='index'
-      class="v-for-wrapper"
-    >
-      <p>
-        {{ exp.time }}
-      </p>
-
-      <p>
-        {{ exp.title }}
-      </p>
-
-      <p>
-        {{ exp.description }}
-      </p>
+    <div class="code-line pl-1">
+      <span class="property">"actions"</span><span class="text">: {</span>
     </div>
+    <div class="code-line pl-2"><span class="property">"download_pdf"</span><span class="text">: </span><span
+        class="keyword"
+      >function</span><span class="text">() {</span></div>
+    <div class="code-line pl-3"><span class="comment">// Clique no link abaixo para baixar o arquivo</span></div>
+    <div class="code-line pl-3"><span class="text">window.open(</span><a
+        href="https://librishelf.com/download/cv_RodrigoSoares.pdf"
+        target="_blank"
+        download
+        class="string download-link"
+      >"https://librishelf.com/download/cv_RodrigoSoares.pdf"</a><span class="text">);</span>
+    </div>
+    <div class="code-line pl-2"><span class="text">}</span></div>
+    <div class="code-line pl-1"><span class="text">}</span></div>
 
-    <h3>
-      {{ $t("cv.skills") }}
-    </h3>
-
-    <p>
-      &gt; {{ $t("cv.skills1") }}
-    </p>
-
-    <p>
-      &gt; {{ $t("cv.skills2") }}
-    </p>
-
-    <p>
-      &gt; {{ $t("cv.skills3") }}
-    </p>
+    <div class="code-line"><span class="text">}</span><span class="cursor"></span></div>
   </div>
 </template>
 
-<script setup>
-function downloadCV() {
-  const link = document.createElement('a')
-  link.href = "https://librishelf.com/download/cv_RodrigoSoares.pdf"
-  link.download = "cv_rodrigosoares.pdf"
-  document.body.appendChild(link)
-  link.click()
-  document.body.removeChild(link)
-}
-</script>
-
 <style scoped>
-img {
-  height: 1.6rem;
+.vscode-code-block {
+  font-size: 14px;
 }
 
-h3 {
-  margin-top: 2rem;
+/* Identação via Padding (JSON precisa de um nível a mais - pl-3) */
+.pl-1 {
+  padding-left: 2rem !important;
 }
 
-div a,
-div li {
-  color: var(--color-text-secondary);
+.pl-2 {
+  padding-left: 3.5rem !important;
 }
 
-.socials {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  text-align: justify;
-  color: var(--color-text-secondary);
+.pl-3 {
+  padding-left: 5rem !important;
 }
 
-.v-for-wrapper {
-  margin-bottom: 1rem;
+/* Destaque da Linha Ativa */
+.code-line {
+  margin-bottom: 0;
+  white-space: pre-wrap;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  transition: background-color 0.1s;
+}
+
+.code-line:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Destaque de Sintaxe - Monokai JSON */
+.property {
+  color: var(--syntax-func);
+}
+
+/* Verde para chaves JSON */
+.string {
+  color: var(--syntax-string);
+}
+
+.text {
+  color: var(--vscode-text);
+}
+
+.keyword {
+  color: var(--syntax-keyword);
+  font-style: italic;
+}
+
+.comment {
+  color: var(--syntax-comment);
+}
+
+.download-link {
+  text-decoration: underline;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.download-link:hover {
+  opacity: 0.8;
+  color: var(--theme-accent);
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.2em;
+  background-color: var(--theme-accent);
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 </style>
