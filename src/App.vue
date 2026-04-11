@@ -1,5 +1,30 @@
 <template>
-  <div class="vscode-app">
+  <div
+    class="vscode-app"
+    :style="dynamicStyles"
+  >
+
+    <div
+      v-if="showSplash"
+      class="splash-screen"
+      :class="{ 'fade-out': isFadingSplash }"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="splash-logo"
+      >
+        <path
+          d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 0 1.479l1.323 1.202a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"
+        />
+      </svg>
+    </div>
+
+    <canvas
+      ref="matrixCanvas"
+      class="matrix-overlay"
+      v-show="isMatrixActive"
+    ></canvas>
 
     <CommandPalette
       ref="commandPalette"
@@ -11,20 +36,20 @@
         <div
           class="activity-icon active"
           title="Explorer"
-        >📄</div>
+        ><i class="codicon codicon-files"></i></div>
         <div
           class="activity-icon"
           title="Search"
-        >🔍</div>
+        ><i class="codicon codicon-search"></i></div>
         <div
           class="activity-icon"
           title="Source Control"
-        >⎇</div>
+        ><i class="codicon codicon-source-control"></i></div>
         <div
           class="activity-icon bottom"
           title="Manage"
           @click="openCommandPalette"
-        >⚙️</div>
+        ><i class="codicon codicon-settings-gear"></i></div>
       </div>
 
       <div class="vscode-sidebar">
@@ -33,53 +58,135 @@
       </div>
 
       <div class="vscode-main">
+        <div class="editor-split-layout">
 
-        <div class="editor-tabs">
-          <div class="tab active">
-            <span class="file-icon">{{ currentFileIcon }}</span>
-            <span class="tab-name">{{ currentFileName }}</span>
-            <span class="close-icon">x</span>
+          <div class="editor-pane">
+            <div class="editor-tabs">
+              <div class="tab active">
+                <FileIcon :name="currentFileName" />
+                <span class="tab-name">{{ currentFileName }}</span>
+                <span class="close-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    width="14"
+                    height="14"
+                  >
+                    <path d="M8 7.3l4.1-4.2.7.7L8.7 8l4.2 4.1-.7.7L8 8.7l-4.1 4.2-.7-.7L7.3 8 3.1 3.9l.7-.7L8 7.3z" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+
+            <div class="editor-breadcrumbs">rodrigoacs-portfolio > src > views > {{ currentFileName }}</div>
+
+            <div class="editor-layout-wrapper">
+              <div class="editor-content-area">
+                <div class="line-numbers">
+                  <div
+                    v-for="n in 50"
+                    :key="n"
+                    class="line-number"
+                  >{{ n }}</div>
+                </div>
+                <div class="code-content">
+                  <RouterView />
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div class="editor-breadcrumbs">
-          rodrigoacs-portfolio > src > views > {{ currentFileName }}
-        </div>
-
-        <div class="editor-content-area">
-          <div class="line-numbers">
-            <div
-              v-for="n in 50"
-              :key="n"
-              class="line-number"
-            >{{ n }}</div>
+          <div
+            class="editor-pane preview-pane"
+            v-if="isPreviewOpen"
+          >
+            <div class="editor-tabs">
+              <div class="tab active">
+                <img
+                  :src="previewFaviconUrl"
+                  class="favicon-img"
+                  alt="favicon"
+                  @error="e => e.target.src = 'https://cdn.jsdelivr.net/gh/miguelsolorio/vscode-symbols@main/src/icons/files/html.svg'"
+                />
+                <span class="tab-name">Simple Browser: {{ previewTitle }}</span>
+                <span
+                  class="close-icon"
+                  @click="closePreview"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    width="14"
+                    height="14"
+                  >
+                    <path d="M8 7.3l4.1-4.2.7.7L8.7 8l4.2 4.1-.7.7L8 8.7l-4.1 4.2-.7-.7L7.3 8 3.1 3.9l.7-.7L8 7.3z" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div class="preview-content-area">
+              <div class="browser-toolbar">
+                <span
+                  class="browser-btn"
+                  @click="iframeKey++"
+                >⟳</span>
+                <input
+                  type="text"
+                  readonly
+                  :value="previewUrl"
+                  class="browser-address-bar"
+                />
+              </div>
+              <iframe
+                :src="previewUrl"
+                :key="iframeKey"
+                class="preview-iframe"
+              ></iframe>
+            </div>
           </div>
-          <div class="code-content">
-            <RouterView />
-          </div>
-        </div>
 
+        </div>
         <BottomPanel ref="bottomPanel" />
-
       </div>
     </div>
-
     <FooterVue />
   </div>
 </template>
 
 <script setup>
-import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { computed, ref, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import Navigation from '@/components/Navigation.vue'
 import FooterVue from '@/components/Footer.vue'
 import BottomPanel from '@/components/BottomPanel.vue'
 import CommandPalette from '@/components/CommandPalette.vue'
+import FileIcon from '@/components/FileIcon.vue'
+import { usePreview } from '@/composables/usePreview'
+import { useSettings } from '@/composables/useSettings'
 
 const route = useRoute()
-
 const bottomPanel = ref(null)
 const commandPalette = ref(null)
+const iframeKey = ref(0)
+
+const { isPreviewOpen, previewUrl, previewTitle, closePreview } = usePreview()
+const { globalSettings, isMatrixActive } = useSettings()
+
+const showSplash = ref(true)
+const isFadingSplash = ref(false)
+
+const dynamicStyles = computed(() => {
+  const isDracula = globalSettings.value['workbench.colorTheme'] === 'Dracula'
+  return {
+    '--editor-font-size': `${globalSettings.value['editor.fontSize']}px`,
+    '--vscode-bg': isDracula ? '#282a36' : '#222222',
+    '--vscode-sidebar-bg': isDracula ? '#21222c' : '#1e1e1e',
+    '--vscode-activity-bg': isDracula ? '#191a21' : '#191919',
+    '--theme-accent': isDracula ? '#bd93f9' : '#fc9867',
+  }
+})
 
 const currentFileName = computed(() => {
   switch (route.path) {
@@ -87,49 +194,66 @@ const currentFileName = computed(() => {
     case '/projects': return 'Projects.ts'
     case '/blog': return 'Blog.md'
     case '/cv': return 'CV.json'
-    default: return '404.txt'
+    case '/settings': return 'settings.json'
+    default: return '404.ts'
   }
 })
 
-const currentFileIcon = computed(() => {
-  switch (route.path) {
-    case '/': return '📘'
-    case '/projects': return '📁'
-    case '/blog': return '📝'
-    case '/cv': return '{}'
-    default: return '📄'
+const previewFaviconUrl = computed(() => {
+  if (!previewUrl.value) return ''
+  try {
+    const url = new URL(previewUrl.value)
+    return `https://icons.duckduckgo.com/ip3/${url.hostname}.ico`
+  } catch (e) {
+    return 'https://cdn.jsdelivr.net/gh/miguelsolorio/vscode-symbols@main/src/icons/files/html.svg'
   }
 })
 
-function openCommandPalette() {
-  commandPalette.value?.open()
-}
-
-function toggleTerminal() {
-  bottomPanel.value?.togglePanel()
-}
+function openCommandPalette() { commandPalette.value?.open() }
+function toggleTerminal() { bottomPanel.value?.togglePanel() }
 
 function handleKeydown(e) {
-  // Command Palette: Ctrl+Shift+P ou Cmd+Shift+P
-  if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'p') {
-    e.preventDefault()
-    openCommandPalette()
-  }
-
-  // Terminal: Ctrl+` (Crase) ou Ctrl+' (Aspas Simples para ABNT2)
-  if ((e.ctrlKey || e.metaKey) && (e.key === '`' || e.key === "'")) {
-    e.preventDefault()
-    toggleTerminal()
-  }
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'p') { e.preventDefault(); openCommandPalette() }
+  if ((e.ctrlKey || e.metaKey) && (e.key === '`' || e.key === "'")) { e.preventDefault(); toggleTerminal() }
 }
+
+const matrixCanvas = ref(null)
+let matrixInterval
+watch(isMatrixActive, (active) => {
+  if (active && matrixCanvas.value) {
+    const canvas = matrixCanvas.value
+    const ctx = canvas.getContext('2d')
+    canvas.width = window.innerWidth; canvas.height = window.innerHeight
+    const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ<>{}[]$'.split('')
+    const font_size = 14; const columns = canvas.width / font_size
+    const drops = Array(Math.floor(columns)).fill(1)
+
+    matrixInterval = setInterval(() => {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      ctx.fillStyle = '#0F0'
+      ctx.font = font_size + 'px monospace'
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)]
+        ctx.fillText(text, i * font_size, drops[i] * font_size)
+        if (drops[i] * font_size > canvas.height && Math.random() > 0.975) drops[i] = 0
+        drops[i]++
+      }
+    }, 33)
+  } else {
+    clearInterval(matrixInterval)
+  }
+})
 
 onMounted(() => {
   window.addEventListener('keydown', handleKeydown)
+  setTimeout(() => {
+    isFadingSplash.value = true
+    setTimeout(() => showSplash.value = false, 500)
+  }, 1200)
 })
 
-onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown)
-})
+onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
 </script>
 
 <style scoped>
@@ -138,6 +262,7 @@ onUnmounted(() => {
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  transition: background-color 0.3s;
 }
 
 .vscode-body {
@@ -146,7 +271,60 @@ onUnmounted(() => {
   overflow: hidden;
 }
 
-/* Activity Bar */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #1e1e1e;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.splash-screen.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.splash-logo {
+  width: 100px;
+  height: 100px;
+  color: #007acc;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0.8;
+    transform: scale(0.95);
+  }
+}
+
+.matrix-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
 .vscode-activity-bar {
   width: 50px;
   background-color: var(--vscode-activity-bg);
@@ -154,15 +332,17 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   padding-top: 10px;
+  transition: background-color 0.3s;
 }
 
 .activity-icon {
-  font-size: 1.5rem;
-  padding: 10px 0;
+  padding: 12px 0;
   cursor: pointer;
   opacity: 0.5;
   width: 100%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: opacity 0.2s;
 }
 
@@ -180,13 +360,13 @@ onUnmounted(() => {
   margin-bottom: 10px;
 }
 
-/* Side Bar */
 .vscode-sidebar {
   width: 250px;
   background-color: var(--vscode-sidebar-bg);
   border-right: 1px solid var(--vscode-border);
   display: flex;
   flex-direction: column;
+  transition: background-color 0.3s;
 }
 
 .sidebar-title {
@@ -195,7 +375,6 @@ onUnmounted(() => {
   color: var(--vscode-text-muted);
 }
 
-/* Main Editor */
 .vscode-main {
   flex: 1;
   display: flex;
@@ -203,14 +382,32 @@ onUnmounted(() => {
   background-color: var(--vscode-bg);
   overflow: hidden;
   position: relative;
+  transition: background-color 0.3s;
 }
 
-/* Tabs */
+.editor-split-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.editor-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.preview-pane {
+  border-left: 1px solid var(--vscode-border);
+}
+
 .editor-tabs {
   display: flex;
   background-color: var(--vscode-sidebar-bg);
   height: 35px;
   overflow-x: auto;
+  transition: background-color 0.3s;
 }
 
 .editor-tabs::-webkit-scrollbar {
@@ -238,21 +435,16 @@ onUnmounted(() => {
 .tab-name {
   flex: 1;
   margin-right: 10px;
-}
-
-.file-icon {
-  margin-right: 5px;
-  font-size: 0.9rem;
+  margin-left: 2px;
 }
 
 .close-icon {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  font-size: 12px;
   opacity: 0;
   transition: opacity 0.2s, background-color 0.2s;
 }
@@ -265,7 +457,14 @@ onUnmounted(() => {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Breadcrumbs & Content */
+.favicon-img {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
 .editor-breadcrumbs {
   padding: 5px 15px;
   font-size: 0.85rem;
@@ -273,11 +472,18 @@ onUnmounted(() => {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+.editor-layout-wrapper {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
 .editor-content-area {
   display: flex;
   flex: 1;
   overflow: auto;
   padding-top: 10px;
+  font-size: var(--editor-font-size, 14px);
 }
 
 .line-numbers {
@@ -285,7 +491,6 @@ onUnmounted(() => {
   text-align: right;
   color: var(--vscode-text-muted);
   user-select: none;
-  font-size: 14px;
   line-height: 1.6;
 }
 
@@ -295,5 +500,52 @@ onUnmounted(() => {
   padding-bottom: 50px;
   line-height: 1.6;
   overflow-x: auto;
+}
+
+.preview-content-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--vscode-bg);
+  transition: background-color 0.3s;
+}
+
+.browser-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  background-color: var(--vscode-sidebar-bg);
+  border-bottom: 1px solid var(--vscode-border);
+}
+
+.browser-btn {
+  color: var(--vscode-text-muted);
+  cursor: pointer;
+  margin-right: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.browser-btn:hover {
+  color: var(--vscode-text);
+}
+
+.browser-address-bar {
+  flex: 1;
+  background-color: var(--vscode-bg);
+  border: 1px solid var(--vscode-border);
+  color: var(--vscode-text-muted);
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 12px;
+  outline: none;
+  transition: background-color 0.3s;
+}
+
+.preview-iframe {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background-color: #ffffff;
 }
 </style>

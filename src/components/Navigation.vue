@@ -6,6 +6,10 @@
         @click="isOpen = !isOpen"
       >
         <span class="chevron">{{ isOpen ? '∨' : '>' }}</span>
+        <FileIcon
+          type="folder"
+          :isOpen="isOpen"
+        />
         <span class="folder-name">PORTFOLIO</span>
       </div>
 
@@ -18,7 +22,7 @@
           to="/"
           active-class="active"
         >
-          <span class="file-icon">📘</span> Home.ts
+          <FileIcon name="Home.ts" /> Home.ts
         </RouterLink>
 
         <RouterLink
@@ -26,7 +30,7 @@
           to="/projects"
           active-class="active"
         >
-          <span class="file-icon">📁</span> Projects.ts
+          <FileIcon name="Projects.ts" /> Projects.ts
         </RouterLink>
 
         <RouterLink
@@ -34,7 +38,7 @@
           to="/blog"
           active-class="active"
         >
-          <span class="file-icon">📝</span> Blog.md
+          <FileIcon name="Blog.md" /> Blog.md
         </RouterLink>
 
         <RouterLink
@@ -42,7 +46,15 @@
           to="/cv"
           active-class="active"
         >
-          <span class="file-icon">{}</span> CV.json
+          <FileIcon name="CV.json" /> CV.json
+        </RouterLink>
+
+        <RouterLink
+          class="file-link"
+          to="/settings"
+          active-class="active"
+        >
+          <FileIcon name="settings.json" /> settings.json
         </RouterLink>
       </div>
     </div>
@@ -51,6 +63,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import FileIcon from '@/components/FileIcon.vue'
 
 const isOpen = ref(true)
 </script>
@@ -69,6 +82,7 @@ const isOpen = ref(true)
   cursor: pointer;
   font-weight: bold;
   font-size: 0.85rem;
+  color: var(--vscode-text);
 }
 
 .folder-header:hover {
@@ -82,6 +96,10 @@ const isOpen = ref(true)
   color: var(--vscode-text-muted);
 }
 
+.folder-name {
+  margin-left: 2px;
+}
+
 .files {
   display: flex;
   flex-direction: column;
@@ -92,21 +110,18 @@ const isOpen = ref(true)
   align-items: center;
   padding: 4px 10px 4px 25px;
   font-size: 0.9rem;
-  color: var(--vscode-text);
-  border-left: 2px solid transparent;
+  color: var(--vscode-text-muted);
+  border-left: 1px solid transparent;
+  text-decoration: none;
 }
 
 .file-link:hover {
   background-color: var(--vscode-hover);
+  color: var(--vscode-text);
 }
 
 .file-link.active {
   background-color: var(--vscode-selection);
   color: #ffffff;
-}
-
-.file-icon {
-  margin-right: 6px;
-  font-size: 0.9rem;
 }
 </style>

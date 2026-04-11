@@ -2,6 +2,8 @@
   <div class="vscode-code-block">
     <div class="code-line"><span class="comment">/**</span></div>
     <div class="code-line"><span class="comment"> * Catálogo de projetos pessoais e em desenvolvimento.</span></div>
+    <div class="code-line"><span class="comment"> * Dados carregados dinamicamente via src/data/projects.json</span>
+    </div>
     <div class="code-line"><span class="comment"> */</span></div>
 
     <div class="code-line">
@@ -18,94 +20,81 @@
       >Project</span><span class="text">[] = [</span>
     </div>
 
-    <div class="code-line pl-1"><span class="text">{</span></div>
-    <div class="code-line pl-2">
-      <span class="property">name</span><span class="text">: </span><span class="string">'Flint'</span><span
-        class="text"
-      >,</span>
-    </div>
-    <div class="code-line pl-2">
-      <span class="property">description</span><span class="text">: </span><span class="string">'Command-line tool (CLI)
-        para conversão de arquivos.'</span><span class="text">,</span>
-    </div>
-    <div class="code-line pl-2">
-      <span class="property">stack</span><span class="text">: [</span><span class="string">'Node.js'</span><span
-        class="text"
-      >, </span><span class="string">'CLI'</span><span class="text">],</span>
-    </div>
-    <div class="code-line pl-2">
-      <span class="property">status</span><span class="text">: </span><span class="string">'Em desenvolvimento'</span>
-    </div>
-    <div class="code-line pl-1"><span class="text">},</span></div>
+    <template
+      v-for="(project, index) in projects"
+      :key="index"
+    >
 
-    <div class="code-line pl-1"><span class="text">{</span></div>
-    <div class="code-line pl-2">
-      <span class="property">name</span><span class="text">: </span><span class="string">'restoque'</span><span
-        class="text"
-      >,</span>
-    </div>
-    <div class="code-line pl-2">
-      <span class="property">description</span><span class="text">: </span><span class="string">'Sistema com comunicação
-        em tempo real via WebSockets.'</span><span class="text">,</span>
-    </div>
-    <div class="code-line pl-2">
-      <span class="property">stack</span><span class="text">: [</span><span class="string">'Node.js'</span><span
-        class="text"
-      >, </span><span class="string">'WebSockets'</span><span class="text">],</span>
-    </div>
-    <div class="code-line pl-2">
-      <span class="property">status</span><span class="text">: </span><span class="string">'Concluído'</span>
-    </div>
-    <div class="code-line pl-1"><span class="text">},</span></div>
+      <div class="code-line pl-1 codelens-row">
+        <span
+          class="codelens"
+          @click="openPreview(project.name, project.previewUrl)"
+        >▶ Preview Project</span>
+        <span class="codelens-separator">|</span>
+        <a
+          :href="project.repoUrl"
+          target="_blank"
+          class="codelens"
+        >🔗 Repository</a>
+      </div>
 
-    <div class="code-line pl-1"><span class="text">{</span></div>
-    <div class="code-line pl-2">
-      <span class="property">name</span><span class="text">: </span><span class="string">'MTG Collection
-        Tracker'</span><span class="text">,</span>
-    </div>
-    <div class="code-line pl-2">
-      <span class="property">description</span><span class="text">: </span><span class="string">'Web app para gerenciar
-        coleção de Magic: The Gathering com Google Sheets.'</span><span class="text">,</span>
-    </div>
-    <div class="code-line pl-2">
-      <span class="property">stack</span><span class="text">: [</span><span class="string">'JavaScript'</span><span
-        class="text"
-      >, </span><span class="string">'Google Sheets API'</span><span class="text">],</span>
-    </div>
-    <div class="code-line pl-2">
-      <span class="property">status</span><span class="text">: </span><span class="string">'Ativo'</span>
-    </div>
-    <div class="code-line pl-1"><span class="text">},</span></div>
+      <div class="code-line pl-1"><span class="text">{</span></div>
+      <div class="code-line pl-2"><span class="property">name</span><span class="text">: </span><span class="string">'{{
+        project.name }}'</span><span class="text">,</span></div>
+      <div class="code-line pl-2"><span class="property">description</span><span class="text">: </span><span
+          class="string"
+        >'{{ project.description }}'</span><span class="text">,</span></div>
 
-    <div class="code-line pl-1"><span class="text">{</span></div>
-    <div class="code-line pl-2">
-      <span class="property">name</span><span class="text">: </span><span class="string">'Personal Finance
-        App'</span><span class="text">,</span>
-    </div>
-    <div class="code-line pl-2">
-      <span class="property">description</span><span class="text">: </span><span class="string">'Aplicação web para
-        controle financeiro pessoal.'</span><span class="text">,</span>
-    </div>
-    <div class="code-line pl-2">
-      <span class="property">stack</span><span class="text">: [</span><span class="string">'Node.js'</span><span
-        class="text"
-      >, </span><span class="string">'Vue.js'</span><span class="text">],</span>
-    </div>
-    <div class="code-line pl-2">
-      <span class="property">status</span><span class="text">: </span><span class="string">'Em desenvolvimento'</span>
-    </div>
-    <div class="code-line pl-1"><span class="text">}</span></div>
+      <div class="code-line pl-2">
+        <span class="property">stack</span><span class="text">: [</span>
+        <template
+          v-for="(tech, tIndex) in project.stack"
+          :key="tIndex"
+        >
+          <span class="string">'{{ tech }}'</span><span class="text">{{ tIndex <
+            project.stack.length
+            -
+            1
+            ? ', '
+            : ''
+              }}</span
+            >
+        </template>
+        <span class="text">],</span>
+      </div>
+
+      <div class="code-line pl-2"><span class="property">status</span><span class="text">: </span><span
+          class="string">'{{
+            project.status }}'</span></div>
+      <div class="code-line pl-1"><span class="text">}{{ index <
+        projects.length
+            -
+            1
+            ? ','
+            : ''
+            }}</span
+          >
+      </div>
+
+    </template>
 
     <div class="code-line"><span class="text">];</span><span class="cursor"></span></div>
   </div>
 </template>
+
+<script setup>
+import { usePreview } from '@/composables/usePreview'
+import projectsData from '@/data/projects.json'
+
+const { openPreview } = usePreview()
+const projects = projectsData
+</script>
 
 <style scoped>
 .vscode-code-block {
   font-size: 14px;
 }
 
-/* Identação via Padding */
 .pl-1 {
   padding-left: 2rem !important;
 }
@@ -114,7 +103,6 @@
   padding-left: 3.5rem !important;
 }
 
-/* Destaque da Linha Ativa */
 .code-line {
   margin-bottom: 0;
   white-space: pre-wrap;
@@ -128,7 +116,34 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Destaque de Sintaxe - Monokai */
+.codelens-row {
+  padding-top: 12px;
+}
+
+.codelens-row:hover {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+.codelens {
+  font-size: 11px;
+  color: var(--vscode-text-muted);
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.codelens:hover {
+  color: var(--vscode-text);
+}
+
+.codelens-separator {
+  color: var(--vscode-border);
+  margin: 0 8px;
+  font-size: 11px;
+}
+
 .keyword {
   color: var(--syntax-keyword);
   font-style: italic;

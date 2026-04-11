@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Arena",
+    "description": "Gerenciador de torneios de Magic: The Gathering",
+    "stack": [
+      "Node.js",
+      "Vue.js"
+    ],
+    "status": "Ativo",
+    "previewUrl": "https://arena.biblioplexo.com",
+    "repoUrl": "https://github.com/rodrigoacs/arena"
+  },
+  {
+    "name": "Librishelf",
+    "description": "Gerenciador de acervos de livros.",
+    "stack": [
+      "Node.js",
+      "Vue.js"
+    ],
+    "status": "Concluído",
+    "previewUrl": "https://librishelf.com",
+    "repoUrl": "https://github.com/rodrigoacs/librishelf"
+  }
+]

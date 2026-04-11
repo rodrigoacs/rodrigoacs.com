@@ -47,7 +47,10 @@
         ></div>
       </div>
 
-      <div class="terminal-line mt-2">
+      <div
+        class="terminal-line mt-2"
+        v-show="!isBooting"
+      >
         <span class="term-path">~/rodrigoacs-portfolio</span> <span class="term-branch">git:(main)</span> <span
           class="term-x"
         >x</span><br>
@@ -58,6 +61,7 @@
           class="term-input"
           v-model="currentCommand"
           @keydown.enter="executeCommand"
+          :disabled="isInputDisabled"
           spellcheck="false"
           autocomplete="off"
         />
@@ -68,18 +72,28 @@
 
 <script setup>
 import { ref, nextTick } from 'vue'
+import { useSettings } from '@/composables/useSettings'
+
+const { toggleMatrix } = useSettings()
 
 const isOpen = ref(false)
 const termInput = ref(null)
 const currentCommand = ref('')
+const terminalHistory = ref([])
 
-const terminalHistory = ref([
-  { type: 'output', content: '<span class="info">Portfolio Terminal v1.0.0</span><br><span class="info">Digite <span class="success">help</span> para ver os comandos disponíveis.</span>' }
-])
+const hasBooted = ref(false)
+const isBooting = ref(false)
+const isInputDisabled = ref(false)
 
 function togglePanel() {
   isOpen.value = !isOpen.value
-  if (isOpen.value) focusInput()
+  if (isOpen.value) {
+    if (!hasBooted.value) {
+      bootTerminal()
+    } else {
+      focusInput()
+    }
+  }
 }
 
 function closePanel() {
@@ -87,26 +101,70 @@ function closePanel() {
 }
 
 function focusInput() {
+  if (!isInputDisabled.value) {
+    nextTick(() => {
+      termInput.value?.focus()
+    })
+  }
+}
+
+function bootTerminal() {
+  hasBooted.value = true
+  isBooting.value = true
+  isInputDisabled.value = true
+
+  const bootCmd = 'bash start_portfolio.sh'
+  let i = 0
+
+  terminalHistory.value.push({ type: 'command', content: '' })
+
+  const typingInterval = setInterval(() => {
+    terminalHistory.value[terminalHistory.value.length - 1].content = bootCmd.substring(0, i)
+    i++
+
+    if (i > bootCmd.length) {
+      clearInterval(typingInterval)
+      setTimeout(() => {
+        terminalHistory.value.push({
+          type: 'output',
+          content: '<span class="info">Portfolio Terminal v1.0.0 inicializado.</span><br><span class="info">Acesso concedido. Digite <span class="success">help</span> para listar os comandos.</span>'
+        })
+        isBooting.value = false
+        isInputDisabled.value = false
+        focusInput()
+        scrollToBottom()
+      }, 400)
+    }
+  }, 25)
+}
+
+function scrollToBottom() {
   nextTick(() => {
-    termInput.value?.focus()
+    const contentDiv = document.querySelector('.panel-content')
+    if (contentDiv) contentDiv.scrollTop = contentDiv.scrollHeight
   })
 }
 
 function executeCommand() {
-  const cmd = currentCommand.value.trim().toLowerCase()
-  if (!cmd) return
+  const cmdRaw = currentCommand.value.trim()
+  const cmdLower = cmdRaw.toLowerCase()
+  if (!cmdLower) return
 
-  terminalHistory.value.push({ type: 'command', content: currentCommand.value })
+  terminalHistory.value.push({ type: 'command', content: cmdRaw })
 
   let output = ''
-  switch (cmd) {
+  switch (cmdLower) {
     case 'help':
       output = `
         <span class="success">Comandos disponíveis:</span><br>
         &nbsp;&nbsp;<span class="term-path">help</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mostra esta lista<br>
-        &nbsp;&nbsp;<span class="term-path">contact</span>&nbsp;&nbsp;&nbsp;Mostra minhas redes e e-mail<br>
-        &nbsp;&nbsp;<span class="term-path">clear</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Limpa o terminal<br>
-        &nbsp;&nbsp;<span class="term-path">whoami</span>&nbsp;&nbsp;&nbsp;&nbsp;Um pouco sobre mim<br>
+        &nbsp;&nbsp;<span class="term-path">neofetch</span>&nbsp;&nbsp;Mostra informações do sistema<br>
+        &nbsp;&nbsp;<span class="term-path">whoami</span>&nbsp;&nbsp;&nbsp;&nbsp;Resumo do desenvolvedor<br>
+        &nbsp;&nbsp;<span class="term-path">contact</span>&nbsp;&nbsp;&nbsp;Mostra redes e e-mail<br>
+        &nbsp;&nbsp;<span class="term-path">pwd</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Print working directory<br>
+        &nbsp;&nbsp;<span class="term-path">ls</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lista arquivos do projeto<br>
+        &nbsp;&nbsp;<span class="term-path">date</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mostra a data atual do host<br>
+        &nbsp;&nbsp;<span class="term-path">matrix</span>&nbsp;&nbsp;&nbsp;&nbsp;Enter the Matrix<br> &nbsp;&nbsp;<span class="term-path">clear</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Limpa o terminal<br>
       `
       break
     case 'contact':
@@ -118,27 +176,62 @@ function executeCommand() {
       `
       break
     case 'whoami':
-      output = `<span class="info">Rodrigo Augusto Correa Soares - Fullstack Developer focado em Node.js e Java. Amante de Magic: The Gathering e Impressão 3D.</span>`
+      output = `<span class="info">Rodrigo Augusto Correa Soares<br>Fullstack Developer focado em Node.js e Java.<br>Interesses adicionais: Magic: The Gathering (Commander) e Impressão 3D.</span>`
+      break
+    case 'pwd':
+      output = `<span class="text">/home/rodrigo/projects/rodrigoacs-portfolio</span>`
+      break
+    case 'ls':
+      output = `<span class="term-path">src/</span>  <span class="term-path">public/</span>  <span class="success">package.json</span>  <span class="success">vite.config.js</span>  README.md`
+      break
+    case 'date':
+      output = `<span class="text">${new Date().toString()}</span>`
+      break
+    case 'matrix':
+      toggleMatrix()
+      output = `<span class="success">Wake up, Neo...</span>`
+      break
+    case 'neofetch':
+      output = `
+<div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+  <div style="color: var(--theme-accent); font-weight: bold; line-height: 1.2;">
+&nbsp;&nbsp;&nbsp;&nbsp;____<br>
+&nbsp;&nbsp;&nbsp;/ __ \\<br>
+&nbsp;&nbsp;|&nbsp;&nbsp;|&nbsp;&nbsp;|<br>
+&nbsp;&nbsp;|&nbsp;&nbsp;|__|&nbsp;|<br>
+&nbsp;&nbsp;&nbsp;\\____/
+  </div>
+  <div>
+    <span style="color: var(--theme-accent); font-weight: bold;">rodrigo</span>@<span style="color: var(--theme-accent); font-weight: bold;">cyberdeck</span><br>
+    -------------------<br>
+    <span style="color: #ff6188;">OS</span>: Ubuntu 22.04 LTS (WSL2)<br>
+    <span style="color: #ff6188;">Host</span>: Web Browser<br>
+    <span style="color: #ff6188;">Kernel</span>: Vue.js Engine<br>
+    <span style="color: #ff6188;">Uptime</span>: ∞<br>
+    <span style="color: #ff6188;">Shell</span>: zsh<br>
+    <span style="color: #ff6188;">Terminal</span>: VS Code Integrated<br>
+    <span style="color: #ff6188;">CPU</span>: Human Brain (Highly Parallel)<br>
+    <span style="color: #ff6188;">Memory</span>: Needs coffee...<br>
+  </div>
+</div>`
       break
     case 'clear':
       terminalHistory.value = []
       break
-    case 'sudo':
-      output = `<span style="color: #ff6188;">bash: sudo: permissão negada. Nice try, hacker. ;)</span>`
-      break
     default:
-      output = `<span style="color: #ff6188;">bash: comando não encontrado: ${cmd}</span><br><span class="info">Digite 'help' para comandos válidos.</span>`
+      if (cmdLower.startsWith('sudo ')) {
+        output = `<span style="color: #ff6188;">bash: permissão negada. O incidente será reportado. Nice try. ;)</span>`
+      } else {
+        output = `<span style="color: #ff6188;">bash: comando não encontrado: ${cmdRaw}</span><br><span class="info">Digite 'help' para comandos válidos.</span>`
+      }
   }
 
-  if (cmd !== 'clear') {
+  if (cmdLower !== 'clear') {
     terminalHistory.value.push({ type: 'output', content: output })
   }
 
   currentCommand.value = ''
-  nextTick(() => {
-    const contentDiv = document.querySelector('.panel-content')
-    contentDiv.scrollTop = contentDiv.scrollHeight
-  })
+  scrollToBottom()
 }
 
 defineExpose({ isOpen, togglePanel })
@@ -158,7 +251,7 @@ defineExpose({ isOpen, togglePanel })
 }
 
 .bottom-panel.is-open {
-  height: 250px;
+  height: 280px;
   border-top: 1px solid var(--vscode-border);
 }
 
@@ -167,6 +260,7 @@ defineExpose({ isOpen, togglePanel })
   justify-content: space-between;
   align-items: center;
   height: 35px;
+  min-height: 35px;
   cursor: pointer;
   padding: 0 15px;
   background-color: var(--vscode-bg);
@@ -251,6 +345,10 @@ defineExpose({ isOpen, togglePanel })
   color: var(--vscode-text-muted);
 }
 
+:deep(.text) {
+  color: var(--vscode-text);
+}
+
 :deep(.term-path) {
   color: #78dce8;
   font-weight: bold;
@@ -279,5 +377,9 @@ defineExpose({ isOpen, togglePanel })
   font-size: inherit;
   outline: none;
   width: 80%;
+}
+
+.term-input:disabled {
+  opacity: 0.5;
 }
 </style>
