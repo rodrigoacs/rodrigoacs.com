@@ -1,7 +1,7 @@
 <template>
   <div class="vscode-code-block">
     <div class="code-line"><span class="comment">/**</span></div>
-    <div class="code-line"><span class="comment"> * {{ $t("bio.hello") }}</span></div>
+    <div class="code-line"><span class="comment"> * {{ t("bio.hello") }}</span></div>
     <div class="code-line"><span class="comment"> */</span></div>
 
     <div class="code-line">
@@ -23,7 +23,7 @@
         Brasil'</span><span class="text">,</span>
     </div>
     <div class="code-line pl-1">
-      <span class="property">bio</span><span class="text">: </span><span class="string">`{{ $t("bio.p1") }}`</span><span
+      <span class="property">bio</span><span class="text">: </span><span class="string">`{{ t("bio.p1") }}`</span><span
         class="text"
       >,</span>
     </div>
@@ -34,6 +34,14 @@
       >;</span><span class="cursor"></span></div>
   </div>
 </template>
+
+<script setup>
+// 1. Importamos a função diretamente para dentro do componente
+import { useI18n } from 'vue-i18n'
+
+// 2. Extraímos o "t" para usá-lo livremente
+const { t } = useI18n()
+</script>
 
 <style scoped>
 .vscode-code-block {
@@ -48,7 +56,6 @@
   padding-left: 3rem !important;
 }
 
-/* Destaque da Linha Ativa com o padding embutido */
 .code-line {
   margin-bottom: 0;
   white-space: pre-wrap;
@@ -62,7 +69,6 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* IntelliSense Tooltip */
 .tooltip-trigger {
   text-decoration: underline dashed var(--vscode-text-muted);
   cursor: help;
@@ -88,7 +94,6 @@
   pointer-events: none;
 }
 
-/* Destaque de Sintaxe - Monokai */
 .keyword {
   color: var(--syntax-keyword);
   font-style: italic;

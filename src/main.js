@@ -15,6 +15,7 @@ const languages = {
 
 const i18n = createI18n({
   legacy: false,
+  globalInjection: true, // <-- ESTA É A LINHA MÁGICA QUE FALTAVA
   locale: getUserLocale(),
   fallbackLocale: 'en',
   messages: languages,

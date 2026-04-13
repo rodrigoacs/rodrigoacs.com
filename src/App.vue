@@ -3,53 +3,16 @@
     class="vscode-app"
     :style="dynamicStyles"
   >
-
-    <div
-      v-if="showSplash"
-      class="splash-screen"
-      :class="{ 'fade-out': isFadingSplash }"
-    >
-      <img
-        src="/src/assets/favicon.ico"
-        class="splash-favicon-centered"
-        alt="loading portfolio"
-      />
-    </div>
-
-    <canvas
-      ref="matrixCanvas"
-      class="matrix-overlay"
-      v-show="isMatrixActive"
-    ></canvas>
-
-    <CommandPalette
-      ref="commandPalette"
-      @toggle-panel="toggleTerminal"
-    />
-
     <div class="vscode-body">
       <div class="vscode-activity-bar">
         <div
           class="activity-icon active"
-          title="Explorer"
+          :title="$t('nav.explorer')"
         ><i class="codicon codicon-files"></i></div>
-        <div
-          class="activity-icon"
-          title="Search"
-        ><i class="codicon codicon-search"></i></div>
-        <div
-          class="activity-icon"
-          title="Source Control"
-        ><i class="codicon codicon-source-control"></i></div>
-        <div
-          class="activity-icon bottom"
-          title="Manage"
-          @click="openCommandPalette"
-        ><i class="codicon codicon-settings-gear"></i></div>
       </div>
 
       <div class="vscode-sidebar">
-        <div class="sidebar-title">EXPLORER</div>
+        <div class="sidebar-title">{{ $t('nav.explorer') }}</div>
         <Navigation />
       </div>
 
@@ -58,52 +21,17 @@
           class="editor-split-layout"
           :class="{ 'is-dragging': isResizing }"
         >
-
           <div
             class="editor-pane"
             :style="isPreviewOpen ? { width: leftPaneWidth + '%' } : { flex: 1 }"
           >
-            <div class="editor-tabs">
-              <div class="tab active">
-                <FileIcon :name="currentFileName" />
-                <span class="tab-name">{{ currentFileName }}</span>
-                <span class="close-icon">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="currentColor"
-                    width="14"
-                    height="14"
-                  >
-                    <path d="M8 7.3l4.1-4.2.7.7L8.7 8l4.2 4.1-.7.7L8 8.7l-4.1 4.2-.7-.7L7.3 8 3.1 3.9l.7-.7L8 7.3z" />
-                  </svg>
-                </span>
-              </div>
-            </div>
-
             <div class="editor-breadcrumbs">rodrigoacs-portfolio > src > views > {{ currentFileName }}</div>
-
-            <div class="editor-layout-wrapper">
-              <div class="editor-content-area">
-                <div class="line-numbers">
-                  <div
-                    v-for="n in 50"
-                    :key="n"
-                    class="line-number"
-                  >{{ n }}</div>
-                </div>
-                <div class="code-content">
-                  <RouterView />
-                </div>
-              </div>
-            </div>
           </div>
 
           <div
             class="resizer"
             v-if="isPreviewOpen"
             @mousedown="startResize"
-            :class="{ 'active': isResizing }"
           ></div>
 
           <div
@@ -113,50 +41,10 @@
           >
             <div class="editor-tabs">
               <div class="tab active">
-                <img
-                  :src="previewFaviconUrl"
-                  class="favicon-img"
-                  alt="favicon"
-                  @error="e => e.target.src = 'https://cdn.jsdelivr.net/gh/miguelsolorio/vscode-symbols@main/src/icons/files/html.svg'"
-                />
-                <span class="tab-name">{{ previewTitle }}</span>
-                <span
-                  class="close-icon"
-                  @click="closePreview"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="currentColor"
-                    width="14"
-                    height="14"
-                  >
-                    <path d="M8 7.3l4.1-4.2.7.7L8.7 8l4.2 4.1-.7.7L8 8.7l-4.1 4.2-.7-.7L7.3 8 3.1 3.9l.7-.7L8 7.3z" />
-                  </svg>
-                </span>
+                <span class="tab-name">{{ $t('nav.browser') }}: {{ previewTitle }}</span>
               </div>
-            </div>
-            <div class="preview-content-area">
-              <div class="browser-toolbar">
-                <span
-                  class="browser-btn"
-                  @click="iframeKey++"
-                >⟳</span>
-                <input
-                  type="text"
-                  readonly
-                  :value="previewUrl"
-                  class="browser-address-bar"
-                />
-              </div>
-              <iframe
-                :src="previewUrl"
-                :key="iframeKey"
-                class="preview-iframe"
-              ></iframe>
             </div>
           </div>
-
         </div>
         <BottomPanel ref="bottomPanel" />
       </div>

@@ -73,8 +73,10 @@
 <script setup>
 import { ref, nextTick } from 'vue'
 import { useSettings } from '@/composables/useSettings'
+import { useI18n } from 'vue-i18n'
 
 const { toggleMatrix } = useSettings()
+const { t } = useI18n()
 
 const isOpen = ref(false)
 const termInput = ref(null)
@@ -127,7 +129,7 @@ function bootTerminal() {
       setTimeout(() => {
         terminalHistory.value.push({
           type: 'output',
-          content: '<span class="info">Portfolio Terminal v1.0.0 inicializado.</span><br><span class="info">Acesso concedido. Digite <span class="success">help</span> para listar os comandos.</span>'
+          content: `<span class="info">${t('terminal.boot')}</span><br><span class="info">${t('terminal.access')} <span class="success">help</span> ${t('terminal.help_hint')}</span>`
         })
         isBooting.value = false
         isInputDisabled.value = false
@@ -156,29 +158,29 @@ function executeCommand() {
   switch (cmdLower) {
     case 'help':
       output = `
-        <span class="success">Comandos disponíveis:</span><br>
-        &nbsp;&nbsp;<span class="term-path">help</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mostra esta lista<br>
-        &nbsp;&nbsp;<span class="term-path">neofetch</span>&nbsp;&nbsp;Mostra informações do sistema<br>
-        &nbsp;&nbsp;<span class="term-path">github</span>&nbsp;&nbsp;&nbsp;&nbsp;Busca stats em tempo real do GitHub<br>
-        &nbsp;&nbsp;<span class="term-path">whoami</span>&nbsp;&nbsp;&nbsp;&nbsp;Resumo do desenvolvedor<br>
-        &nbsp;&nbsp;<span class="term-path">contact</span>&nbsp;&nbsp;&nbsp;Mostra redes e e-mail<br>
-        &nbsp;&nbsp;<span class="term-path">pwd</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Print working directory<br>
-        &nbsp;&nbsp;<span class="term-path">ls</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lista arquivos do projeto<br>
-        &nbsp;&nbsp;<span class="term-path">date</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mostra a data atual do host<br>
-        &nbsp;&nbsp;<span class="term-path">matrix</span>&nbsp;&nbsp;&nbsp;&nbsp;Enter the Matrix<br> 
-        &nbsp;&nbsp;<span class="term-path">clear</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Limpa o terminal<br>
+        <span class="success">${t('terminal.help_title')}</span><br>
+        &nbsp;&nbsp;<span class="term-path">help</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${t('terminal.help_desc')}<br>
+        &nbsp;&nbsp;<span class="term-path">neofetch</span>&nbsp;&nbsp;${t('terminal.neofetch_desc')}<br>
+        &nbsp;&nbsp;<span class="term-path">github</span>&nbsp;&nbsp;&nbsp;&nbsp;${t('terminal.github_desc')}<br>
+        &nbsp;&nbsp;<span class="term-path">whoami</span>&nbsp;&nbsp;&nbsp;&nbsp;${t('terminal.whoami_desc')}<br>
+        &nbsp;&nbsp;<span class="term-path">contact</span>&nbsp;&nbsp;&nbsp;${t('terminal.contact_desc')}<br>
+        &nbsp;&nbsp;<span class="term-path">pwd</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${t('terminal.pwd_desc')}<br>
+        &nbsp;&nbsp;<span class="term-path">ls</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${t('terminal.ls_desc')}<br>
+        &nbsp;&nbsp;<span class="term-path">date</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${t('terminal.date_desc')}<br>
+        &nbsp;&nbsp;<span class="term-path">matrix</span>&nbsp;&nbsp;&nbsp;&nbsp;${t('terminal.matrix_desc')}<br> 
+        &nbsp;&nbsp;<span class="term-path">clear</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${t('terminal.clear_desc')}<br>
       `
       break
     case 'contact':
       output = `
-        <span class="success">✔ Conexão estabelecida.</span> Canais disponíveis:<br><br>
+        <span class="success">${t('terminal.contact_success')}</span><br><br>
         &nbsp;&nbsp;<a href="mailto:rodrigohths@gmail.com" class="link" target="_blank">[E-mail]  rodrigohths@gmail.com</a><br>
         &nbsp;&nbsp;<a href="https://www.linkedin.com/in/rodrigoacsoares/" class="link" target="_blank">[LinkedIn] rodrigoacsoares</a><br>
         &nbsp;&nbsp;<a href="https://github.com/rodrigoacs" class="link" target="_blank">[GitHub]   rodrigoacs</a>
       `
       break
     case 'whoami':
-      output = `<span class="info">Rodrigo Augusto Correa Soares<br>Fullstack Developer focado em Node.js e Java.<br>Interesses adicionais: Magic: The Gathering (Commander) e Impressão 3D.</span>`
+      output = `<span class="info">${t('terminal.whoami_text')}</span>`
       break
     case 'pwd':
       output = `<span class="text">/home/rodrigo/projects/rodrigoacs-portfolio</span>`
@@ -191,15 +193,11 @@ function executeCommand() {
       break
     case 'matrix':
       toggleMatrix()
-      output = `<span class="success">Wake up, Neo...</span>`
+      output = `<span class="success">${t('terminal.matrix_text')}</span>`
       break
-
-    // ---- NOVA INTEGRAÇÃO COM A API DO GITHUB ----
     case 'github':
-      output = `<span class="info">📡 Conectando à API do GitHub (rodrigoacs)...</span>`
+      output = `<span class="info">📡 ${t('terminal.github_fetching')}</span>`
       terminalHistory.value.push({ type: 'output', content: output })
-
-      // Oculta input temporariamente simulando processamento
       isInputDisabled.value = true
 
       fetch('https://api.github.com/users/rodrigoacs')
@@ -208,7 +206,6 @@ function executeCommand() {
           return res.json()
         })
         .then(data => {
-          // Busca secundária: Os 3 repositórios mais recentemente atualizados
           return fetch('https://api.github.com/users/rodrigoacs/repos?sort=updated&per_page=3')
             .then(res => res.json())
             .then(repos => ({ user: data, repos }))
@@ -218,13 +215,13 @@ function executeCommand() {
 
           const ghOutput = `
             <div style="margin-top: 10px; border-left: 2px solid #a9dc76; padding-left: 10px; line-height: 1.6;">
-              <span class="success">✔ Sincronização concluída com sucesso</span><br><br>
-              <span class="term-path">Usuário:</span> ${user.login}<br>
+              <span class="success">✔ ${t('terminal.github_success')}</span><br><br>
+              <span class="term-path">${t('terminal.user')}:</span> ${user.login}<br>
               <span class="term-path">Bio:</span> ${user.bio || 'Desenvolvedor'}<br>
-              <span class="term-path">Seguidores:</span> ${user.followers} | <span class="term-path">Repositórios Públicos:</span> ${user.public_repos}<br><br>
-              <span class="term-path">Últimos repositórios ativos:</span><br>
+              <span class="term-path">${t('terminal.followers')}:</span> ${user.followers} | <span class="term-path">${t('terminal.repos')}:</span> ${user.public_repos}<br><br>
+              <span class="term-path">${t('terminal.last_repos')}:</span><br>
               ${reposHtml}<br><br>
-              <a href="${user.html_url}" target="_blank" class="link">[Abrir Perfil Completo no GitHub]</a>
+              <a href="${user.html_url}" target="_blank" class="link">[${t('terminal.open_profile')}]</a>
             </div>
           `
           terminalHistory.value.push({ type: 'output', content: ghOutput })
@@ -238,9 +235,7 @@ function executeCommand() {
           focusInput()
           scrollToBottom()
         })
-      return // Retorno antecipado pois a operação é assíncrona
-    // ---------------------------------------------
-
+      return
     case 'neofetch':
       output = `
 <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
@@ -270,9 +265,9 @@ function executeCommand() {
       break
     default:
       if (cmdLower.startsWith('sudo ')) {
-        output = `<span style="color: #ff6188;">bash: permissão negada. O incidente será reportado. Nice try. ;)</span>`
+        output = `<span style="color: #ff6188;">bash: ${t('terminal.permission_denied')}</span>`
       } else {
-        output = `<span style="color: #ff6188;">bash: comando não encontrado: ${cmdRaw}</span><br><span class="info">Digite 'help' para comandos válidos.</span>`
+        output = `<span style="color: #ff6188;">bash: ${t('terminal.not_found')}: ${cmdRaw}</span><br><span class="info">${t('terminal.help_footer')}</span>`
       }
   }
 
