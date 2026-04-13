@@ -4,7 +4,7 @@
 
     <div class="code-line pl-1">
       <span class="property">"filename"</span><span class="text">: </span><span class="string">"{{ t('cv.filename')
-        }}"</span><span class="text">,</span>
+      }}"</span><span class="text">,</span>
     </div>
 
     <div class="code-line pl-1">
@@ -22,7 +22,7 @@
 
     <div class="code-line pl-1">
       <span class="property">"summary"</span><span class="text">: </span><span class="string">"{{ t('cv.summary')
-        }}"</span><span class="text">,</span>
+      }}"</span><span class="text">,</span>
     </div>
 
     <div class="code-line pl-1">
@@ -46,10 +46,10 @@
         >"{{ exp.description }}"</span></div>
       <div class="code-line pl-2"><span class="text">}{{ index <
         tm('cv.experiences').length
-            -
-            1
-            ? ','
-            : ''
+        -
+        1
+        ? ','
+        : ''
             }}</span
           >
       </div>
@@ -75,10 +75,10 @@
           class="string">"{{ edu.time }}"</span></div>
       <div class="code-line pl-2"><span class="text">}{{ index <
         tm('cv.educations').length
-            -
-            1
-            ? ','
-            : ''
+        -
+        1
+        ? ','
+        : ''
             }}</span
           >
       </div>
@@ -89,7 +89,6 @@
     <div class="code-line pl-1">
       <span class="property">"skills"</span><span class="text">: {</span>
     </div>
-
     <div class="code-line pl-2"><span class="property">"languages"</span><span class="text">: </span><span
         class="string"
       >"{{ t('cv.skills.lang') }}"</span><span class="text">,</span></div>
@@ -114,11 +113,11 @@
       >function</span><span class="text">() {</span></div>
     <div class="code-line pl-3"><span class="comment">// {{ t('cv.download_comment') }}</span></div>
     <div class="code-line pl-3"><span class="text">window.open(</span><a
-        href="https://librishelf.com/download/cv_RodrigoSoares.pdf"
+        href="soon"
         target="_blank"
         download
         class="string download-link"
-      >"https://librishelf.com/download/cv_RodrigoSoares.pdf"</a><span class="text">);</span>
+      >"soon"</a><span class="text">);</span>
     </div>
     <div class="code-line pl-2"><span class="text">}</span></div>
     <div class="code-line pl-1"><span class="text">}</span></div>
@@ -128,7 +127,6 @@
 </template>
 
 <script setup>
-// <-- ESTE BLOCO FALTAVA NO SEU FICHEIRO CV.VUE! É O QUE LIGA A TRADUÇÃO À PÁGINA -->
 import { useI18n } from 'vue-i18n'
 const { t, tm } = useI18n()
 </script>

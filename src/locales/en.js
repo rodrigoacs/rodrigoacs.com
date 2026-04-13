@@ -25,7 +25,7 @@ export default {
     matrix_desc: "Enter the Matrix",
     clear_desc: "Clears the terminal",
     contact_success: "✔ Connection established. Available channels:",
-    whoami_text: "Rodrigo Augusto Correa Soares<br>Fullstack Developer focused on Node.js and Java.<br>Additional interests: Magic: The Gathering (Commander) and 3D Printing.",
+    whoami_text: "Rodrigo Augusto Correa Soares<br>Fullstack Developer focused on Node.js and Java.<br>Interests: Magic: The Gathering (Commander) and 3D Printing.",
     matrix_text: "Wake up, Neo...",
     github_fetching: "Connecting to GitHub API (rodrigoacs)...",
     github_success: "Synchronization completed successfully",
@@ -36,14 +36,18 @@ export default {
     open_profile: "Open Full GitHub Profile",
     not_found: "command not found",
     help_footer: "Type 'help' for valid commands.",
-    permission_denied: "permission denied. This incident will be reported. Nice try. ;)"
+    permission_denied: "permission denied. Nice try. ;)"
   },
   bio: {
     hello: 'hi, I am Rodrigo!',
-    p1: 'I am a software developer focused on creating scalable solutions and optimizing data pipelines. I started programming back in 2018 and, currently studying Information Systems, I built a foundation that allows me to work end-to-end on applications. I have solid experience in the JavaScript/Node.js ecosystem and building interfaces with Vue.js. But my real specialty is backend: I develop RESTful APIs, middlewares, and real-time data integration architectures using Node.js and SQL. I have practical experience solving complex ETL challenges and connecting giant retail systems like Salesforce, SAP, and Winthor. Outside of work, you can find me reading, playing Magic: The Gathering, or tinkering with 3D printing. Here on the site, you can find my resume, details about my career, and my blog. Check out some of my projects below.',
+    p1: 'I am a software developer focused on building scalable solutions and optimizing data pipelines. I started programming in 2018 and, currently studying Information Systems, I built a foundation that allows me to work end-to-end on applications. I have solid experience in the JavaScript/Node.js ecosystem and building interfaces with Vue.js. My specialty is backend: developing RESTful APIs, middlewares, and real-time data integration architectures. I have practical experience connecting retail systems like Salesforce, SAP, and Winthor.',
   },
   projects: {
     title: 'projects',
+    comment: "Catalog of personal and ongoing projects.",
+    dynamic_data: "Data loaded dynamically via src/data/projects.json",
+    preview: "Preview Project",
+    repo: "Repository"
   },
   blog: {
     title: 'read some of my posts',
@@ -54,17 +58,17 @@ export default {
     github: "https://github.com/rodrigoacs",
     linkedin: "https://www.linkedin.com/in/rodrigoacsoares/",
     website: "https://rodrigoacs.com",
-    summary: "Software Developer focused on building robust, scalable solutions and optimizing data pipelines. Solid experience in JavaScript and Node.js, specializing in RESTful APIs, middleware development, and large-scale integrations...",
+    summary: "Software Developer focused on building robust, scalable solutions and optimizing data pipelines. Solid experience in JavaScript and Node.js, specializing in RESTful APIs, middleware development, and large-scale integrations. Also experienced in developing dynamic and responsive interfaces using Vue.js. Practical experience with data ingestion, transformation, and synchronization (ETL) between complex systems (Salesforce, SAP, and Winthor). Proficient in DevOps pipelines (CI/CD), Docker, and agile methodologies.",
     experiences: [
-      { company: "S³ - SCube", role: "Software Developer", period: "December 2025 - Present", description: "Development and architecture of intelligent chatbots aimed at automating support and sales, integrating the Whatsapp API with Generative AI models (OpenAI)." },
-      { company: "B2List", role: "Software Developer", period: "September 2024 - December 2025", description: "Construction and maintenance of microservices and data pipelines (ETL) in Node.js, ensuring efficient large-scale information ingestion." },
+      { company: "S-Cube", role: "Software Developer", period: "December 2025 - Present", description: "Development and architecture of intelligent chatbots, integrating WhatsApp API with Generative AI models (OpenAI). Implementation of PostgreSQL persistence and infrastructure management via Dokploy (Docker)." },
+      { company: "B2List", role: "Software Developer", period: "September 2024 - December 2025", description: "Construction and maintenance of microservices and ETL pipelines in Node.js, ensuring efficient large-scale information ingestion. Focus on high-performance APIs." },
       { company: "CSN Mineração", role: "Development Intern", period: "August 2024 - November 2024", description: "System performance analysis, including SQL query tuning and application health monitoring." },
-      { company: "CLI Consultoria", role: "Systems Development Analyst", period: "March 2024 - July 2024", description: "Optimization of RESTful APIs for real-time data consumption, focusing on low latency and high availability for critical systems." },
-      { company: "CLI Consultoria", role: "Data Engineering Intern", period: "February 2023 - March 2024", description: "Development of data ingestion routines from diverse sources, including APIs (MongoDB) and ERP/CRM systems (SAP, Salesforce)." }
+      { company: "CLI Consultoria", role: "Systems Development Analyst", period: "March 2024 - July 2024", description: "Optimization of RESTful APIs for real-time data consumption. Development of middlewares for data orchestration between legacy systems (SAP) and Salesforce." },
+      { company: "CLI Consultoria", role: "Development Intern", period: "February 2023 - March 2024", description: "Development of data ingestion routines (MongoDB, SAP, Winthor, Salesforce). Maintenance and optimization of existing data pipelines and cloud environments (AWS EC2)." }
     ],
     educations: [
       { time: "September 2021 - Present", local: "IFMG, Ouro Branco - MG", course: "Bachelor's in Information Systems" },
-      { time: "January 2018 - April 2021", local: "IFMG, Congonhas - MG", course: "Integrated Technical in Mechanics" }
+      { time: "January 2018 - April 2021", local: "IFMG, Congonhas - MG", course: "Technical in Mechanics" }
     ],
     skills: {
       lang: "Java, JavaScript (Node.js), Python, SQL, Kotlin",

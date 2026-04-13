@@ -1,9 +1,8 @@
 <template>
   <div class="vscode-code-block">
     <div class="code-line"><span class="comment">/**</span></div>
-    <div class="code-line"><span class="comment"> * Catálogo de projetos pessoais e em desenvolvimento.</span></div>
-    <div class="code-line"><span class="comment"> * Dados carregados dinamicamente via src/data/projects.json</span>
-    </div>
+    <div class="code-line"><span class="comment"> * {{ t('projects.comment') }}</span></div>
+    <div class="code-line"><span class="comment"> * {{ t('projects.dynamic_data') }}</span></div>
     <div class="code-line"><span class="comment"> */</span></div>
 
     <div class="code-line">
@@ -29,13 +28,13 @@
         <span
           class="codelens"
           @click="openPreview(project.name, project.previewUrl)"
-        >▶ Preview Project</span>
+        >▶ {{ t('projects.preview') }}</span>
         <span class="codelens-separator">|</span>
         <a
           :href="project.repoUrl"
           target="_blank"
           class="codelens"
-        >🔗 Repository</a>
+        >🔗 {{ t('projects.repo') }}</a>
       </div>
 
       <div class="code-line pl-1"><span class="text">{</span></div>
@@ -53,10 +52,10 @@
         >
           <span class="string">'{{ tech }}'</span><span class="text">{{ tIndex <
             project.stack.length
-            -
-            1
-            ? ', '
-            : ''
+              -
+              1
+              ? ', '
+              : ''
               }}</span
             >
         </template>
@@ -65,10 +64,10 @@
 
       <div class="code-line pl-1"><span class="text">}{{ index <
         projects.length
-        -
-        1
-        ? ','
-        : ''
+            -
+            1
+            ? ','
+            : ''
             }}</span
           >
       </div>
@@ -82,9 +81,11 @@
 <script setup>
 import { usePreview } from '@/composables/usePreview'
 import projectsData from '@/data/projects.json'
+import { useI18n } from 'vue-i18n' // <-- Importando o i18n
 
 const { openPreview } = usePreview()
 const projects = projectsData
+const { t } = useI18n() // <-- Extraindo o tradutor
 </script>
 
 <style scoped>

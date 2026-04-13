@@ -1,46 +1,49 @@
 <template>
   <div class="vscode-code-block">
-    <div class="code-line"><span class="md-heading"># {{ $t("blog.title") }}</span></div>
-    <div class="code-line"></div>
-    <div class="code-line"><span class="md-quote">> Meus artigos, tutoriais e devaneios sobre desenvolvimento fullstack,
-        impressão 3D e tecnologia.</span></div>
-    <div class="code-line"></div>
-    <div class="code-line"><span class="md-hr">---</span></div>
-    <div class="code-line"></div>
+    <div class="code-line"><span class="comment">/**</span></div>
+    <div class="code-line"><span class="comment"> * {{ t("blog.title") }}</span></div>
+    <div class="code-line"><span class="comment"> */</span></div>
 
-    <!-- <div class="code-line">
-      <span class="md-heading">## </span><a
-        href="#"
-        class="md-link"
-      >[to-do]</a><span class="md-url">(to-do)</span>
-    </div>
     <div class="code-line">
-      <span class="md-bold">**00 Out 0000**</span> <span class="text">|</span> <span class="md-italic">*Backend,
-        Node.js, Architecture*</span>
+      <span class="keyword">import</span> <span class="text">{</span> <span class="type">Post</span> <span
+        class="text">}</span> <span class="keyword">from</span> <span class="string">'@/types/blog'</span><span
+        class="text"
+      >;</span>
     </div>
+    <br />
+
     <div class="code-line">
-      <span class="text">...</span>
-    </div> -->
-    <div class="code-line"></div>
-    <div class="code-line"><span class="md-hr">---</span></div>
-    <div class="code-line"></div>
-    <div class="code-line"><span class="cursor"></span></div>
+      <span class="keyword">export const</span> <span class="var">blogPosts</span><span class="text">: </span><span
+        class="type"
+      >Post</span><span class="text">[] = [</span>
+    </div>
+
+    <div class="code-line pl-1"><span class="comment">// Em breve, novos artigos sobre Node.js, Java e Magic...</span>
+    </div>
+    <div class="code-line"><span class="text">];</span><span class="cursor"></span></div>
   </div>
 </template>
+
+<script setup>
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+</script>
 
 <style scoped>
 .vscode-code-block {
   font-size: var(--editor-font-size, 14px);
 }
 
-/* Destaque da Linha Ativa */
+.pl-1 {
+  padding-left: 2rem !important;
+}
+
 .code-line {
   margin-bottom: 0;
   white-space: pre-wrap;
   padding: 0 10px;
   border: 1px solid transparent;
   transition: background-color 0.1s;
-  line-height: 1.6;
 }
 
 .code-line:hover {
@@ -48,55 +51,28 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Destaque de Sintaxe - Markdown Monokai */
-.md-heading {
+.keyword {
   color: var(--syntax-keyword);
-  font-weight: bold;
-}
-
-/* Rosa */
-.md-quote {
-  color: var(--syntax-comment);
   font-style: italic;
-  border-left: 3px solid var(--vscode-border);
-  padding-left: 10px;
-  margin-left: 2px;
 }
 
-/* Cinza com borda lateral */
-.md-hr {
-  color: var(--vscode-text-muted);
-  letter-spacing: 2px;
-  font-weight: bold;
+.type {
+  color: var(--syntax-class);
+  font-style: italic;
 }
 
-.md-link {
-  color: var(--syntax-property);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-/* Ciano */
-.md-link:hover {
-  text-decoration: underline;
-  color: var(--theme-accent);
-}
-
-.md-url {
-  color: var(--vscode-text-muted);
-}
-
-.md-bold {
+.var {
   color: var(--syntax-var);
-  font-weight: bold;
 }
 
-.md-italic {
+.string {
   color: var(--syntax-string);
-  font-style: italic;
 }
 
-/* Amarelo/Laranja */
+.comment {
+  color: var(--syntax-comment);
+}
+
 .text {
   color: var(--vscode-text);
 }
