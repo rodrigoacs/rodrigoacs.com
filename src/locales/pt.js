@@ -1,9 +1,7 @@
 export const pt = {
   bio: {
     hello: 'olá, eu sou o Rodrigo!',
-    p1: 'Sou Analista de Desenvolvimento de Sistemas com uma sólida experiência na construção de soluções de integração para o setor varejista. Comecei a programar em 2018 no ensino médio com Pascal e continuei com C na faculdade, onde atualmente curso Sistemas de Informação.',
-    p2: 'Ao longo dos anos, desenvolvi um interesse por desenvolvimento web, com foco em backend e integração de dados utilizando tecnologias como Node.js, SQL e C#. Também adquiri experiência no desenvolvimento de middlewares em Java e APIs para processamento de dados em tempo real.',
-    p3: 'Neste site, você encontrará informações sobre minha carreira, meu currículo e meu blog, onde compartilho meus conhecimentos e experiências. Confira alguns dos meus projetos logo abaixo.',
+    p1: 'Sou desenvolvedor de software com foco em criar soluções escaláveis e otimizar pipelines de dados. Comecei a programar lá em 2018 e, hoje cursando Sistemas de Informação, construí uma base que me permite atuar de ponta a ponta nas aplicações. Tenho bastante vivência no ecossistema JavaScript/Node.js e na criação de interfaces com Vue.js. Mas minha especialidade mesmo é o backend: desenvolvo APIs RESTful, middlewares e arquiteturas de integração de dados em tempo real usando Node.js e SQL. Tenho experiência prática resolvendo desafios complexos de ETL e conectando sistemas gigantes do varejo, como Salesforce, SAP e Winthor. Fora do trabalho, você me encontra lendo, jogando Magic: The Gathering ou mexendo com impressão 3D. Aqui no site você encontra meu currículo, detalhes sobre a minha carreira e meu blog. Dá uma olhada em alguns dos meus projetos logo abaixo.',
   },
   projects: {
     title: 'projetos',

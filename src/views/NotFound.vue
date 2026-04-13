@@ -35,7 +35,7 @@ const route = useRoute()
 
 <style scoped>
 .vscode-code-block {
-  font-size: 14px;
+  font-size: var(--editor-font-size, 14px);
 }
 
 .code-line {

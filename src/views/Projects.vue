@@ -60,18 +60,15 @@
               }}</span
             >
         </template>
-        <span class="text">],</span>
+        <span class="text">]</span>
       </div>
 
-      <div class="code-line pl-2"><span class="property">status</span><span class="text">: </span><span
-          class="string">'{{
-            project.status }}'</span></div>
       <div class="code-line pl-1"><span class="text">}{{ index <
         projects.length
-            -
-            1
-            ? ','
-            : ''
+        -
+        1
+        ? ','
+        : ''
             }}</span
           >
       </div>
@@ -92,7 +89,7 @@ const projects = projectsData
 
 <style scoped>
 .vscode-code-block {
-  font-size: 14px;
+  font-size: var(--editor-font-size, 14px);
 }
 
 .pl-1 {

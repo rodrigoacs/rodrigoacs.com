@@ -15,44 +15,143 @@
     <div class="code-line pl-2"><span class="property">"github"</span><span class="text">: </span><span
         class="string">"https://github.com/rodrigoacs"</span><span class="text">,</span></div>
     <div class="code-line pl-2"><span class="property">"linkedin"</span><span class="text">: </span><span
-        class="string">"https://www.linkedin.com/in/rodrigoacsoares/"</span></div>
+        class="string">"https://www.linkedin.com/in/rodrigoacsoares/"</span><span class="text">,</span></div>
+    <div class="code-line pl-2"><span class="property">"website"</span><span class="text">: </span><span
+        class="string">"https://rodrigoacs.com"</span></div>
     <div class="code-line pl-1"><span class="text">},</span></div>
+
+    <div class="code-line pl-1">
+      <span class="property">"summary"</span><span class="text">: </span><span class="string">"Desenvolvedor de Software
+        focado na construção de soluções robustas, escaláveis e na otimização de pipelines de dados. Sólida experiência
+        em JavaScript e Node.js, especializado na criação e otimização de APIs RESTful, desenvolvimento de middlewares e
+        soluções de integração em larga escala. Possui também vivência no desenvolvimento de interfaces dinâmicas e
+        responsivas utilizando Vue.js, atuando de ponta a ponta nas aplicações. Experiência prática com ingestão,
+        transformação e sincronização de dados (ETL) entre sistemas complexos (como Salesforce, SAP e Winthor).
+        Proficiente em esteiras DevOps (CI/CD), Docker e metodologias ágeis, buscando entregar código de alta qualidade
+        para suportar a transformação tecnológica de grandes clientes."</span><span class="text">,</span>
+    </div>
+
+    <div class="code-line pl-1">
+      <span class="property">"experience"</span><span class="text">: [</span>
+    </div>
+
+    <div class="code-line pl-2"><span class="text">{</span></div>
+    <div class="code-line pl-3"><span class="property">"company"</span><span class="text">: </span><span
+        class="string">"S³ - SCube"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"role"</span><span class="text">: </span><span
+        class="string">"Desenvolvedor de Software"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"period"</span><span class="text">: </span><span
+        class="string">"Dezembro de 2025 - Atual"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"description"</span><span class="text">: </span><span
+        class="string"
+      >"Desenvolvimento e arquitetura de chatbots inteligentes voltados para automação de suporte, vendas e triagem,
+        integrando a API Whatsapp com modelos de IA Generativa (OpenAI) para criação de fluxos dinâmicos. Implementação
+        da persistência de contexto e histórico conversacional em PostgreSQL, aliada à gestão de infraestrutura e
+        pipelines de deploy automatizados via Dokploy (Docker)."</span></div>
+    <div class="code-line pl-2"><span class="text">},</span></div>
+
+    <div class="code-line pl-2"><span class="text">{</span></div>
+    <div class="code-line pl-3"><span class="property">"company"</span><span class="text">: </span><span
+        class="string">"B2List"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"role"</span><span class="text">: </span><span
+        class="string">"Desenvolvedor de Software"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"period"</span><span class="text">: </span><span
+        class="string">"Setembro de 2024 - Dezembro de 2025"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"description"</span><span class="text">: </span><span
+        class="string"
+      >"Construção e manutenção de microsserviços e pipelines de dados (ETL) em Node.js, garantindo a ingestão e
+        sincronização eficiente de informações em larga escala. Foco na construção de APIs performáticas."</span></div>
+    <div class="code-line pl-2"><span class="text">},</span></div>
+
+    <div class="code-line pl-2"><span class="text">{</span></div>
+    <div class="code-line pl-3"><span class="property">"company"</span><span class="text">: </span><span
+        class="string">"CSN Mineração"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"role"</span><span class="text">: </span><span
+        class="string">"Estagiário de Desenvolvimento"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"period"</span><span class="text">: </span><span
+        class="string">"Agosto de 2024 - Novembro de 2024"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"description"</span><span class="text">: </span><span
+        class="string"
+      >"Análise de performance de sistemas, incluindo otimização de consultas SQL (tunning) e monitoramento da saúde de
+        aplicações."</span></div>
+    <div class="code-line pl-2"><span class="text">},</span></div>
+
+    <div class="code-line pl-2"><span class="text">{</span></div>
+    <div class="code-line pl-3"><span class="property">"company"</span><span class="text">: </span><span
+        class="string">"CLI Consultoria"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"role"</span><span class="text">: </span><span
+        class="string">"Analista de Desenvolvimento de Sistemas"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"period"</span><span class="text">: </span><span
+        class="string">"Março de 2024 - Julho de 2024"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"description"</span><span class="text">: </span><span
+        class="string"
+      >"Otimização de APIs RESTful para consumo de dados em tempo real, focando em baixa latência e alta disponibilidade
+        para sistemas críticos. Desenvolvimento de middlewares para orquestração e transformação de dados entre sistemas
+        legados (SAP) e plataformas de terceiros (Salesforce)."</span></div>
+    <div class="code-line pl-2"><span class="text">},</span></div>
+
+    <div class="code-line pl-2"><span class="text">{</span></div>
+    <div class="code-line pl-3"><span class="property">"company"</span><span class="text">: </span><span
+        class="string">"CLI Consultoria"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"role"</span><span class="text">: </span><span
+        class="string">"Estagiário de Desenvolvimento"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"period"</span><span class="text">: </span><span
+        class="string">"Fevereiro de 2023 - Março de 2024"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"description"</span><span class="text">: </span><span
+        class="string"
+      >"Desenvolvimento de rotinas de ingestão de dados a partir de fontes diversas, incluindo APIs (MongoDB) e sistemas
+        ERPs (SAP, Winthor) e CRM (Salesforce). Atuação em ambientes cloud com AWS EC2 e gerenciamento Linux."</span>
+    </div>
+    <div class="code-line pl-2"><span class="text">}</span></div>
+
+    <div class="code-line pl-1"><span class="text">],</span></div>
 
     <div class="code-line pl-1">
       <span class="property">"education"</span><span class="text">: [</span>
     </div>
 
-    <template
-      v-for='(edu, index) in $tm("cv.educations")'
-      :key='index'
-    >
-      <div class="code-line pl-2"><span class="text">{</span></div>
-      <div class="code-line pl-3"><span class="property">"time"</span><span class="text">: </span><span
-          class="string">"{{ edu.time }}"</span><span class="text">,</span></div>
-      <div class="code-line pl-3"><span class="property">"local"</span><span class="text">: </span><span
-          class="string">"{{ edu.local }}"</span><span class="text">,</span></div>
-      <div class="code-line pl-3"><span class="property">"course"</span><span class="text">: </span><span
-          class="string">"{{ edu.course }}"</span></div>
-      <div class="code-line pl-2"><span class="text">}{{ index <
-        $tm("cv.educations").length
-            -
-            1
-            ? ','
-            : ''
-            }}</span
-          >
-      </div>
-    </template>
+    <div class="code-line pl-2"><span class="text">{</span></div>
+    <div class="code-line pl-3"><span class="property">"institution"</span><span class="text">: </span><span
+        class="string"
+      >"IFMG, Ouro Branco - MG"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"course"</span><span class="text">: </span><span
+        class="string">"Bacharelado em Sistemas de Informação"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"period"</span><span class="text">: </span><span
+        class="string">"Setembro de 2021 - Presente"</span></div>
+    <div class="code-line pl-2"><span class="text">},</span></div>
+
+    <div class="code-line pl-2"><span class="text">{</span></div>
+    <div class="code-line pl-3"><span class="property">"institution"</span><span class="text">: </span><span
+        class="string"
+      >"IFMG, Congonhas - MG"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"course"</span><span class="text">: </span><span
+        class="string">"Técnico Integrado em Mecânica"</span><span class="text">,</span></div>
+    <div class="code-line pl-3"><span class="property">"period"</span><span class="text">: </span><span
+        class="string">"Janeiro de 2018 - Abril de 2021"</span></div>
+    <div class="code-line pl-2"><span class="text">}</span></div>
 
     <div class="code-line pl-1"><span class="text">],</span></div>
 
     <div class="code-line pl-1">
-      <span class="property">"skills"</span><span class="text">: [</span>
+      <span class="property">"skills"</span><span class="text">: {</span>
     </div>
-    <div class="code-line pl-2"><span class="string">"{{ $t("cv.skills1") }}"</span><span class="text">,</span></div>
-    <div class="code-line pl-2"><span class="string">"{{ $t("cv.skills2") }}"</span><span class="text">,</span></div>
-    <div class="code-line pl-2"><span class="string">"{{ $t("cv.skills3") }}"</span></div>
-    <div class="code-line pl-1"><span class="text">],</span></div>
+    <div class="code-line pl-2"><span class="property">"languages"</span><span class="text">: </span><span
+        class="string"
+      >"Java, JavaScript (Node.js), Python, SQL, Kotlin"</span><span class="text">,</span></div>
+    <div class="code-line pl-2"><span class="property">"frameworks_and_architecture"</span><span class="text">:
+      </span><span class="string">"APIs RESTful, Arquitetura de Microsserviços, Design Patterns"</span><span
+        class="text"
+      >,</span></div>
+    <div class="code-line pl-2"><span class="property">"databases"</span><span class="text">: </span><span
+        class="string"
+      >"PostgreSQL, MySQL, Oracle, MongoDB"</span><span class="text">,</span></div>
+    <div class="code-line pl-2"><span class="property">"cloud_and_devops"</span><span class="text">: </span><span
+        class="string"
+      >"Docker, Git, GitHub Actions, CI/CD, AWS EC2, Linux (Ubuntu, CentOS)"</span><span class="text">,</span></div>
+    <div class="code-line pl-2"><span class="property">"methodologies"</span><span class="text">: </span><span
+        class="string"
+      >"Metodologias Ágeis, Code Review, Testes Unitários"</span></div>
+    <div class="code-line pl-1"><span class="text">},</span></div>
 
     <div class="code-line pl-1">
       <span class="property">"actions"</span><span class="text">: {</span>
@@ -77,7 +176,7 @@
 
 <style scoped>
 .vscode-code-block {
-  font-size: 14px;
+  font-size: var(--editor-font-size, 14px);
 }
 
 /* Identação via Padding (JSON precisa de um nível a mais - pl-3) */

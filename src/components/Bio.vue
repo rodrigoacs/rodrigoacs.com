@@ -23,20 +23,10 @@
         Brasil'</span><span class="text">,</span>
     </div>
     <div class="code-line pl-1">
-      <span class="property">bio</span><span class="text">: </span><span class="string">`{{ $t("bio.p1") }}</span>
+      <span class="property">bio</span><span class="text">: </span><span class="string">`{{ $t("bio.p1") }}`</span><span
+        class="text"
+      >,</span>
     </div>
-    <div class="code-line pl-2">
-      <span class="string">{{ $t("bio.p2") }}</span>
-    </div>
-    <div class="code-line pl-2">
-      <span class="string">{{ $t("bio.p3") }}`</span><span class="text">,</span>
-    </div>
-    <div class="code-line pl-1">
-      <span class="property">hobbies</span><span class="text">: [</span><span class="string">'Magic: The
-        Gathering'</span><span class="text">, </span><span class="string">'3D Printing'</span><span
-        class="text">]</span>
-    </div>
-
     <div class="code-line"><span class="text">};</span></div>
     <br />
     <div class="code-line"><span class="keyword">export default</span> <span class="var">developerProfile</span><span
@@ -47,7 +37,7 @@
 
 <style scoped>
 .vscode-code-block {
-  font-size: 14px;
+  font-size: var(--editor-font-size, 14px);
 }
 
 .pl-1 {

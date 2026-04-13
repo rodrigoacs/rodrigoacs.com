@@ -9,15 +9,11 @@
       class="splash-screen"
       :class="{ 'fade-out': isFadingSplash }"
     >
-      <svg
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        class="splash-logo"
-      >
-        <path
-          d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 0 1.479l1.323 1.202a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"
-        />
-      </svg>
+      <img
+        src="/src/assets/favicon.ico"
+        class="splash-favicon-centered"
+        alt="loading portfolio"
+      />
     </div>
 
     <canvas
@@ -58,9 +54,15 @@
       </div>
 
       <div class="vscode-main">
-        <div class="editor-split-layout">
+        <div
+          class="editor-split-layout"
+          :class="{ 'is-dragging': isResizing }"
+        >
 
-          <div class="editor-pane">
+          <div
+            class="editor-pane"
+            :style="isPreviewOpen ? { width: leftPaneWidth + '%' } : { flex: 1 }"
+          >
             <div class="editor-tabs">
               <div class="tab active">
                 <FileIcon :name="currentFileName" />
@@ -98,8 +100,16 @@
           </div>
 
           <div
+            class="resizer"
+            v-if="isPreviewOpen"
+            @mousedown="startResize"
+            :class="{ 'active': isResizing }"
+          ></div>
+
+          <div
             class="editor-pane preview-pane"
             v-if="isPreviewOpen"
+            :style="{ width: (100 - leftPaneWidth) + '%' }"
           >
             <div class="editor-tabs">
               <div class="tab active">
@@ -109,7 +119,7 @@
                   alt="favicon"
                   @error="e => e.target.src = 'https://cdn.jsdelivr.net/gh/miguelsolorio/vscode-symbols@main/src/icons/files/html.svg'"
                 />
-                <span class="tab-name">Simple Browser: {{ previewTitle }}</span>
+                <span class="tab-name">{{ previewTitle }}</span>
                 <span
                   class="close-icon"
                   @click="closePreview"
@@ -176,6 +186,36 @@ const { globalSettings, isMatrixActive } = useSettings()
 
 const showSplash = ref(true)
 const isFadingSplash = ref(false)
+
+const leftPaneWidth = ref(50)
+const isResizing = ref(false)
+
+function startResize(e) {
+  isResizing.value = true
+  document.addEventListener('mousemove', resize)
+  document.addEventListener('mouseup', stopResize)
+  document.body.style.userSelect = 'none'
+}
+
+function resize(e) {
+  if (!isResizing.value) return
+  const container = document.querySelector('.editor-split-layout')
+  if (!container) return
+
+  const containerRect = container.getBoundingClientRect()
+  const newWidth = ((e.clientX - containerRect.left) / containerRect.width) * 100
+
+  if (newWidth > 20 && newWidth < 80) {
+    leftPaneWidth.value = newWidth
+  }
+}
+
+function stopResize() {
+  isResizing.value = false
+  document.removeEventListener('mousemove', resize)
+  document.removeEventListener('mouseup', stopResize)
+  document.body.style.userSelect = ''
+}
 
 const dynamicStyles = computed(() => {
   const isDracula = globalSettings.value['workbench.colorTheme'] === 'Dracula'
@@ -253,7 +293,11 @@ onMounted(() => {
   }, 1200)
 })
 
-onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeydown)
+  document.removeEventListener('mousemove', resize)
+  document.removeEventListener('mouseup', stopResize)
+})
 </script>
 
 <style scoped>
@@ -392,14 +436,27 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
 }
 
 .editor-pane {
-  flex: 1;
   display: flex;
   flex-direction: column;
   min-width: 0;
 }
 
-.preview-pane {
+.resizer {
+  width: 4px;
+  background-color: var(--vscode-bg);
   border-left: 1px solid var(--vscode-border);
+  cursor: col-resize;
+  z-index: 10;
+  transition: background-color 0.2s ease;
+}
+
+.resizer:hover,
+.resizer.active {
+  background-color: var(--theme-accent);
+}
+
+.is-dragging .preview-iframe {
+  pointer-events: none;
 }
 
 .editor-tabs {
@@ -547,5 +604,12 @@ onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
   width: 100%;
   border: none;
   background-color: #ffffff;
+}
+
+.splash-favicon-centered {
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+  animation: pulse 1.5s infinite;
 }
 </style>

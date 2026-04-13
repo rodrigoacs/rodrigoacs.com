@@ -159,12 +159,14 @@ function executeCommand() {
         <span class="success">Comandos disponíveis:</span><br>
         &nbsp;&nbsp;<span class="term-path">help</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mostra esta lista<br>
         &nbsp;&nbsp;<span class="term-path">neofetch</span>&nbsp;&nbsp;Mostra informações do sistema<br>
+        &nbsp;&nbsp;<span class="term-path">github</span>&nbsp;&nbsp;&nbsp;&nbsp;Busca stats em tempo real do GitHub<br>
         &nbsp;&nbsp;<span class="term-path">whoami</span>&nbsp;&nbsp;&nbsp;&nbsp;Resumo do desenvolvedor<br>
         &nbsp;&nbsp;<span class="term-path">contact</span>&nbsp;&nbsp;&nbsp;Mostra redes e e-mail<br>
         &nbsp;&nbsp;<span class="term-path">pwd</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Print working directory<br>
         &nbsp;&nbsp;<span class="term-path">ls</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lista arquivos do projeto<br>
         &nbsp;&nbsp;<span class="term-path">date</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mostra a data atual do host<br>
-        &nbsp;&nbsp;<span class="term-path">matrix</span>&nbsp;&nbsp;&nbsp;&nbsp;Enter the Matrix<br> &nbsp;&nbsp;<span class="term-path">clear</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Limpa o terminal<br>
+        &nbsp;&nbsp;<span class="term-path">matrix</span>&nbsp;&nbsp;&nbsp;&nbsp;Enter the Matrix<br> 
+        &nbsp;&nbsp;<span class="term-path">clear</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Limpa o terminal<br>
       `
       break
     case 'contact':
@@ -191,6 +193,54 @@ function executeCommand() {
       toggleMatrix()
       output = `<span class="success">Wake up, Neo...</span>`
       break
+
+    // ---- NOVA INTEGRAÇÃO COM A API DO GITHUB ----
+    case 'github':
+      output = `<span class="info">📡 Conectando à API do GitHub (rodrigoacs)...</span>`
+      terminalHistory.value.push({ type: 'output', content: output })
+
+      // Oculta input temporariamente simulando processamento
+      isInputDisabled.value = true
+
+      fetch('https://api.github.com/users/rodrigoacs')
+        .then(res => {
+          if (!res.ok) throw new Error('API Rate Limit excedido ou erro de rede.')
+          return res.json()
+        })
+        .then(data => {
+          // Busca secundária: Os 3 repositórios mais recentemente atualizados
+          return fetch('https://api.github.com/users/rodrigoacs/repos?sort=updated&per_page=3')
+            .then(res => res.json())
+            .then(repos => ({ user: data, repos }))
+        })
+        .then(({ user, repos }) => {
+          let reposHtml = repos.map(r => `&nbsp;&nbsp;&nbsp;<span class="success">➜</span> <a href="${r.html_url}" target="_blank" class="link">${r.name}</a> <span class="info">(${r.language || 'N/A'})</span>`).join('<br>')
+
+          const ghOutput = `
+            <div style="margin-top: 10px; border-left: 2px solid #a9dc76; padding-left: 10px; line-height: 1.6;">
+              <span class="success">✔ Sincronização concluída com sucesso</span><br><br>
+              <span class="term-path">Usuário:</span> ${user.login}<br>
+              <span class="term-path">Bio:</span> ${user.bio || 'Desenvolvedor'}<br>
+              <span class="term-path">Seguidores:</span> ${user.followers} | <span class="term-path">Repositórios Públicos:</span> ${user.public_repos}<br><br>
+              <span class="term-path">Últimos repositórios ativos:</span><br>
+              ${reposHtml}<br><br>
+              <a href="${user.html_url}" target="_blank" class="link">[Abrir Perfil Completo no GitHub]</a>
+            </div>
+          `
+          terminalHistory.value.push({ type: 'output', content: ghOutput })
+        })
+        .catch(err => {
+          terminalHistory.value.push({ type: 'output', content: `<span style="color: #ff6188;">Erro: ${err.message}</span>` })
+        })
+        .finally(() => {
+          isInputDisabled.value = false
+          currentCommand.value = ''
+          focusInput()
+          scrollToBottom()
+        })
+      return // Retorno antecipado pois a operação é assíncrona
+    // ---------------------------------------------
+
     case 'neofetch':
       output = `
 <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">

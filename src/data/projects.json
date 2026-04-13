@@ -6,7 +6,6 @@
       "Node.js",
       "Vue.js"
     ],
-    "status": "Ativo",
     "previewUrl": "https://arena.biblioplexo.com",
     "repoUrl": "https://github.com/rodrigoacs/arena"
   },
@@ -17,7 +16,6 @@
       "Node.js",
       "Vue.js"
     ],
-    "status": "Concluído",
     "previewUrl": "https://librishelf.com",
     "repoUrl": "https://github.com/rodrigoacs/librishelf"
   }

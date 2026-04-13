@@ -8,51 +8,29 @@
     <div class="code-line"><span class="md-hr">---</span></div>
     <div class="code-line"></div>
 
-    <div class="code-line">
+    <!-- <div class="code-line">
       <span class="md-heading">## </span><a
         href="#"
         class="md-link"
-      >[Como estruturar uma API escalável com Node.js]</a><span
-        class="md-url">(https://rodrigoacs.com/blog/node-api-structure)</span>
+      >[to-do]</a><span class="md-url">(to-do)</span>
     </div>
     <div class="code-line">
-      <span class="md-bold">**12 Out 2025**</span> <span class="text">|</span> <span class="md-italic">*Backend,
+      <span class="md-bold">**00 Out 0000**</span> <span class="text">|</span> <span class="md-italic">*Backend,
         Node.js, Architecture*</span>
     </div>
     <div class="code-line">
-      <span class="text">Neste artigo, discuto as melhores práticas para organizar pastas, rotas e controllers em um
-        projeto backend...</span>
-    </div>
+      <span class="text">...</span>
+    </div> -->
     <div class="code-line"></div>
     <div class="code-line"><span class="md-hr">---</span></div>
     <div class="code-line"></div>
-
-    <div class="code-line">
-      <span class="md-heading">## </span><a
-        href="#"
-        class="md-link"
-      >[Avaliando a Bambu Lab A1 para iniciantes]</a><span
-        class="md-url">(https://rodrigoacs.com/blog/bambu-lab-a1-review)</span>
-    </div>
-    <div class="code-line">
-      <span class="md-bold">**28 Set 2025**</span> <span class="text">|</span> <span class="md-italic">*3D Printing,
-        Hardware*</span>
-    </div>
-    <div class="code-line">
-      <span class="text">Minhas primeiras impressões e configurações recomendadas após o primeiro mês imprimindo em PLA
-        e PETG.</span>
-    </div>
-    <div class="code-line"></div>
-    <div class="code-line"><span class="md-hr">---</span></div>
-    <div class="code-line"></div>
-
     <div class="code-line"><span class="cursor"></span></div>
   </div>
 </template>
 
 <style scoped>
 .vscode-code-block {
-  font-size: 14px;
+  font-size: var(--editor-font-size, 14px);
 }
 
 /* Destaque da Linha Ativa */
