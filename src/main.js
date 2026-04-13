@@ -2,23 +2,22 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import { createI18n } from 'vue-i18n'
-import { pt } from './locales/pt.js'
-import { en } from './locales/en.js'
+// Importação CORRETA (sem as chavetas {})
+import pt from './locales/pt.js'
+import en from './locales/en.js'
 
 import App from './App.vue'
 import router from './router'
 
-const languages = {
-  pt,
-  en,
-}
-
 const i18n = createI18n({
   legacy: false,
-  globalInjection: true, // <-- ESTA É A LINHA MÁGICA QUE FALTAVA
+  globalInjection: true,
   locale: getUserLocale(),
   fallbackLocale: 'en',
-  messages: languages,
+  messages: {
+    pt,
+    en
+  }
 })
 
 const app = createApp(App)

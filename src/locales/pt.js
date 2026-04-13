@@ -1,4 +1,4 @@
-export const pt = {
+export default {
   nav: {
     explorer: "EXPLORADOR",
     browser: "Navegador Simples"
@@ -17,7 +17,7 @@ export const pt = {
     help_desc: "Mostra esta lista",
     neofetch_desc: "Mostra informações do sistema",
     github_desc: "Busca stats em tempo real do GitHub",
-    whoami_desc: "Resumo do desenvolvedor",
+    whoami_desc: "Resumo do programador",
     contact_desc: "Mostra redes e e-mail",
     pwd_desc: "Print working directory",
     ls_desc: "Lista arquivos do projeto",
@@ -50,7 +50,7 @@ export const pt = {
   },
   cv: {
     filename: "cv_rodrigosoares.pdf",
-    email: "rodrigohths@gmail.com",
+    email: "rodrigohths{'@'}gmail.com",
     github: "https://github.com/rodrigoacs",
     linkedin: "https://www.linkedin.com/in/rodrigoacsoares/",
     website: "https://rodrigoacs.com",

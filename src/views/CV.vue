@@ -3,7 +3,7 @@
     <div class="code-line"><span class="text">{</span></div>
 
     <div class="code-line pl-1">
-      <span class="property">"filename"</span><span class="text">: </span><span class="string">"{{ $t('cv.filename')
+      <span class="property">"filename"</span><span class="text">: </span><span class="string">"{{ t('cv.filename')
         }}"</span><span class="text">,</span>
     </div>
 
@@ -11,17 +11,17 @@
       <span class="property">"contact"</span><span class="text">: {</span>
     </div>
     <div class="code-line pl-2"><span class="property">"email"</span><span class="text">: </span><span
-        class="string">"{{ $t('cv.email') }}"</span><span class="text">,</span></div>
+        class="string">"{{ t('cv.email') }}"</span><span class="text">,</span></div>
     <div class="code-line pl-2"><span class="property">"github"</span><span class="text">: </span><span
-        class="string">"{{ $t('cv.github') }}"</span><span class="text">,</span></div>
+        class="string">"{{ t('cv.github') }}"</span><span class="text">,</span></div>
     <div class="code-line pl-2"><span class="property">"linkedin"</span><span class="text">: </span><span
-        class="string">"{{ $t('cv.linkedin') }}"</span><span class="text">,</span></div>
+        class="string">"{{ t('cv.linkedin') }}"</span><span class="text">,</span></div>
     <div class="code-line pl-2"><span class="property">"website"</span><span class="text">: </span><span
-        class="string">"{{ $t('cv.website') }}"</span></div>
+        class="string">"{{ t('cv.website') }}"</span></div>
     <div class="code-line pl-1"><span class="text">},</span></div>
 
     <div class="code-line pl-1">
-      <span class="property">"summary"</span><span class="text">: </span><span class="string">"{{ $t('cv.summary')
+      <span class="property">"summary"</span><span class="text">: </span><span class="string">"{{ t('cv.summary')
         }}"</span><span class="text">,</span>
     </div>
 
@@ -30,7 +30,7 @@
     </div>
 
     <template
-      v-for="(exp, index) in $tm('cv.experiences')"
+      v-for="(exp, index) in tm('cv.experiences')"
       :key="'exp-'+index"
     >
       <div class="code-line pl-2"><span class="text">{</span></div>
@@ -45,7 +45,7 @@
           class="string"
         >"{{ exp.description }}"</span></div>
       <div class="code-line pl-2"><span class="text">}{{ index <
-        $tm('cv.experiences').length
+        tm('cv.experiences').length
             -
             1
             ? ','
@@ -62,7 +62,7 @@
     </div>
 
     <template
-      v-for="(edu, index) in $tm('cv.educations')"
+      v-for="(edu, index) in tm('cv.educations')"
       :key="'edu-'+index"
     >
       <div class="code-line pl-2"><span class="text">{</span></div>
@@ -74,7 +74,7 @@
       <div class="code-line pl-3"><span class="property">"period"</span><span class="text">: </span><span
           class="string">"{{ edu.time }}"</span></div>
       <div class="code-line pl-2"><span class="text">}{{ index <
-        $tm('cv.educations').length
+        tm('cv.educations').length
             -
             1
             ? ','
@@ -89,20 +89,21 @@
     <div class="code-line pl-1">
       <span class="property">"skills"</span><span class="text">: {</span>
     </div>
+
     <div class="code-line pl-2"><span class="property">"languages"</span><span class="text">: </span><span
         class="string"
-      >"{{ $tm('cv.skills').lang }}"</span><span class="text">,</span></div>
+      >"{{ t('cv.skills.lang') }}"</span><span class="text">,</span></div>
     <div class="code-line pl-2"><span class="property">"frameworks_and_architecture"</span><span class="text">:
-      </span><span class="string">"{{ $tm('cv.skills').arch }}"</span><span class="text">,</span></div>
+      </span><span class="string">"{{ t('cv.skills.arch') }}"</span><span class="text">,</span></div>
     <div class="code-line pl-2"><span class="property">"databases"</span><span class="text">: </span><span
         class="string"
-      >"{{ $tm('cv.skills').db }}"</span><span class="text">,</span></div>
+      >"{{ t('cv.skills.db') }}"</span><span class="text">,</span></div>
     <div class="code-line pl-2"><span class="property">"cloud_and_devops"</span><span class="text">: </span><span
         class="string"
-      >"{{ $tm('cv.skills').devops }}"</span><span class="text">,</span></div>
+      >"{{ t('cv.skills.devops') }}"</span><span class="text">,</span></div>
     <div class="code-line pl-2"><span class="property">"methodologies"</span><span class="text">: </span><span
         class="string"
-      >"{{ $tm('cv.skills').method }}"</span></div>
+      >"{{ t('cv.skills.method') }}"</span></div>
     <div class="code-line pl-1"><span class="text">},</span></div>
 
     <div class="code-line pl-1">
@@ -111,7 +112,7 @@
     <div class="code-line pl-2"><span class="property">"download_pdf"</span><span class="text">: </span><span
         class="keyword"
       >function</span><span class="text">() {</span></div>
-    <div class="code-line pl-3"><span class="comment">// {{ $t('cv.download_comment') }}</span></div>
+    <div class="code-line pl-3"><span class="comment">// {{ t('cv.download_comment') }}</span></div>
     <div class="code-line pl-3"><span class="text">window.open(</span><a
         href="https://librishelf.com/download/cv_RodrigoSoares.pdf"
         target="_blank"
@@ -125,6 +126,12 @@
     <div class="code-line"><span class="text">}</span><span class="cursor"></span></div>
   </div>
 </template>
+
+<script setup>
+// <-- ESTE BLOCO FALTAVA NO SEU FICHEIRO CV.VUE! É O QUE LIGA A TRADUÇÃO À PÁGINA -->
+import { useI18n } from 'vue-i18n'
+const { t, tm } = useI18n()
+</script>
 
 <style scoped>
 .vscode-code-block {

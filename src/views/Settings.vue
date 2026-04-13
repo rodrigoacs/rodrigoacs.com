@@ -1,20 +1,22 @@
 <template>
   <div class="vscode-code-block">
-    <div class="code-line"><span class="comment">// {{ $t('settings.comment') }}</span></div>
+    <div class="code-line"><span class="comment">// {{ t('settings.comment') }}</span></div>
     <div class="code-line"><span class="text">{</span></div>
 
     <div class="code-line pl-1">
-      <span class="property">"{{ $t('settings.fontSize') }}"</span><span class="text">: </span>
+      <span class="property">"{{ t('settings.fontSize') }}"</span><span class="text">: </span>
       <input
         type="number"
         v-model="globalSettings['editor.fontSize']"
         class="json-input num"
+        min="10"
+        max="24"
       />
+      <span class="text">,</span>
     </div>
 
     <div class="code-line pl-1">
-      <span class="property">"{{ $t('settings.theme') }}"</span><span class="text">: </span><span
-        class="string">"</span>
+      <span class="property">"{{ t('settings.theme') }}"</span><span class="text">: </span><span class="string">"</span>
       <select
         v-model="globalSettings['workbench.colorTheme']"
         class="json-select"
@@ -24,14 +26,17 @@
       </select>
       <span class="string">"</span>
     </div>
+
     <div class="code-line"><span class="text">}</span><span class="cursor"></span></div>
   </div>
 </template>
 
 <script setup>
 import { useSettings } from '@/composables/useSettings'
+import { useI18n } from 'vue-i18n' // <-- IMPORTAÇÃO DO TRADUTOR
 
 const { globalSettings } = useSettings()
+const { t } = useI18n() // <-- EXTRAÇÃO DO TRADUTOR
 </script>
 
 <style scoped>

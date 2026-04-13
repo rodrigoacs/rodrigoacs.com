@@ -1,4 +1,4 @@
-export const en = {
+export default {
   nav: {
     explorer: "EXPLORER",
     browser: "Simple Browser"
@@ -12,15 +12,15 @@ export const en = {
   terminal: {
     boot: "Portfolio Terminal v1.0.0 initialized.",
     access: "Access granted. Type",
-    help_hint: "to list the commands.",
+    help_hint: "to list commands.",
     help_title: "Available commands:",
     help_desc: "Shows this list",
     neofetch_desc: "Shows system information",
     github_desc: "Fetches real-time GitHub stats",
-    whoami_desc: "Shows developer summary",
-    contact_desc: "Shows social media and email",
+    whoami_desc: "Developer summary",
+    contact_desc: "Shows social links and email",
     pwd_desc: "Print working directory",
-    ls_desc: "Lists project files",
+    ls_desc: "List project files",
     date_desc: "Shows current host date",
     matrix_desc: "Enter the Matrix",
     clear_desc: "Clears the terminal",
@@ -33,46 +33,46 @@ export const en = {
     followers: "Followers",
     repos: "Public Repositories",
     last_repos: "Latest active repositories:",
-    open_profile: "Open Full Profile on GitHub",
+    open_profile: "Open Full GitHub Profile",
     not_found: "command not found",
     help_footer: "Type 'help' for valid commands.",
-    permission_denied: "permission denied. The incident will be reported. Nice try. ;)"
+    permission_denied: "permission denied. This incident will be reported. Nice try. ;)"
   },
   bio: {
-    hello: 'olá, eu sou o Rodrigo!',
-    p1: 'Sou desenvolvedor de software com foco em criar soluções escaláveis e otimizar pipelines de dados. Comecei a programar lá em 2018 e, hoje cursando Sistemas de Informação, construí uma base que me permite atuar de ponta a ponta nas aplicações. Tenho bastante vivência no ecossistema JavaScript/Node.js e na criação de interfaces com Vue.js. Mas minha especialidade mesmo é o backend: desenvolvo APIs RESTful, middlewares e arquiteturas de integração de dados em tempo real usando Node.js e SQL. Tenho experiência prática resolvendo desafios complexos de ETL e conectando sistemas gigantes do varejo, como Salesforce, SAP e Winthor. Fora do trabalho, você me encontra lendo, jogando Magic: The Gathering ou mexendo com impressão 3D. Aqui no site você encontra meu currículo, detalhes sobre a minha carreira e meu blog. Dá uma olhada em alguns dos meus projetos logo abaixo.',
+    hello: 'hi, I am Rodrigo!',
+    p1: 'I am a software developer focused on creating scalable solutions and optimizing data pipelines. I started programming back in 2018 and, currently studying Information Systems, I built a foundation that allows me to work end-to-end on applications. I have solid experience in the JavaScript/Node.js ecosystem and building interfaces with Vue.js. But my real specialty is backend: I develop RESTful APIs, middlewares, and real-time data integration architectures using Node.js and SQL. I have practical experience solving complex ETL challenges and connecting giant retail systems like Salesforce, SAP, and Winthor. Outside of work, you can find me reading, playing Magic: The Gathering, or tinkering with 3D printing. Here on the site, you can find my resume, details about my career, and my blog. Check out some of my projects below.',
   },
   projects: {
-    title: 'projetos',
+    title: 'projects',
   },
   blog: {
-    title: 'leia alguns dos meus posts',
+    title: 'read some of my posts',
   },
   cv: {
     filename: "cv_rodrigosoares.pdf",
-    email: "rodrigohths@gmail.com",
+    email: "rodrigohths{'@'}gmail.com",
     github: "https://github.com/rodrigoacs",
     linkedin: "https://www.linkedin.com/in/rodrigoacsoares/",
     website: "https://rodrigoacs.com",
-    summary: "Desenvolvedor de Software focado na construção de soluções robustas, escaláveis e na otimização de pipelines de dados. Sólida experiência em JavaScript e Node.js, especializado na criação e otimização de APIs RESTful, desenvolvimento de middlewares e soluções de integração em larga escala. Possui também vivência no desenvolvimento de interfaces dinâmicas e responsivas utilizando Vue.js, atuando de ponta a ponta nas aplicações. Experiência prática com ingestão, transformação e sincronização de dados (ETL) entre sistemas complexos (como Salesforce, SAP e Winthor). Proficiente em esteiras DevOps (CI/CD), Docker e metodologias ágeis, buscando entregar código de alta qualidade para suportar a transformação tecnológica de grandes clientes.",
+    summary: "Software Developer focused on building robust, scalable solutions and optimizing data pipelines. Solid experience in JavaScript and Node.js, specializing in RESTful APIs, middleware development, and large-scale integrations...",
     experiences: [
-      { company: "S³ - SCube", role: "Desenvolvedor de Software", period: "Dezembro de 2025 - Atual", description: "Desenvolvimento e arquitetura de chatbots inteligentes voltados para automação de suporte, vendas e triagem, integrando a API Whatsapp com modelos de IA Generativa (OpenAI) para criação de fluxos dinâmicos. Implementação da persistência de contexto e histórico conversacional em PostgreSQL, aliada à gestão de infraestrutura e pipelines de deploy automatizados via Dokploy (Docker)." },
-      { company: "B2List", role: "Desenvolvedor de Software", period: "Setembro de 2024 - Dezembro de 2025", description: "Construção e manutenção de microsserviços e pipelines de dados (ETL) em Node.js, garantindo a ingestão e sincronização eficiente de informações em larga escala. Foco na construção de APIs performáticas." },
-      { company: "CSN Mineração", role: "Estagiário de Desenvolvimento", period: "Agosto de 2024 - Novembro de 2024", description: "Análise de performance de sistemas, incluindo otimização de consultas SQL (tunning) e monitoramento da saúde de aplicações." },
-      { company: "CLI Consultoria", role: "Analista de Desenvolvimento de Sistemas", period: "Março de 2024 - Julho de 2024", description: "Otimização de APIs RESTful para consumo de dados em tempo real, focando em baixa latência e alta disponibilidade para sistemas críticos. Desenvolvimento de middlewares para orquestração e transformação de dados entre sistemas legados (SAP) e plataformas de terceiros (Salesforce)." },
-      { company: "CLI Consultoria", role: "Estagiário de Engenharia de Dados", period: "Fevereiro de 2023 - Março de 2024", description: "Desenvolvimento de rotinas de ingestão de dados a partir de fontes diversas, incluindo APIs (MongoDB) e sistemas ERPs (SAP, Winthor) e CRM (Salesforce). Atuação em ambientes cloud com AWS EC2 e gerenciamento Linux." }
+      { company: "S³ - SCube", role: "Software Developer", period: "December 2025 - Present", description: "Development and architecture of intelligent chatbots aimed at automating support and sales, integrating the Whatsapp API with Generative AI models (OpenAI)." },
+      { company: "B2List", role: "Software Developer", period: "September 2024 - December 2025", description: "Construction and maintenance of microservices and data pipelines (ETL) in Node.js, ensuring efficient large-scale information ingestion." },
+      { company: "CSN Mineração", role: "Development Intern", period: "August 2024 - November 2024", description: "System performance analysis, including SQL query tuning and application health monitoring." },
+      { company: "CLI Consultoria", role: "Systems Development Analyst", period: "March 2024 - July 2024", description: "Optimization of RESTful APIs for real-time data consumption, focusing on low latency and high availability for critical systems." },
+      { company: "CLI Consultoria", role: "Data Engineering Intern", period: "February 2023 - March 2024", description: "Development of data ingestion routines from diverse sources, including APIs (MongoDB) and ERP/CRM systems (SAP, Salesforce)." }
     ],
     educations: [
-      { time: "Setembro de 2021 - Presente", local: "IFMG, Ouro Branco - MG", course: "Bacharelado em Sistemas de Informação" },
-      { time: "Janeiro de 2018 - Abril de 2021", local: "IFMG, Congonhas - MG", course: "Técnico Integrado em Mecânica" }
+      { time: "September 2021 - Present", local: "IFMG, Ouro Branco - MG", course: "Bachelor's in Information Systems" },
+      { time: "January 2018 - April 2021", local: "IFMG, Congonhas - MG", course: "Integrated Technical in Mechanics" }
     ],
     skills: {
       lang: "Java, JavaScript (Node.js), Python, SQL, Kotlin",
-      arch: "APIs RESTful, Arquitetura de Microsserviços, Design Patterns",
+      arch: "RESTful APIs, Microservices Architecture, Design Patterns",
       db: "PostgreSQL, MySQL, Oracle, MongoDB",
-      devops: "Docker, Git, GitHub Actions, CI/CD, AWS EC2, Linux (Ubuntu, CentOS)",
-      method: "Metodologias Ágeis, Code Review, Testes Unitários"
+      devops: "Docker, Git, GitHub Actions, CI/CD, AWS EC2, Linux",
+      method: "Agile Methodologies, Code Review, Unit Testing"
     },
-    download_comment: "Clique no link abaixo para baixar o arquivo"
+    download_comment: "Click the link below to download the file"
   }
 }
