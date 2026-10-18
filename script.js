@@ -425,7 +425,7 @@
       ].forEach(([cmd, desc]) => termPrint(`  ${cmd.padEnd(15)} ${desc}`))
     },
     whoami() {
-      termPrint("Rodrigo Augusto Correa Soares", "accent")
+      termPrint("Rodrigo Soares", "accent")
       termPrint(t().roles.join(" · "))
       termPrint(lang === "pt" ? "Minas Gerais, Brasil" : "Minas Gerais, Brazil", "muted")
     },
