@@ -67,13 +67,24 @@
             <span class="typed" aria-hidden="true">Desenvolvedor Full Stack</span>
           </p>
           <h1>Rodrigo Soares</h1>
+          <!-- Título profissional: oculto na tela (o selo acima já mostra), visível no PDF para o ATS -->
+          <p class="headline" data-i18n="headline">Desenvolvedor Full Stack</p>
+          <p class="headline-stack">
+            Node.js · TypeScript · Vue.js · React Native · PostgreSQL · Docker · AWS
+          </p>
+          <!-- URLs escritas por extenso: o ATS lê o texto, não o destino do link -->
+          <!-- TODO: incluir telefone/WhatsApp (ex.: (31) 9XXXX-XXXX) — muitos ATS exigem -->
           <p class="contact-info">
-            <span data-i18n="location">Minas Gerais, Brasil</span><br />
-            <strong>Email:</strong>
-            <a href="mailto:rodrigohths@gmail.com">rodrigohths@gmail.com</a> |
-            <a href="https://github.com/rodrigoacs" target="_blank" rel="noopener">GitHub</a> |
-            <a href="https://www.linkedin.com/in/rodrigoacsoares" target="_blank" rel="noopener"
-              >LinkedIn</a
+            <span data-i18n="location">Congonhas - MG, Brasil</span><br />
+            <a href="mailto:rodrigohths@gmail.com">rodrigohths@gmail.com</a
+            ><span class="sep"> | </span
+            ><a href="https://rodrigoacs.com" target="_blank" rel="noopener">rodrigoacs.com</a
+            ><span class="sep"> | </span
+            ><a href="https://github.com/rodrigoacs" target="_blank" rel="noopener"
+              >github.com/rodrigoacs</a
+            ><span class="sep"> | </span
+            ><a href="https://www.linkedin.com/in/rodrigoacsoares" target="_blank" rel="noopener"
+              >linkedin.com/in/rodrigoacsoares</a
             >
           </p>
         </div>
@@ -116,18 +127,18 @@
 
       <h2 data-i18n="h.summary">Resumo Profissional</h2>
       <p data-i18n="summary">
-        Desenvolvedor de Software Full Stack com foco em <strong>back-end</strong> e
-        <strong>integração de sistemas</strong>, atuando principalmente com
-        <strong>Node.js/Express</strong>, <strong>PostgreSQL</strong>, <strong>Vue.js</strong> e
-        <strong>React Native (Expo)</strong>. Experiência na construção de pipelines de dados e
-        middlewares integrando ERPs e CRMs (<strong>SAP, Winthor e Salesforce</strong>), em
-        <strong>microsserviços</strong> e <strong>APIs RESTful</strong> em Node.js e, mais
-        recentemente, no desenvolvimento de chatbots com <strong>IA generativa</strong> (OpenAI)
-        integrados ao <strong>WhatsApp</strong>, com histórico conversacional em PostgreSQL e deploy
-        em <strong>Docker</strong>. Desenvolvimento de aplicativo mobile em
-        <strong>Expo/TypeScript</strong> para cliente e administração de infraestrutura própria em
-        VPS com Docker e <strong>Nginx</strong>. Perfil analítico, com foco em código limpo e de
-        fácil manutenção e interesse em entender o negócio por trás das demandas técnicas.
+        Desenvolvedor Full Stack com mais de 3 anos de experiência em desenvolvimento de software
+        (incluindo estágios), com foco em <strong>back-end</strong> e
+        <strong>integração de sistemas</strong>. Atuo com <strong>JavaScript</strong> e
+        <strong>TypeScript</strong>, <strong>Node.js</strong> (<strong>Express</strong>),
+        <strong>Vue.js</strong>, <strong>React Native</strong> (Expo), <strong>PostgreSQL</strong> e
+        <strong>MongoDB</strong>. Experiência com <strong>APIs REST</strong>,
+        <strong>microsserviços</strong>, pipelines de dados (ETL) e middlewares de integração com
+        ERPs e CRMs (SAP, Winthor, Salesforce), além de chatbots com IA generativa (OpenAI)
+        integrados ao WhatsApp. Em infraestrutura, trabalho com <strong>Docker</strong>,
+        <strong>Nginx</strong>, <strong>Linux</strong>, <strong>Git</strong> e
+        <strong>AWS</strong> (EC2); nos projetos pessoais, aplico autenticação
+        <strong>JWT</strong> e testes automatizados com <strong>Jest</strong>.
       </p>
 
       <hr />
@@ -144,23 +155,23 @@
       <div class="job">
         <p class="job-title" data-i18n="scube.title">
           <strong>Desenvolvedor de Software</strong><br />
-          <em>S-Cube | Dezembro de 2025 - Outubro de 2026</em>
+          <em>S-Cube | 12/2025 - 10/2026</em>
         </p>
         <ul>
-          <!-- TODO: se possível, incluir números (ex.: nº de clientes/bots, mensagens por dia) -->
+          <!-- TODO: se possível, incluir números (nº de clientes/bots, mensagens por dia, tempo de atendimento reduzido) -->
           <li data-i18n="scube.1">
-            Desenvolvimento e arquitetura de chatbots voltados para automação de suporte, vendas e
-            triagem, integrando a <strong>API do WhatsApp</strong> a modelos de
-            <strong>IA generativa</strong> (OpenAI) para criação de fluxos dinâmicos.
+            Desenvolvi chatbots de atendimento, vendas e triagem em <strong>Node.js</strong>,
+            integrando a <strong>API do WhatsApp</strong> à <strong>API da OpenAI</strong> (IA
+            generativa), com fluxos de conversa dinâmicos.
           </li>
           <li data-i18n="scube.2">
-            Implementação da persistência de contexto e histórico conversacional em
-            <strong>PostgreSQL</strong>, além da gestão de infraestrutura e deploy automatizado com
+            Implementei a persistência de contexto e do histórico conversacional em
+            <strong>PostgreSQL</strong> e automatizei o deploy dos serviços com
             <strong>Docker</strong> via Dokploy.
           </li>
           <li data-i18n="scube.3">
-            Desenvolvimento de aplicativo mobile em <strong>React Native</strong> (Expo Router +
-            TypeScript) para gestão de associados e eventos de um cliente.
+            Desenvolvi um aplicativo mobile em <strong>React Native</strong> (Expo Router +
+            <strong>TypeScript</strong>) para gestão de associados e eventos de um cliente.
           </li>
         </ul>
         <ul class="tags">
@@ -176,18 +187,18 @@
       <div class="job">
         <p class="job-title" data-i18n="b2list.title">
           <strong>Desenvolvedor de Software</strong><br />
-          <em>B2List | Setembro de 2024 - Dezembro de 2025</em>
+          <em>B2List | 09/2024 - 12/2025</em>
         </p>
         <ul>
-          <!-- TODO: se possível, incluir números (ex.: registros sincronizados por dia, nº de serviços) -->
+          <!-- TODO: se possível, incluir números (registros sincronizados por dia, nº de serviços, ganho de performance) -->
           <li data-i18n="b2list.1">
-            Construção e manutenção de <strong>microsserviços</strong> e pipelines de dados
-            (<strong>ETL</strong>) em Node.js para ingestão e sincronização de grandes volumes de
-            informações.
+            Construí e mantive <strong>microsserviços</strong> e pipelines de dados
+            (<strong>ETL</strong>) em <strong>Node.js</strong> para ingestão e sincronização de
+            grandes volumes de dados.
           </li>
           <li data-i18n="b2list.2">
-            Desenvolvimento de APIs para suportar as regras de negócio da plataforma, com atenção à
-            performance, qualidade e manutenibilidade do código.
+            Desenvolvi <strong>APIs</strong> em <strong>Node.js</strong> para as regras de negócio
+            da plataforma, com foco em performance, qualidade e manutenibilidade do código.
           </li>
         </ul>
         <ul class="tags">
@@ -199,13 +210,13 @@
       <div class="job">
         <p class="job-title" data-i18n="csn.title">
           <strong>Estagiário de Desenvolvimento</strong><br />
-          <em>CSN Mineração | Agosto de 2024 - Novembro de 2024</em>
+          <em>CSN Mineração | 08/2024 - 11/2024</em>
         </p>
         <ul>
-          <!-- TODO: se possível, incluir números (ex.: redução no tempo das consultas otimizadas) -->
+          <!-- TODO: se possível, incluir números (redução no tempo das consultas otimizadas) -->
           <li data-i18n="csn.1">
-            Análise de performance de sistemas, incluindo otimização de consultas SQL (tuning) e
-            monitoramento da saúde de aplicações.
+            Otimizei consultas <strong>SQL</strong> (tuning) e monitorei a saúde e a performance de
+            aplicações em produção.
           </li>
         </ul>
         <ul class="tags">
@@ -215,20 +226,20 @@
       <div class="job">
         <p class="job-title" data-i18n="cli2.title">
           <strong>Analista de Desenvolvimento de Sistemas</strong><br />
-          <em>CLI Consultoria | Março de 2024 - Julho de 2024</em>
+          <em>CLI Consultoria | 03/2024 - 07/2024</em>
         </p>
         <ul>
+          <!-- TODO: se possível, incluir números (latência antes/depois, volume de dados integrado) -->
           <li data-i18n="cli2.1">
-            Otimização de <strong>APIs RESTful</strong> para consumo de dados em tempo real em
-            sistemas críticos, com foco em baixa latência e disponibilidade.
+            Otimizei <strong>APIs RESTful</strong> de consumo de dados em tempo real em sistemas
+            críticos, com foco em baixa latência e disponibilidade.
           </li>
           <li data-i18n="cli2.2">
-            Desenvolvimento de <strong>middlewares</strong> para orquestração e transformação de
-            dados entre <strong>sistemas legados</strong> (SAP) e plataformas de terceiros
-            (Salesforce), atuando diretamente na compreensão e evolução de código legado.
+            Desenvolvi <strong>middlewares</strong> de orquestração e transformação de dados entre
+            <strong>SAP</strong> e <strong>Salesforce</strong>, evoluindo código legado.
           </li>
           <li data-i18n="cli2.3">
-            Contribuição para a evolução da arquitetura e a escalabilidade das aplicações.
+            Contribuí para a evolução da arquitetura e a escalabilidade das aplicações.
           </li>
         </ul>
         <ul class="tags">
@@ -240,20 +251,21 @@
       <div class="job">
         <p class="job-title" data-i18n="cli1.title">
           <strong>Estagiário de Desenvolvimento</strong><br />
-          <em>CLI Consultoria | Fevereiro de 2023 - Março de 2024</em>
+          <em>CLI Consultoria | 02/2023 - 03/2024</em>
         </p>
         <ul>
+          <!-- TODO: se possível, incluir números (nº de integrações/rotinas, ganho de performance dos pipelines) -->
           <li data-i18n="cli1.1">
-            Desenvolvimento de rotinas de ingestão de dados a partir de fontes diversas, incluindo
-            APIs, banco de dados (MongoDB), ERPs (SAP, Winthor) e CRM (Salesforce).
+            Desenvolvi rotinas de ingestão de dados a partir de APIs, banco de dados
+            <strong>MongoDB</strong>, ERPs (SAP, Winthor) e CRM (Salesforce).
           </li>
           <li data-i18n="cli1.2">
-            Manutenção e otimização de pipelines de dados existentes, incluindo código legado,
-            melhorando a performance e a confiabilidade do fluxo de informações.
+            Mantive e otimizei pipelines de dados existentes, incluindo código legado, melhorando a
+            performance e a confiabilidade do fluxo de informações.
           </li>
           <li data-i18n="cli1.3">
-            Atuação em ambientes cloud com <strong>AWS EC2</strong> e gerenciamento de servidores
-            Linux, seguindo práticas DevOps.
+            Administrei servidores <strong>Linux</strong> em ambiente cloud
+            <strong>AWS</strong> (EC2), seguindo práticas DevOps.
           </li>
         </ul>
         <ul class="tags">
@@ -372,13 +384,14 @@
       <div class="education">
         <p data-i18n="edu.1">
           <strong>Bacharelado em Sistemas de Informação</strong><br />
-          IFMG, Ouro Branco - MG | Setembro de 2021 - Presente
+          IFMG, Ouro Branco - MG | 09/2021 - em andamento
+          <!-- TODO: trocar "em andamento" por "previsão de conclusão: MM/AAAA" -->
         </p>
       </div>
       <div class="education">
         <p data-i18n="edu.2">
           <strong>Técnico Integrado em Mecânica</strong><br />
-          IFMG, Congonhas - MG | Janeiro de 2018 - Abril de 2021
+          IFMG, Congonhas - MG | 01/2018 - 04/2021
         </p>
       </div>
 
@@ -387,31 +400,44 @@
       <h2 data-i18n="h.skills">Tecnologias e Competências</h2>
       <ul>
         <li data-i18n="skills.1">
-          <strong>Back-end &amp; Arquitetura:</strong> Node.js, Express, APIs RESTful,
-          Microsserviços, ETL, Integração de Sistemas (SAP, Winthor, Salesforce), Design Patterns.
+          <strong>Linguagens:</strong> JavaScript, TypeScript, SQL, Java, Python, Kotlin.
         </li>
         <li data-i18n="skills.2">
-          <strong>Front-end &amp; Mobile:</strong> JavaScript, TypeScript, HTML5, CSS3, Vue.js,
-          PrimeVue, Tailwind CSS, Bootstrap, Chart.js, PWA, React Native (Expo).
+          <strong>Back-end:</strong> Node.js, Express, APIs REST (RESTful), autenticação JWT,
+          microsserviços, ETL, integração de sistemas (SAP, Winthor, Salesforce), Design Patterns.
         </li>
         <li data-i18n="skills.3">
-          <strong>IA &amp; Mensageria:</strong> OpenAI API, chatbots no WhatsApp.
+          <strong>Front-end:</strong> Vue.js (Vue 3), HTML5, CSS3, Tailwind CSS, PrimeVue,
+          Bootstrap, Chart.js, PWA.
         </li>
-        <li data-i18n="skills.4">
-          <strong>Linguagens:</strong> JavaScript, TypeScript, Java, Python, SQL, Kotlin.
-        </li>
+        <li data-i18n="skills.4"><strong>Mobile:</strong> React Native (Expo, Expo Router).</li>
         <li data-i18n="skills.5">
           <strong>Banco de Dados:</strong> PostgreSQL, MySQL, Oracle, MongoDB.
         </li>
         <li data-i18n="skills.6">
-          <strong>Cloud &amp; DevOps:</strong> Docker, Nginx, Git, GitHub Actions, CI/CD, AWS EC2,
-          Linux (Debian, Ubuntu, CentOS).
+          <strong>DevOps &amp; Cloud:</strong> Docker, Docker Compose, Nginx, Git, GitHub Actions,
+          CI/CD, AWS (EC2), Linux (Debian, Ubuntu, CentOS).
         </li>
         <li data-i18n="skills.7">
-          <strong>Metodologias:</strong> Metodologias Ágeis, Jira, Code Review, Testes Automatizados
-          (Jest, Supertest).
+          <strong>Qualidade:</strong> Testes automatizados (Jest, Supertest), Code Review.
+        </li>
+        <li data-i18n="skills.8"><strong>Metodologias:</strong> Metodologias Ágeis, Jira.</li>
+        <li data-i18n="skills.9">
+          <strong>IA &amp; Mensageria:</strong> OpenAI API, chatbots no WhatsApp.
         </li>
       </ul>
+      <!-- TODO (só se for verdade): citar Scrum/Kanban em "Metodologias" e SOLID/Clean Code em
+           "Qualidade"; o ATS não reconhece "Metodologias Ágeis" nem "código limpo" como sinônimos. -->
+
+      <!-- TODO: seção de idiomas — o ATS não encontra inglês no currículo atual.
+           Descomentar e ajustar o nível (e incluir o h2 também no CSS de cores, se quiser).
+      <hr />
+      <h2 data-i18n="h.languages">Idiomas</h2>
+      <ul>
+        <li data-i18n="lang.1"><strong>Português:</strong> nativo.</li>
+        <li data-i18n="lang.2"><strong>Inglês:</strong> [nível] — leitura técnica fluente.</li>
+      </ul>
+      -->
 
       <footer class="cv-footer">
         <p>

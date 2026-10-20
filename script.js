@@ -43,7 +43,7 @@
 
   const EN = {
     role: "Full Stack Developer",
-    location: "Minas Gerais, Brazil",
+    location: "Congonhas - MG, Brazil",
     website: "Website",
     download: "Resume (PDF)",
     "h.summary": "Professional Summary",
@@ -52,53 +52,54 @@
     "h.education": "Education",
     "h.skills": "Skills &amp; Technologies",
     "filter.label": "Filter by technology",
-    summary: `Full Stack Software Developer focused on <strong>back-end</strong> and
-    <strong>systems integration</strong>, working mainly with <strong>Node.js/Express</strong>,
-    <strong>PostgreSQL</strong>, <strong>Vue.js</strong> and <strong>React Native (Expo)</strong>.
-    Experienced in building data pipelines and middleware that integrate ERPs and CRMs
-    (<strong>SAP, Winthor and Salesforce</strong>), <strong>microservices</strong> and
-    <strong>RESTful APIs</strong> in Node.js and, more recently, chatbots powered by
-    <strong>generative AI</strong> (OpenAI) integrated with <strong>WhatsApp</strong>, with
-    conversation history in PostgreSQL and deployment with <strong>Docker</strong>. Built a mobile
-    app with <strong>Expo/TypeScript</strong> for a client and runs a self-managed VPS
-    infrastructure with Docker and <strong>Nginx</strong>. Analytical, focused on clean and
-    maintainable code, and keen to understand the business behind technical demands.`,
+    headline: "Full Stack Developer",
+    summary: `Full Stack Developer with 3+ years of software development experience (including internships), focused on
+    <strong>back-end</strong> and <strong>systems integration</strong>. I work with
+    <strong>JavaScript</strong> and <strong>TypeScript</strong>, <strong>Node.js</strong>
+    (<strong>Express</strong>), <strong>Vue.js</strong>, <strong>React Native</strong> (Expo),
+    <strong>PostgreSQL</strong> and <strong>MongoDB</strong>. Experienced with
+    <strong>REST APIs</strong>, <strong>microservices</strong>, data pipelines (ETL) and integration
+    middleware for ERPs and CRMs (SAP, Winthor, Salesforce), as well as generative AI chatbots
+    (OpenAI) integrated with WhatsApp. On the infrastructure side, I work with
+    <strong>Docker</strong>, <strong>Nginx</strong>, <strong>Linux</strong>, <strong>Git</strong>
+    and <strong>AWS</strong> (EC2); in personal projects, I apply <strong>JWT</strong>
+    authentication and automated testing with <strong>Jest</strong>.`,
     "scube.title": `<strong>Software Developer</strong><br />
-    <em>S-Cube | December 2025 - October 2026</em>`,
-    "scube.1": `Designed and built chatbots for support, sales and triage automation, integrating the
-    <strong>WhatsApp API</strong> with <strong>generative AI</strong> models (OpenAI) to create
+    <em>S-Cube | 12/2025 - 10/2026</em>`,
+    "scube.1": `Built support, sales and triage chatbots in <strong>Node.js</strong>, integrating the
+    <strong>WhatsApp API</strong> with the <strong>OpenAI API</strong> (generative AI) to deliver
     dynamic conversation flows.`,
-    "scube.2": `Implemented context persistence and conversation history in
-    <strong>PostgreSQL</strong>, along with infrastructure management and automated deployment
-    with <strong>Docker</strong> via Dokploy.`,
-    "scube.3": `Developed a <strong>React Native</strong> mobile app (Expo Router + TypeScript) for a
-    client's member and event management.`,
+    "scube.2": `Implemented context and conversation history persistence in
+    <strong>PostgreSQL</strong> and automated service deployment with <strong>Docker</strong> via
+    Dokploy.`,
+    "scube.3": `Developed a <strong>React Native</strong> mobile app (Expo Router +
+    <strong>TypeScript</strong>) for a client's member and event management.`,
     "b2list.title": `<strong>Software Developer</strong><br />
-    <em>B2List | September 2024 - December 2025</em>`,
+    <em>B2List | 09/2024 - 12/2025</em>`,
     "b2list.1": `Built and maintained <strong>microservices</strong> and data pipelines
-    (<strong>ETL</strong>) in Node.js for ingesting and synchronizing large volumes of data.`,
-    "b2list.2": `Developed APIs supporting the platform's business rules, with attention to
-    performance, quality and code maintainability.`,
+    (<strong>ETL</strong>) in <strong>Node.js</strong> to ingest and synchronize large volumes of
+    data.`,
+    "b2list.2": `Developed <strong>APIs</strong> in <strong>Node.js</strong> for the platform's
+    business rules, focusing on performance, quality and code maintainability.`,
     "csn.title": `<strong>Software Development Intern</strong><br />
-    <em>CSN Mineração | August 2024 - November 2024</em>`,
-    "csn.1": `System performance analysis, including SQL query optimization (tuning) and
-    application health monitoring.`,
+    <em>CSN Mineração | 08/2024 - 11/2024</em>`,
+    "csn.1": `Optimized <strong>SQL</strong> queries (tuning) and monitored the health and
+    performance of production applications.`,
     "cli2.title": `<strong>Systems Development Analyst</strong><br />
-    <em>CLI Consultoria | March 2024 - July 2024</em>`,
+    <em>CLI Consultoria | 03/2024 - 07/2024</em>`,
     "cli2.1": `Optimized <strong>RESTful APIs</strong> for real-time data consumption in critical
     systems, focusing on low latency and availability.`,
     "cli2.2": `Developed <strong>middleware</strong> to orchestrate and transform data between
-    <strong>legacy systems</strong> (SAP) and third-party platforms (Salesforce), working directly
-    on understanding and evolving legacy code.`,
+    <strong>SAP</strong> and <strong>Salesforce</strong>, evolving legacy code.`,
     "cli2.3": "Contributed to the evolution of the architecture and the scalability of applications.",
     "cli1.title": `<strong>Software Development Intern</strong><br />
-    <em>CLI Consultoria | February 2023 - March 2024</em>`,
-    "cli1.1": `Built data ingestion routines from diverse sources, including APIs, databases
-    (MongoDB), ERPs (SAP, Winthor) and CRM (Salesforce).`,
+    <em>CLI Consultoria | 02/2023 - 03/2024</em>`,
+    "cli1.1": `Built data ingestion routines from APIs, <strong>MongoDB</strong> databases, ERPs
+    (SAP, Winthor) and CRM (Salesforce).`,
     "cli1.2": `Maintained and optimized existing data pipelines, including legacy code, improving
     the performance and reliability of data flows.`,
-    "cli1.3": `Worked in cloud environments with <strong>AWS EC2</strong> and Linux server
-    administration, following DevOps practices.`,
+    "cli1.3": `Administered <strong>Linux</strong> servers in an <strong>AWS</strong> (EC2) cloud
+    environment, following DevOps practices.`,
     "arena.title": "Arena — Magic: The Gathering League and Tournament Manager",
     "arena.1": `League and tournament manager for Magic: The Gathering with <strong>Vue 3</strong>,
     PrimeVue and Tailwind on the front-end and an <strong>Express 5</strong> +
@@ -116,19 +117,18 @@
     transactional emails (Nodemailer) and tests with <strong>Jest</strong> and Supertest. Deployed
     with Docker Compose and Nginx.`,
     "edu.1": `<strong>Bachelor's Degree in Information Systems</strong><br />
-    IFMG, Ouro Branco - MG, Brazil | September 2021 - Present`,
+    IFMG, Ouro Branco - MG, Brazil | 09/2021 - in progress`,
     "edu.2": `<strong>Technical Diploma in Mechanics (integrated with high school)</strong><br />
-    IFMG, Congonhas - MG, Brazil | January 2018 - April 2021`,
-    "skills.1": `<strong>Back-end &amp; Architecture:</strong> Node.js, Express, RESTful APIs,
-    Microservices, ETL, Systems Integration (SAP, Winthor, Salesforce), Design Patterns.`,
-    "skills.2": `<strong>Front-end &amp; Mobile:</strong> JavaScript, TypeScript, HTML5, CSS3, Vue.js,
-    PrimeVue, Tailwind CSS, Bootstrap, Chart.js, PWA, React Native (Expo).`,
-    "skills.3": "<strong>AI &amp; Messaging:</strong> OpenAI API, WhatsApp chatbots.",
-    "skills.4": "<strong>Programming Languages:</strong> JavaScript, TypeScript, Java, Python, SQL, Kotlin.",
+    IFMG, Congonhas - MG, Brazil | 01/2018 - 04/2021`,
+    "skills.1": "<strong>Programming Languages:</strong> JavaScript, TypeScript, SQL, Java, Python, Kotlin.",
+    "skills.2": "<strong>Back-end:</strong> Node.js, Express, REST (RESTful) APIs, JWT authentication, microservices, ETL, systems integration (SAP, Winthor, Salesforce), Design Patterns.",
+    "skills.3": "<strong>Front-end:</strong> Vue.js (Vue 3), HTML5, CSS3, Tailwind CSS, PrimeVue, Bootstrap, Chart.js, PWA.",
+    "skills.4": "<strong>Mobile:</strong> React Native (Expo, Expo Router).",
     "skills.5": "<strong>Databases:</strong> PostgreSQL, MySQL, Oracle, MongoDB.",
-    "skills.6": `<strong>Cloud &amp; DevOps:</strong> Docker, Nginx, Git, GitHub Actions, CI/CD, AWS EC2,
-    Linux (Debian, Ubuntu, CentOS).`,
-    "skills.7": "<strong>Methodologies:</strong> Agile, Jira, Code Review, Automated Testing (Jest, Supertest).",
+    "skills.6": "<strong>DevOps &amp; Cloud:</strong> Docker, Docker Compose, Nginx, Git, GitHub Actions, CI/CD, AWS (EC2), Linux (Debian, Ubuntu, CentOS).",
+    "skills.7": "<strong>Quality:</strong> Automated testing (Jest, Supertest), Code Review.",
+    "skills.8": "<strong>Methodologies:</strong> Agile, Jira.",
+    "skills.9": "<strong>AI &amp; Messaging:</strong> OpenAI API, WhatsApp chatbots.",
     "footer.terminal": "open the terminal",
     "footer.note": "Hand-made with HTML, CSS and JavaScript",
   }
@@ -196,8 +196,26 @@
 
   $("#theme-toggle")?.addEventListener("click", toggleTheme)
 
+  /* Na impressão, tira a animação de entrada inteira (não só a deixa visível):
+     uma transição de opacity/transform ainda em andamento cria um stacking
+     context, o Chrome pinta esses blocos fora da ordem do documento e o PDF
+     herda essa ordem — o ATS chegava a ler o resumo depois das experiências. */
+  let printRevealed = []
   window.addEventListener("beforeprint", () => {
-    $$(".reveal").forEach((el) => el.classList.add("is-visible"))
+    // Encerra na hora as transições/animações em andamento (inclusive a barra de progresso)
+    document.getAnimations?.().forEach((a) => {
+      try {
+        a.finish()
+      } catch (e) {
+        a.cancel()
+      }
+    })
+    printRevealed = $$(".reveal")
+    printRevealed.forEach((el) => el.classList.remove("reveal", "is-entering"))
+  })
+  window.addEventListener("afterprint", () => {
+    printRevealed.forEach((el) => el.classList.add("reveal", "is-visible"))
+    printRevealed = []
   })
 
 
@@ -427,7 +445,7 @@
     whoami() {
       termPrint("Rodrigo Soares", "accent")
       termPrint(t().roles.join(" · "))
-      termPrint(lang === "pt" ? "Minas Gerais, Brasil" : "Minas Gerais, Brazil", "muted")
+      termPrint(lang === "pt" ? "Congonhas - MG, Brasil" : "Congonhas - MG, Brazil", "muted")
     },
     experience() {
       $$(".job").slice(0, 5).forEach((job) => {

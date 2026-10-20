@@ -223,11 +223,35 @@ hr {
 }
 
 /* ---------- Cabeçalho ---------- */
+/* Grid em vez de flex: os botões ficam na coluna da direita e a linha de
+   contatos pode ocupar a largura inteira, embaixo deles. O div da esquerda
+   vira "transparente" (display: contents) para os filhos entrarem no grid. */
 .cv-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  column-gap: 24px;
+}
+
+.cv-header>div:first-child {
+  display: contents;
+}
+
+.cv-header>div:first-child>* {
+  grid-column: 1;
+  justify-self: start;
+}
+
+.cv-header .actions {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.cv-header>div:first-child>h1,
+.cv-header>div:first-child>.contact-info,
+.cv-header>div:first-child>.headline,
+.cv-header>div:first-child>.headline-stack {
+  grid-column: 1 / -1;
 }
 
 .eyebrow {
@@ -279,7 +303,7 @@ h1 {
 .contact-info {
   margin: 0;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.875rem;
 }
 
 .contact-info strong {
@@ -544,6 +568,27 @@ li::marker {
 
 .container>ul li strong {
   font-weight: 500;
+}
+
+/* Contatos: na tela, cada link quebra inteiro e sem "|" sobrando no fim da linha;
+   no PDF os separadores voltam (ver @media print) */
+.contact-info a {
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.contact-info a:last-child {
+  margin-right: 0;
+}
+
+.contact-info .sep {
+  display: none;
+}
+
+/* Título profissional: só aparece no PDF (na tela, o selo .eyebrow faz esse papel) */
+.headline,
+.headline-stack {
+  display: none;
 }
 
 /* ---------- Utilitários ---------- */
@@ -979,12 +1024,14 @@ kbd {
   }
 
   .cv-header {
-    flex-direction: column-reverse;
-    gap: 20px;
+    grid-template-columns: 1fr;
   }
 
-  .actions {
+  .cv-header .actions {
+    grid-column: 1;
+    grid-row: 1;
     width: 100%;
+    margin-bottom: 20px;
   }
 
   .btn-primary {
@@ -1134,11 +1181,42 @@ kbd {
     break-after: avoid;
   }
 
+  /* position: static — elementos posicionados são pintados depois do fluxo
+     normal, e o PDF herda essa ordem: o parser do ATS lia títulos, formação e
+     competências antes das experiências que caíam na página 2 */
+  .container,
+  .job {
+    position: static !important;
+  }
+
   .job {
     margin: 0 0 10px;
     padding: 0;
     border-radius: 0;
     break-inside: avoid;
+  }
+
+  .contact-info a {
+    display: inline;
+    margin-right: 0;
+  }
+
+  .contact-info .sep {
+    display: inline;
+  }
+
+  .headline {
+    display: block;
+    margin: 0;
+    font-size: 11pt;
+    font-weight: 600;
+  }
+
+  /* Tecnologias numa linha própria: o parser grava só o cargo como título */
+  .headline-stack {
+    display: block;
+    margin: 0 0 4px;
+    font-size: 10pt;
   }
 
   .job-title {
@@ -1149,10 +1227,12 @@ kbd {
     font-size: 10.5pt;
   }
 
+  /* Sem itálico: quando a IBM Plex itálica não carrega, o Chrome embute uma
+     fonte Type 3 de fallback, que alguns parsers de ATS leem mal */
   .job-title em {
     font-family: var(--font-sans);
     font-size: 10pt;
-    font-style: italic;
+    font-style: normal;
   }
 
   li {
