@@ -1,0 +1,4 @@
+scripts/
+.github/
+.git/
+.eslintrc.cjs

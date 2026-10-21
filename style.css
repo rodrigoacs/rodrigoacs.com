@@ -101,6 +101,11 @@
   --accent: var(--purple);
 }
 
+.container>h2:nth-of-type(6),
+.container>h2:nth-of-type(6)~* {
+  --accent: var(--yellow);
+}
+
 .container>hr {
   --accent: var(--line);
 }
@@ -233,11 +238,11 @@ hr {
   column-gap: 24px;
 }
 
-.cv-header>div:first-child {
+.cv-header > div:first-child {
   display: contents;
 }
 
-.cv-header>div:first-child>* {
+.cv-header > div:first-child > * {
   grid-column: 1;
   justify-self: start;
 }
@@ -247,10 +252,11 @@ hr {
   grid-row: 1;
 }
 
-.cv-header>div:first-child>h1,
-.cv-header>div:first-child>.contact-info,
-.cv-header>div:first-child>.headline,
-.cv-header>div:first-child>.headline-stack {
+.cv-header > div:first-child > h1,
+.cv-header > div:first-child > .contact-info,
+.cv-header > div:first-child > .headline,
+.cv-header > div:first-child > .headline-stack,
+.cv-header > div:first-child > .status {
   grid-column: 1 / -1;
 }
 
@@ -583,6 +589,91 @@ li::marker {
 
 .contact-info .sep {
   display: none;
+}
+
+/* ---------- Selo de disponibilidade ---------- */
+.status {
+  --accent: var(--green);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 0;
+  padding: 5px 14px 5px 11px;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.status-dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+/* ---------- Galeria de telas dos projetos ---------- */
+.shots {
+  margin: 10px 0 4px;
+}
+
+.shots summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  list-style: none;
+}
+
+.shots summary::-webkit-details-marker {
+  display: none;
+}
+
+.shots summary::before {
+  content: "▸";
+  transition: transform 0.2s var(--ease);
+}
+
+.shots[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.shots-strip {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 12px 2px 6px;
+  scroll-snap-type: x mandatory;
+}
+
+.shots-strip a {
+  flex: 0 0 min(340px, 85%);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  scroll-snap-align: start;
+  transition: border-color 0.2s ease, transform 0.2s var(--ease);
+}
+
+.shots-strip a:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.shots-strip img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
 }
 
 /* Título profissional: só aparece no PDF (na tela, o selo .eyebrow faz esse papel) */
@@ -1068,7 +1159,7 @@ kbd {
 /* ---------- Impressão / Salvar como PDF ---------- */
 @media print {
   @page {
-    margin: 14mm 16mm;
+    margin: 12mm 15mm;
   }
 
   /* PDF simples: preto no branco, uma fonte só, sem enfeites */
@@ -1099,6 +1190,8 @@ kbd {
   }
 
   .filter,
+  .status,
+  .shots,
   .job ul.tags,
   .cv-footer,
   .terminal,
@@ -1171,7 +1264,7 @@ kbd {
 
   h2 {
     display: block;
-    margin: 16px 0 8px;
+    margin: 13px 0 7px;
     padding-bottom: 2px;
     border-bottom: 1px solid #000;
     font-family: var(--font-sans);
@@ -1189,10 +1282,20 @@ kbd {
     position: static !important;
   }
 
+  /* Um emprego pode continuar na página seguinte (evita meia página em branco),
+     mas o título nunca fica sozinho no pé da página e nenhum bullet é partido */
   .job {
-    margin: 0 0 10px;
+    margin: 0 0 8px;
     padding: 0;
     border-radius: 0;
+  }
+
+  .job-title {
+    break-inside: avoid;
+    break-after: avoid;
+  }
+
+  .job li {
     break-inside: avoid;
   }
 

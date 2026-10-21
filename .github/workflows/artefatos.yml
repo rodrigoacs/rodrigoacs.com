@@ -1,0 +1,58 @@
+# Regera os PDFs do currículo e a og-image sempre que o conteúdo do site muda,
+# e commita o resultado na própria branch. O script só regrava um arquivo quando
+# o conteúdo mudou, então pushes que não mexem no currículo não geram commit.
+#
+# Commits feitos com o GITHUB_TOKEN não disparam workflows de novo (sem loop).
+# Depois que a Action commitar, faça "git pull" antes do próximo push.
+
+name: Regerar PDFs e og-image
+
+on:
+  push:
+    branches: [simple]
+    paths:
+      - index.html
+      - style.css
+      - script.js
+      - scripts/**
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: artefatos-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gerar:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      # O runner já vem com o Google Chrome em /opt/google/chrome. É o binário que o
+      # perfil AppArmor do Ubuntu 24.04 libera, então o sandbox funciona normalmente.
+      - name: Gerar PDFs e og-image
+        env:
+          CHROME_PATH: /opt/google/chrome/chrome
+        run: node scripts/gerar-pdfs.mjs
+
+      # Se um dia falhar com "No usable sandbox", troque o passo acima por:
+      #   sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+      #   node scripts/gerar-pdfs.mjs
+
+      - name: Commitar se mudou
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add curriculo-rodrigo-soares.pdf resume-rodrigo-soares.pdf og-image.png
+          if git diff --cached --quiet; then
+            echo "Nada mudou nos artefatos."
+            exit 0
+          fi
+          git commit -m "chore(cv): regera PDFs e og-image"
+          git push

@@ -11,6 +11,13 @@
     } catch (e) { }
   }
 
+  /* Evento no Umami, se o script dele carregou (bloqueadores de anúncio podem impedir) */
+  function track(name, data) {
+    try {
+      window.umami?.track(name, data)
+    } catch (e) { }
+  }
+
   /* =========================================================
      Textos (PT vem do próprio HTML; EN fica aqui)
      ========================================================= */
@@ -26,6 +33,7 @@
       filterStatus: (n, total, tech) => `Mostrando ${n} de ${total} itens com ${tech}`,
       filterHint: "Clique numa tecnologia para ver só o que usa ela",
       filterEmpty: (tech) => `Nenhuma experiência profissional com ${tech} — veja os projetos abaixo.`,
+      shots: (n) => `Ver telas (${n})`,
     },
     en: {
       title: "Rodrigo Soares — Full Stack Developer",
@@ -38,12 +46,15 @@
       filterStatus: (n, total, tech) => `Showing ${n} of ${total} entries with ${tech}`,
       filterHint: "Click a technology to show only what uses it",
       filterEmpty: (tech) => `No professional experience with ${tech} — see the projects below.`,
+      shots: (n) => `View screenshots (${n})`,
     },
   }
 
   const EN = {
     role: "Full Stack Developer",
     location: "Congonhas - MG, Brazil",
+    phone: "+55 (31) 99548-7310",
+    status: "Open to remote roles · contractor or full-time",
     website: "Website",
     download: "Resume (PDF)",
     "h.summary": "Professional Summary",
@@ -51,55 +62,65 @@
     "h.projects": "Personal Projects",
     "h.education": "Education",
     "h.skills": "Skills &amp; Technologies",
+    "h.languages": "Languages",
     "filter.label": "Filter by technology",
     headline: "Full Stack Developer",
-    summary: `Full Stack Developer with 3+ years of software development experience (including internships), focused on
+    summary: `Full Stack Developer with 3+ years of experience (including an internship), focused on
     <strong>back-end</strong> and <strong>systems integration</strong>. I work with
-    <strong>JavaScript</strong> and <strong>TypeScript</strong>, <strong>Node.js</strong>
-    (<strong>Express</strong>), <strong>Vue.js</strong>, <strong>React Native</strong> (Expo),
-    <strong>PostgreSQL</strong> and <strong>MongoDB</strong>. Experienced with
-    <strong>REST APIs</strong>, <strong>microservices</strong>, data pipelines (ETL) and integration
-    middleware for ERPs and CRMs (SAP, Winthor, Salesforce), as well as generative AI chatbots
-    (OpenAI) integrated with WhatsApp. On the infrastructure side, I work with
-    <strong>Docker</strong>, <strong>Nginx</strong>, <strong>Linux</strong>, <strong>Git</strong>
-    and <strong>AWS</strong> (EC2); in personal projects, I apply <strong>JWT</strong>
-    authentication and automated testing with <strong>Jest</strong>.`,
+    <strong>JavaScript</strong>, <strong>TypeScript</strong>, <strong>Node.js</strong>
+    (<strong>Express</strong>), <strong>Kotlin</strong>, <strong>React Native</strong> (Expo),
+    <strong>Vue.js</strong>, <strong>PostgreSQL</strong> and <strong>MongoDB</strong> on
+    <strong>REST APIs</strong>, <strong>microservices</strong>, ETL pipelines and AI chatbots (OpenAI)
+    on WhatsApp. Experienced with <strong>JWT</strong>, <strong>Docker</strong>, <strong>CI/CD</strong>, <strong>Nginx</strong>,
+    <strong>Linux</strong>, <strong>Git</strong>/GitHub and <strong>AWS</strong> (EC2). I work in teams
+    of 10 to 15 developers using <strong>Scrum</strong>, code review and pull requests, applying
+    <strong>SOLID</strong>, <strong>Clean Code</strong> and <strong>automated testing</strong>
+    (Jest).`,
     "scube.title": `<strong>Software Developer</strong><br />
-    <em>S-Cube | 12/2025 - 10/2026</em>`,
-    "scube.1": `Built support, sales and triage chatbots in <strong>Node.js</strong>, integrating the
-    <strong>WhatsApp API</strong> with the <strong>OpenAI API</strong> (generative AI) to deliver
-    dynamic conversation flows.`,
-    "scube.2": `Implemented context and conversation history persistence in
-    <strong>PostgreSQL</strong> and automated service deployment with <strong>Docker</strong> via
-    Dokploy.`,
-    "scube.3": `Developed a <strong>React Native</strong> mobile app (Expo Router +
-    <strong>TypeScript</strong>) for a client's member and event management.`,
+    <em>S-Cube | 12/2025 - 10/2026 | Remote</em>`,
+    "scube.1": `Built support, sales and triage chatbots in <strong>JavaScript</strong>
+    (<strong>Node.js</strong> + <strong>Express</strong>), integrating the <strong>WhatsApp API</strong> (UAZAPI, via webhooks)
+    with the <strong>OpenAI API</strong>, handling about 300 messages/day.`,
+    "scube.2": `Built a <strong>multi-tenant</strong> messaging API in Node.js, Express and
+    <strong>PostgreSQL</strong> that centralizes the services connected to UAZAPI, running on
+    <strong>Docker Compose</strong>.`,
+    "scube.3": `Implemented conversation history persistence in PostgreSQL, <strong>JWT</strong>
+    authentication and <strong>automated tests</strong>; set up <strong>CI/CD</strong> with automatic
+    deployment on every push (<strong>Docker</strong> + Dokploy).`,
+    "scube.4": `Developed a <strong>React Native</strong> mobile app (Expo Router +
+    <strong>TypeScript</strong>) for a client's member and event management and reduced the APK size
+    from ~109 MB to ~62 MB (−43%).`,
+    "scube.5": `Worked in a team of 10 to 15 developers using <strong>Scrum</strong> (sprints in
+    Jira/ClickUp), <strong>code review</strong> and version control with <strong>Git</strong>/GitHub.`,
     "b2list.title": `<strong>Software Developer</strong><br />
-    <em>B2List | 09/2024 - 12/2025</em>`,
-    "b2list.1": `Built and maintained <strong>microservices</strong> and data pipelines
-    (<strong>ETL</strong>) in <strong>Node.js</strong> to ingest and synchronize large volumes of
-    data.`,
-    "b2list.2": `Developed <strong>APIs</strong> in <strong>Node.js</strong> for the platform's
-    business rules, focusing on performance, quality and code maintainability.`,
-    "csn.title": `<strong>Software Development Intern</strong><br />
-    <em>CSN Mineração | 08/2024 - 11/2024</em>`,
-    "csn.1": `Optimized <strong>SQL</strong> queries (tuning) and monitored the health and
-    performance of production applications.`,
+    <em>B2List | 09/2024 - 12/2025 | Remote</em>`,
+    "b2list.1": `Built and maintained 8 to 10 <strong>microservices</strong> and data pipelines
+    (<strong>ETL</strong>) in <strong>JavaScript</strong> (<strong>Node.js</strong>) and <strong>Kotlin</strong>, processing about
+    600,000 records.`,
+    "b2list.2": `Developed <strong>APIs</strong> in Node.js for the platform's business rules,
+    focusing on performance and maintainability.`,
+    "b2list.3": `Worked in a team of 10 to 15 developers using <strong>Scrum</strong>,
+    <strong>pull requests</strong> and <strong>code review</strong> (<strong>Git</strong>).`,
     "cli2.title": `<strong>Systems Development Analyst</strong><br />
-    <em>CLI Consultoria | 03/2024 - 07/2024</em>`,
-    "cli2.1": `Optimized <strong>RESTful APIs</strong> for real-time data consumption in critical
+    <em>CLI Consultoria | 03/2024 - 07/2024 | Remote</em>`,
+    "cli2.1": `Reduced the runtime of a data integration from over 10 hours to about 15 minutes.`,
+    "cli2.2": `Optimized <strong>RESTful APIs</strong> for real-time data consumption in critical
     systems, focusing on low latency and availability.`,
-    "cli2.2": `Developed <strong>middleware</strong> to orchestrate and transform data between
+    "cli2.3": `Developed <strong>middleware</strong> to orchestrate and transform data between
     <strong>SAP</strong> and <strong>Salesforce</strong>, evolving legacy code.`,
-    "cli2.3": "Contributed to the evolution of the architecture and the scalability of applications.",
+    "cli2.4": `Contributed to application architecture and scalability in sprints
+    (<strong>Scrum</strong>); promoted from intern to analyst.`,
     "cli1.title": `<strong>Software Development Intern</strong><br />
-    <em>CLI Consultoria | 02/2023 - 03/2024</em>`,
+    <em>CLI Consultoria | 02/2023 - 03/2024 | Remote</em>`,
     "cli1.1": `Built data ingestion routines from APIs, <strong>MongoDB</strong> databases, ERPs
     (SAP, Winthor) and CRM (Salesforce).`,
     "cli1.2": `Maintained and optimized existing data pipelines, including legacy code, improving
-    the performance and reliability of data flows.`,
+    performance and reliability.`,
     "cli1.3": `Administered <strong>Linux</strong> servers in an <strong>AWS</strong> (EC2) cloud
     environment, following DevOps practices.`,
+    "arena.date": `Personal project | 10/2025 - Present`,
+    "mercadia.date": `Personal project | 12/2025 - Present`,
+    "librishelf.date": `Personal project | 06/2024 - Present`,
     "arena.title": "Arena — Magic: The Gathering League and Tournament Manager",
     "arena.1": `League and tournament manager for Magic: The Gathering with <strong>Vue 3</strong>,
     PrimeVue and Tailwind on the front-end and an <strong>Express 5</strong> +
@@ -110,25 +131,27 @@
     data and collects LigaMagic prices through web scraping (Cheerio), secured with JWT, Helmet and
     rate limiting. Vanilla JavaScript front-end, installable as a <strong>PWA</strong>, with
     Chart.js charts. Containerized with Docker.`,
-    "librishelf.1": `Personal library to catalog and track book collections, with
-    <strong>Vue 3</strong>, PrimeVue, vue-i18n (Portuguese and English) and Chart.js on the
-    front-end and <strong>Express 5</strong> + <strong>PostgreSQL</strong> on the back-end, with
-    custom migrations, JWT authentication in httpOnly cookies, cover processing with sharp,
-    transactional emails (Nodemailer) and tests with <strong>Jest</strong> and Supertest. Deployed
-    with Docker Compose and Nginx.`,
+    "librishelf.1": `Personal library to catalog and track book collections. A
+    <strong>responsive</strong> <strong>Vue 3</strong> front-end with PrimeVue, vue-i18n (Portuguese
+    and English) and Chart.js consumes a <strong>REST API</strong> built with <strong>Express 5</strong>
+    + <strong>PostgreSQL</strong>, with custom migrations, JWT authentication in httpOnly cookies,
+    cover processing with sharp, transactional emails (Nodemailer) and <strong>integration
+    tests</strong> with <strong>Jest</strong> and Supertest. Deployed with Docker Compose and Nginx.`,
     "edu.1": `<strong>Bachelor's Degree in Information Systems</strong><br />
-    IFMG, Ouro Branco - MG, Brazil | 09/2021 - in progress`,
+    IFMG, Ouro Branco - MG, Brazil | 09/2021 - 07/2027 (expected)`,
     "edu.2": `<strong>Technical Diploma in Mechanics (integrated with high school)</strong><br />
     IFMG, Congonhas - MG, Brazil | 01/2018 - 04/2021`,
-    "skills.1": "<strong>Programming Languages:</strong> JavaScript, TypeScript, SQL, Java, Python, Kotlin.",
-    "skills.2": "<strong>Back-end:</strong> Node.js, Express, REST (RESTful) APIs, JWT authentication, microservices, ETL, systems integration (SAP, Winthor, Salesforce), Design Patterns.",
+    "skills.1": "<strong>Programming Languages:</strong> JavaScript, TypeScript, Kotlin, SQL, Java, Python.",
+    "skills.2": "<strong>Back-end:</strong> Node.js, Express, REST (RESTful) APIs, JWT authentication, microservices, webhooks, ETL, systems integration (SAP, Winthor, Salesforce), Design Patterns.",
     "skills.3": "<strong>Front-end:</strong> Vue.js (Vue 3), HTML5, CSS3, Tailwind CSS, PrimeVue, Bootstrap, Chart.js, PWA.",
     "skills.4": "<strong>Mobile:</strong> React Native (Expo, Expo Router).",
     "skills.5": "<strong>Databases:</strong> PostgreSQL, MySQL, Oracle, MongoDB.",
-    "skills.6": "<strong>DevOps &amp; Cloud:</strong> Docker, Docker Compose, Nginx, Git, GitHub Actions, CI/CD, AWS (EC2), Linux (Debian, Ubuntu, CentOS).",
-    "skills.7": "<strong>Quality:</strong> Automated testing (Jest, Supertest), Code Review.",
-    "skills.8": "<strong>Methodologies:</strong> Agile, Jira.",
-    "skills.9": "<strong>AI &amp; Messaging:</strong> OpenAI API, WhatsApp chatbots.",
+    "skills.6": "<strong>DevOps &amp; Cloud:</strong> Docker, Docker Compose, Dokploy, Nginx, Git, GitHub, GitHub Actions, CI/CD, AWS (EC2), Linux.",
+    "skills.7": "<strong>Quality:</strong> SOLID, Clean Code, code review, pull requests, automated testing (Jest, Supertest).",
+    "skills.8": "<strong>Methodologies:</strong> Scrum (sprints), Jira, ClickUp.",
+    "skills.9": "<strong>AI &amp; Messaging:</strong> OpenAI API, WhatsApp (UAZAPI), chatbots, webhooks, multi-tenant messaging.",
+    "lang.1": "<strong>English:</strong> intermediate (conversational); advanced technical reading.",
+    "lang.2": "<strong>Portuguese:</strong> native.",
     "footer.terminal": "open the terminal",
     "footer.note": "Hand-made with HTML, CSS and JavaScript",
   }
@@ -164,7 +187,9 @@
     if (pdf) {
       pdf.href = lang === "en" ? "resume-rodrigo-soares.pdf" : "curriculo-rodrigo-soares.pdf"
       pdf.setAttribute("download", lang === "en" ? "Resume - Rodrigo Soares.pdf" : "Curriculo - Rodrigo Soares.pdf")
+      pdf.dataset.umamiEventIdioma = lang
     }
+    updateShotLabels()
     $$(".tags").forEach((ul) => ul.setAttribute("aria-label", t().tagsLabel))
 
     if (save) {
@@ -290,6 +315,7 @@
     pwa: "PWA",
     jest: "Jest",
     nginx: "Nginx",
+    kotlin: "Kotlin",
   }
   const FEATURED = ["node", "postgres", "docker", "vue", "react-native", "openai", "sap", "etl"]
 
@@ -379,6 +405,7 @@
 
   function setFilter(tech) {
     activeTech = tech
+    if (tech) track("filtro", { tecnologia: tech })
     const url = new URL(location.href)
     if (tech) url.searchParams.set("tech", tech)
     else url.searchParams.delete("tech")
@@ -421,6 +448,9 @@
     line.append(a)
   }
 
+  const jobsIn = (key) =>
+    [...sections].find(([heading]) => heading.dataset.i18n === key)?.[1] ?? []
+
   const sectionText = (selector) =>
     $$(selector).map((el) => el.innerText.replace(/\s+/g, " ").trim())
 
@@ -448,22 +478,23 @@
       termPrint(lang === "pt" ? "Congonhas - MG, Brasil" : "Congonhas - MG, Brazil", "muted")
     },
     experience() {
-      $$(".job").slice(0, 5).forEach((job) => {
+      jobsIn("h.experience").forEach((job) => {
         const [title, meta] = $(".job-title", job).innerText.split("\n")
         termPrint(`▸ ${title}`, "accent")
         termPrint(`  ${meta}`, "muted")
       })
     },
     projects() {
-      $$(".job").slice(5).forEach((job) => {
+      jobsIn("h.projects").forEach((job) => {
         termPrint(`▸ ${$(".job-title strong", job).innerText}`, "accent")
         $$(".job-links a", job).forEach((a) => printLink(`  ${a.textContent}`, a.href))
       })
     },
     skills() {
-      sectionText(".container > ul li").forEach((line) => termPrint(`• ${line}`))
+      sectionText(".container > ul:not(.languages) li").forEach((line) => termPrint(`• ${line}`))
     },
     contact() {
+      printLink("  +55 (31) 99548-7310", "tel:+5531995487310")
       printLink("  rodrigohths@gmail.com", "mailto:rodrigohths@gmail.com")
       printLink("  github.com/rodrigoacs", "https://github.com/rodrigoacs")
       printLink("  linkedin.com/in/rodrigoacsoares", "https://www.linkedin.com/in/rodrigoacsoares")
@@ -505,6 +536,7 @@
     sudo(arg) {
       if (arg === "hire-me" || arg === "contratar") {
         termPrint(lang === "pt" ? "Permissão concedida. ✔" : "Permission granted. ✔", "accent")
+        printLink("  +55 (31) 99548-7310", "tel:+5531995487310")
         printLink("  rodrigohths@gmail.com", "mailto:rodrigohths@gmail.com")
       } else {
         termPrint(lang === "pt" ? "Boa tentativa. Experimente: sudo hire-me" : "Nice try. Try: sudo hire-me", "error")
@@ -549,6 +581,7 @@
     }
     term.showModal()
     input.focus()
+    track("terminal")
   }
 
   $("#terminal-open")?.addEventListener("click", openTerminal)
@@ -645,6 +678,60 @@
     "color:#7bd88f;font:600 14px monospace",
     "color:inherit;font:12px monospace"
   )
+
+  /* =========================================================
+     Galeria de telas dos projetos
+     img/projetos/manifest.json é gerado por scripts/capturar-telas.mjs;
+     projeto fora do manifest (ou manifest ausente) simplesmente não ganha galeria.
+     ========================================================= */
+  function updateShotLabels() {
+    $$(".shots summary").forEach((s) => (s.textContent = t().shots(s.dataset.count)))
+  }
+
+  function buildGallery(job, shots) {
+    const details = document.createElement("details")
+    details.className = "shots"
+    const summary = document.createElement("summary")
+    summary.dataset.count = shots.length
+    details.append(summary)
+
+    const strip = document.createElement("div")
+    strip.className = "shots-strip"
+    shots.forEach(({ src, alt }) => {
+      const link = document.createElement("a")
+      link.href = src
+      link.target = "_blank"
+      link.rel = "noopener"
+      const img = document.createElement("img")
+      img.src = src
+      img.alt = alt
+      img.loading = "lazy" // dentro do <details> fechado, só baixa ao abrir
+      img.decoding = "async"
+      img.width = 1280
+      img.height = 800
+      link.append(img)
+      strip.append(link)
+    })
+    details.append(strip)
+    details.addEventListener("toggle", () => {
+      if (details.open) track("telas", { projeto: job.dataset.projeto })
+    })
+
+    const tags = $("ul.tags", job)
+    if (tags) tags.before(details)
+    else job.append(details)
+  }
+
+  fetch("img/projetos/manifest.json", { cache: "no-cache" })
+    .then((res) => (res.ok ? res.json() : {}))
+    .then((manifest) => {
+      $$("[data-projeto]").forEach((job) => {
+        const shots = manifest[job.dataset.projeto]
+        if (Array.isArray(shots) && shots.length) buildGallery(job, shots)
+      })
+      updateShotLabels()
+    })
+    .catch(() => { })
 
   /* Inicialização */
   applyLang(lang)

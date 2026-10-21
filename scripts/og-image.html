@@ -1,0 +1,124 @@
+<!doctype html>
+<!-- Modelo da og-image.png (1200×630), a imagem do preview ao compartilhar o link.
+     Gerada por: node scripts/gerar-pdfs.mjs  (cores = paleta escura do site) -->
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600;700&display=block"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        background: #222222;
+        color: #f7f1ff;
+        font-family: 'IBM Plex Sans', sans-serif;
+      }
+
+      .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        padding: 0 96px;
+        background:
+          radial-gradient(circle at 88% 18%, rgb(148 138 227 / 0.16), transparent 42%),
+          radial-gradient(circle at 8% 95%, rgb(123 216 143 / 0.12), transparent 40%);
+      }
+
+      /* Faixa do espectro, igual ao topo do site */
+      .card::before {
+        content: '';
+        position: absolute;
+        inset: 0 0 auto;
+        height: 10px;
+        background: linear-gradient(
+          90deg,
+          #fc618d 0 16.66%,
+          #fd9353 0 33.33%,
+          #fce566 0 50%,
+          #7bd88f 0 66.66%,
+          #5ad4e6 0 83.33%,
+          #948ae3 0
+        );
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        align-self: flex-start;
+        margin-bottom: 28px;
+        padding: 8px 18px;
+        border-radius: 999px;
+        background: rgb(123 216 143 / 0.14);
+        color: #7bd88f;
+        font: 500 22px/1 'IBM Plex Mono', monospace;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: currentColor;
+      }
+
+      h1 {
+        font-size: 104px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.03em;
+      }
+
+      .stack {
+        margin-top: 30px;
+        color: #c1c0c0;
+        font-size: 32px;
+      }
+
+      .stack b {
+        color: #f7f1ff;
+        font-weight: 600;
+      }
+
+      .url {
+        position: absolute;
+        right: 96px;
+        bottom: 64px;
+        left: 96px;
+        display: flex;
+        justify-content: space-between;
+        color: #939293;
+        font: 400 26px 'IBM Plex Mono', monospace;
+      }
+
+      .url span:first-child {
+        color: #fce566;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <p class="eyebrow">Desenvolvedor Full Stack</p>
+      <h1>Rodrigo Soares</h1>
+      <p class="stack">
+        <b>Node.js</b> · <b>TypeScript</b> · <b>Vue.js</b> · <b>React Native</b> ·
+        <b>PostgreSQL</b> · <b>Docker</b>
+      </p>
+      <p class="url"><span>❯ rodrigoacs.com</span><span>Congonhas - MG · Remoto</span></p>
+    </div>
+  </body>
+</html>

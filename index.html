@@ -9,7 +9,11 @@
       content="Currículo de Rodrigo Soares, desenvolvedor full stack com foco em back-end, integração de sistemas e chatbots com IA. Node.js, PostgreSQL, Vue.js e React Native."
     />
     <meta name="author" content="Rodrigo Soares" />
-    <link rel="canonical" href="https://rodrigoacs.com/" />
+    <link rel="canonical" id="canonical" href="https://rodrigoacs.com/" />
+    <!-- Mesma página em dois idiomas (o inglês é aplicado pelo script.js com ?lang=en) -->
+    <link rel="alternate" hreflang="pt-BR" href="https://rodrigoacs.com/" />
+    <link rel="alternate" hreflang="en" href="https://rodrigoacs.com/?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://rodrigoacs.com/" />
     <meta name="theme-color" content="#222222" />
     <link
       rel="icon"
@@ -32,6 +36,50 @@
     <meta property="og:locale:alternate" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
 
+    <!-- Dados estruturados: ajudam o Google a montar o painel de "Rodrigo Soares desenvolvedor" -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Rodrigo Soares",
+        "jobTitle": "Desenvolvedor Full Stack",
+        "url": "https://rodrigoacs.com/",
+        "image": "https://rodrigoacs.com/og-image.png",
+        "email": "mailto:rodrigohths@gmail.com",
+        "telephone": "+55-31-99548-7310",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Congonhas",
+          "addressRegion": "MG",
+          "addressCountry": "BR"
+        },
+        "sameAs": ["https://github.com/rodrigoacs", "https://www.linkedin.com/in/rodrigoacsoares"],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Instituto Federal de Minas Gerais (IFMG)"
+        },
+        "knowsLanguage": ["pt-BR", "en"],
+        "knowsAbout": [
+          "JavaScript",
+          "TypeScript",
+          "Node.js",
+          "Express",
+          "Kotlin",
+          "Vue.js",
+          "React Native",
+          "PostgreSQL",
+          "MongoDB",
+          "Docker",
+          "AWS",
+          "APIs REST",
+          "Microsserviços",
+          "ETL",
+          "Integração de sistemas",
+          "Chatbots com IA"
+        ]
+      }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -47,6 +95,9 @@
           var theme = localStorage.getItem('cv-theme')
           if (theme) root.dataset.theme = theme
           var param = new URLSearchParams(location.search).get('lang')
+          if (param === 'en') {
+            document.getElementById('canonical').href = 'https://rodrigoacs.com/?lang=en'
+          }
           var lang = param || localStorage.getItem('cv-lang')
           if (!lang) lang = /^pt/i.test(navigator.language || '') ? 'pt' : 'en'
           if (lang === 'en') root.classList.add('lang-loading')
@@ -55,6 +106,15 @@
       })()
     </script>
     <script src="script.js" defer></script>
+    <!-- Umami (analytics próprio, sem cookies). Troque o data-website-id pelo ID do site
+         criado no painel do Umami. data-domains evita contar visitas locais. -->
+    <script
+      defer
+      src="https://analytics.rodrigoacs.com/stats.js"
+      data-website-id="COLE-AQUI-O-WEBSITE-ID"
+      data-domains="rodrigoacs.com"
+      data-do-not-track="true"
+    ></script>
   </head>
   <body>
     <div class="progress" aria-hidden="true"></div>
@@ -73,19 +133,35 @@
             Node.js · TypeScript · Vue.js · React Native · PostgreSQL · Docker · AWS
           </p>
           <!-- URLs escritas por extenso: o ATS lê o texto, não o destino do link -->
-          <!-- TODO: incluir telefone/WhatsApp (ex.: (31) 9XXXX-XXXX) — muitos ATS exigem -->
           <p class="contact-info">
-            <span data-i18n="location">Congonhas - MG, Brasil</span><br />
-            <a href="mailto:rodrigohths@gmail.com">rodrigohths@gmail.com</a
+            <span data-i18n="location">Congonhas - MG, Brasil</span> |
+            <a href="tel:+5531995487310" data-i18n="phone" data-umami-event="contato" data-umami-event-canal="telefone">+55 (31) 99548-7310</a><br />
+            <a href="mailto:rodrigohths@gmail.com" data-umami-event="contato" data-umami-event-canal="email"
+              >rodrigohths@gmail.com</a
             ><span class="sep"> | </span
             ><a href="https://rodrigoacs.com" target="_blank" rel="noopener">rodrigoacs.com</a
             ><span class="sep"> | </span
-            ><a href="https://github.com/rodrigoacs" target="_blank" rel="noopener"
+            ><a
+              href="https://github.com/rodrigoacs"
+              target="_blank"
+              rel="noopener"
+              data-umami-event="contato"
+              data-umami-event-canal="github"
               >github.com/rodrigoacs</a
             ><span class="sep"> | </span
-            ><a href="https://www.linkedin.com/in/rodrigoacsoares" target="_blank" rel="noopener"
+            ><a
+              href="https://www.linkedin.com/in/rodrigoacsoares"
+              target="_blank"
+              rel="noopener"
+              data-umami-event="contato"
+              data-umami-event-canal="linkedin"
               >linkedin.com/in/rodrigoacsoares</a
             >
+          </p>
+          <!-- Só na tela; no PDF, o recrutador já está lendo o currículo -->
+          <p class="status">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span data-i18n="status">Disponível para vagas remotas · PJ ou CLT</span>
           </p>
         </div>
 
@@ -113,6 +189,8 @@
             class="btn btn-primary"
             id="pdf-link"
             href="curriculo-rodrigo-soares.pdf"
+            data-umami-event="download-pdf"
+            data-umami-event-idioma="pt"
             download="Curriculo - Rodrigo Soares.pdf"
           >
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -127,18 +205,17 @@
 
       <h2 data-i18n="h.summary">Resumo Profissional</h2>
       <p data-i18n="summary">
-        Desenvolvedor Full Stack com mais de 3 anos de experiência em desenvolvimento de software
-        (incluindo estágios), com foco em <strong>back-end</strong> e
-        <strong>integração de sistemas</strong>. Atuo com <strong>JavaScript</strong> e
-        <strong>TypeScript</strong>, <strong>Node.js</strong> (<strong>Express</strong>),
-        <strong>Vue.js</strong>, <strong>React Native</strong> (Expo), <strong>PostgreSQL</strong> e
-        <strong>MongoDB</strong>. Experiência com <strong>APIs REST</strong>,
-        <strong>microsserviços</strong>, pipelines de dados (ETL) e middlewares de integração com
-        ERPs e CRMs (SAP, Winthor, Salesforce), além de chatbots com IA generativa (OpenAI)
-        integrados ao WhatsApp. Em infraestrutura, trabalho com <strong>Docker</strong>,
-        <strong>Nginx</strong>, <strong>Linux</strong>, <strong>Git</strong> e
-        <strong>AWS</strong> (EC2); nos projetos pessoais, aplico autenticação
-        <strong>JWT</strong> e testes automatizados com <strong>Jest</strong>.
+        Desenvolvedor Full Stack com mais de 3 anos de experiência (incluindo estágio), com foco em
+        <strong>back-end</strong> e <strong>integração de sistemas</strong>. Atuo com
+        <strong>JavaScript</strong>, <strong>TypeScript</strong>, <strong>Node.js</strong>
+        (<strong>Express</strong>), <strong>Kotlin</strong>, <strong>React Native</strong> (Expo),
+        <strong>Vue.js</strong>, <strong>PostgreSQL</strong> e <strong>MongoDB</strong> em
+        <strong>APIs REST</strong>, <strong>microsserviços</strong>, pipelines ETL e chatbots com IA
+        (OpenAI) no WhatsApp. Experiência com <strong>JWT</strong>, <strong>Docker</strong>, <strong>CI/CD</strong>,
+        <strong>Nginx</strong>, <strong>Linux</strong>, <strong>Git</strong>/GitHub e
+        <strong>AWS</strong> (EC2). Trabalho em equipes de 10 a 15 desenvolvedores com
+        <strong>Scrum</strong>, code review e pull requests, aplicando <strong>SOLID</strong> e
+        <strong>Clean Code</strong> e <strong>testes automatizados</strong> (Jest).
       </p>
 
       <hr />
@@ -155,30 +232,32 @@
       <div class="job">
         <p class="job-title" data-i18n="scube.title">
           <strong>Desenvolvedor de Software</strong><br />
-          <em>S-Cube | 12/2025 - 10/2026</em>
+          <em>S-Cube | 12/2025 - 10/2026 | Remoto</em>
         </p>
         <ul>
-          <!-- TODO: se possível, incluir números (nº de clientes/bots, mensagens por dia, tempo de atendimento reduzido) -->
           <li data-i18n="scube.1">
-            Desenvolvi chatbots de atendimento, vendas e triagem em <strong>Node.js</strong>,
-            integrando a <strong>API do WhatsApp</strong> à <strong>API da OpenAI</strong> (IA
-            generativa), com fluxos de conversa dinâmicos.
+            Desenvolvi chatbots de atendimento, vendas e triagem em <strong>JavaScript</strong> (<strong>Node.js</strong> + <strong>Express</strong>), integrando a <strong>API do WhatsApp</strong> (UAZAPI, via webhooks) à <strong>API da OpenAI</strong>, com cerca de 300 mensagens/dia.
           </li>
           <li data-i18n="scube.2">
-            Implementei a persistência de contexto e do histórico conversacional em
-            <strong>PostgreSQL</strong> e automatizei o deploy dos serviços com
-            <strong>Docker</strong> via Dokploy.
+            Desenvolvi uma API de mensageria <strong>multi-tenant</strong> em Node.js, Express e <strong>PostgreSQL</strong> que centraliza os serviços conectados à UAZAPI, com ambiente em <strong>Docker Compose</strong>.
           </li>
           <li data-i18n="scube.3">
-            Desenvolvi um aplicativo mobile em <strong>React Native</strong> (Expo Router +
-            <strong>TypeScript</strong>) para gestão de associados e eventos de um cliente.
+            Implementei a persistência do histórico conversacional em PostgreSQL, autenticação <strong>JWT</strong> e <strong>testes automatizados</strong>; configurei <strong>CI/CD</strong> com deploy automático a cada push (<strong>Docker</strong> + Dokploy).
+          </li>
+          <li data-i18n="scube.4">
+            Desenvolvi um aplicativo mobile em <strong>React Native</strong> (Expo Router + <strong>TypeScript</strong>) para gestão de associados e eventos de um cliente e reduzi o tamanho do APK de ~109 MB para ~62 MB (−43%).
+          </li>
+          <li data-i18n="scube.5">
+            Atuei em equipe de 10 a 15 desenvolvedores com <strong>Scrum</strong> (sprints no Jira/ClickUp), <strong>code review</strong> e versionamento com <strong>Git</strong>/GitHub.
           </li>
         </ul>
         <ul class="tags">
           <li><button type="button" class="tag" data-tech="node">Node.js</button></li>
+          <li><button type="button" class="tag" data-tech="express">Express</button></li>
           <li><button type="button" class="tag" data-tech="postgres">PostgreSQL</button></li>
           <li><button type="button" class="tag" data-tech="openai">OpenAI</button></li>
           <li><button type="button" class="tag" data-tech="whatsapp">WhatsApp API</button></li>
+          <li><button type="button" class="tag" data-tech="jwt">JWT</button></li>
           <li><button type="button" class="tag" data-tech="docker">Docker</button></li>
           <li><button type="button" class="tag" data-tech="react-native">React Native</button></li>
           <li><button type="button" class="tag" data-tech="ts">TypeScript</button></li>
@@ -187,85 +266,66 @@
       <div class="job">
         <p class="job-title" data-i18n="b2list.title">
           <strong>Desenvolvedor de Software</strong><br />
-          <em>B2List | 09/2024 - 12/2025</em>
+          <em>B2List | 09/2024 - 12/2025 | Remoto</em>
         </p>
         <ul>
-          <!-- TODO: se possível, incluir números (registros sincronizados por dia, nº de serviços, ganho de performance) -->
           <li data-i18n="b2list.1">
-            Construí e mantive <strong>microsserviços</strong> e pipelines de dados
-            (<strong>ETL</strong>) em <strong>Node.js</strong> para ingestão e sincronização de
-            grandes volumes de dados.
+            Construí e mantive 8 a 10 <strong>microsserviços</strong> e pipelines de dados (<strong>ETL</strong>) em <strong>JavaScript</strong> (<strong>Node.js</strong>) e <strong>Kotlin</strong>, processando cerca de 600 mil registros.
           </li>
           <li data-i18n="b2list.2">
-            Desenvolvi <strong>APIs</strong> em <strong>Node.js</strong> para as regras de negócio
-            da plataforma, com foco em performance, qualidade e manutenibilidade do código.
+            Desenvolvi <strong>APIs</strong> em Node.js para as regras de negócio da plataforma, com foco em performance e manutenibilidade.
+          </li>
+          <li data-i18n="b2list.3">
+            Atuei em equipe de 10 a 15 desenvolvedores com <strong>Scrum</strong>, <strong>pull requests</strong> e <strong>code review</strong> (<strong>Git</strong>).
           </li>
         </ul>
         <ul class="tags">
           <li><button type="button" class="tag" data-tech="node">Node.js</button></li>
+          <li><button type="button" class="tag" data-tech="kotlin">Kotlin</button></li>
           <li><button type="button" class="tag" data-tech="etl">ETL</button></li>
           <li><button type="button" class="tag" data-tech="rest">REST</button></li>
         </ul>
       </div>
       <div class="job">
-        <p class="job-title" data-i18n="csn.title">
-          <strong>Estagiário de Desenvolvimento</strong><br />
-          <em>CSN Mineração | 08/2024 - 11/2024</em>
-        </p>
-        <ul>
-          <!-- TODO: se possível, incluir números (redução no tempo das consultas otimizadas) -->
-          <li data-i18n="csn.1">
-            Otimizei consultas <strong>SQL</strong> (tuning) e monitorei a saúde e a performance de
-            aplicações em produção.
-          </li>
-        </ul>
-        <ul class="tags">
-          <li><button type="button" class="tag" data-tech="sql">SQL</button></li>
-        </ul>
-      </div>
-      <div class="job">
         <p class="job-title" data-i18n="cli2.title">
           <strong>Analista de Desenvolvimento de Sistemas</strong><br />
-          <em>CLI Consultoria | 03/2024 - 07/2024</em>
+          <em>CLI Consultoria | 03/2024 - 07/2024 | Remoto</em>
         </p>
         <ul>
-          <!-- TODO: se possível, incluir números (latência antes/depois, volume de dados integrado) -->
           <li data-i18n="cli2.1">
-            Otimizei <strong>APIs RESTful</strong> de consumo de dados em tempo real em sistemas
-            críticos, com foco em baixa latência e disponibilidade.
+            Reduzi o tempo de uma integração de dados de mais de 10 horas para cerca de 15 minutos.
           </li>
           <li data-i18n="cli2.2">
-            Desenvolvi <strong>middlewares</strong> de orquestração e transformação de dados entre
-            <strong>SAP</strong> e <strong>Salesforce</strong>, evoluindo código legado.
+            Otimizei <strong>APIs RESTful</strong> de consumo de dados em tempo real em sistemas críticos, com foco em baixa latência e disponibilidade.
           </li>
           <li data-i18n="cli2.3">
-            Contribuí para a evolução da arquitetura e a escalabilidade das aplicações.
+            Desenvolvi <strong>middlewares</strong> de orquestração e transformação de dados entre <strong>SAP</strong> e <strong>Salesforce</strong>, evoluindo código legado.
+          </li>
+          <li data-i18n="cli2.4">
+            Contribuí para a arquitetura e a escalabilidade das aplicações em sprints (<strong>Scrum</strong>); promovido de estagiário a analista.
           </li>
         </ul>
         <ul class="tags">
           <li><button type="button" class="tag" data-tech="rest">REST</button></li>
           <li><button type="button" class="tag" data-tech="sap">SAP</button></li>
           <li><button type="button" class="tag" data-tech="salesforce">Salesforce</button></li>
+          <li><button type="button" class="tag" data-tech="etl">ETL</button></li>
         </ul>
       </div>
       <div class="job">
         <p class="job-title" data-i18n="cli1.title">
           <strong>Estagiário de Desenvolvimento</strong><br />
-          <em>CLI Consultoria | 02/2023 - 03/2024</em>
+          <em>CLI Consultoria | 02/2023 - 03/2024 | Remoto</em>
         </p>
         <ul>
-          <!-- TODO: se possível, incluir números (nº de integrações/rotinas, ganho de performance dos pipelines) -->
           <li data-i18n="cli1.1">
-            Desenvolvi rotinas de ingestão de dados a partir de APIs, banco de dados
-            <strong>MongoDB</strong>, ERPs (SAP, Winthor) e CRM (Salesforce).
+            Desenvolvi rotinas de ingestão de dados a partir de APIs, banco de dados <strong>MongoDB</strong>, ERPs (SAP, Winthor) e CRM (Salesforce).
           </li>
           <li data-i18n="cli1.2">
-            Mantive e otimizei pipelines de dados existentes, incluindo código legado, melhorando a
-            performance e a confiabilidade do fluxo de informações.
+            Mantive e otimizei pipelines de dados existentes, incluindo código legado, melhorando performance e confiabilidade.
           </li>
           <li data-i18n="cli1.3">
-            Administrei servidores <strong>Linux</strong> em ambiente cloud
-            <strong>AWS</strong> (EC2), seguindo práticas DevOps.
+            Administrei servidores <strong>Linux</strong> em ambiente cloud <strong>AWS</strong> (EC2), seguindo práticas DevOps.
           </li>
         </ul>
         <ul class="tags">
@@ -282,7 +342,7 @@
       <hr />
 
       <h2 data-i18n="h.projects">Projetos Pessoais</h2>
-      <div class="job">
+      <div class="job" data-projeto="arena">
         <p class="job-title">
           <strong data-i18n="arena.title"
             >Arena — Gerenciador de Ligas e Torneios de Magic: The Gathering</strong
@@ -291,7 +351,8 @@
             <a href="https://github.com/rodrigoacs/arena" target="_blank" rel="noopener"
               >github.com/rodrigoacs/arena</a
             >
-          </span>
+          </span><br />
+          <em data-i18n="arena.date">Projeto pessoal | 10/2025 - Atual</em>
         </p>
         <ul>
           <li data-i18n="arena.1">
@@ -313,14 +374,15 @@
           <li><button type="button" class="tag" data-tech="docker">Docker</button></li>
         </ul>
       </div>
-      <div class="job">
+      <div class="job" data-projeto="mercadia">
         <p class="job-title">
           <strong>Mercadia</strong>
           <span class="job-links">
             <a href="https://github.com/rodrigoacs/mercadia" target="_blank" rel="noopener"
               >github.com/rodrigoacs/mercadia</a
             >
-          </span>
+          </span><br />
+          <em data-i18n="mercadia.date">Projeto pessoal | 12/2025 - Atual</em>
         </p>
         <ul>
           <li data-i18n="mercadia.1">
@@ -343,7 +405,7 @@
           <li><button type="button" class="tag" data-tech="rest">REST</button></li>
         </ul>
       </div>
-      <div class="job">
+      <div class="job" data-projeto="librishelf">
         <p class="job-title">
           <strong>Librishelf</strong>
           <span class="job-links">
@@ -353,15 +415,17 @@
             <a href="https://github.com/rodrigoacs/librishelf" target="_blank" rel="noopener"
               >github.com/rodrigoacs/librishelf</a
             >
-          </span>
+          </span><br />
+          <em data-i18n="librishelf.date">Projeto pessoal | 06/2024 - Atual</em>
         </p>
         <ul>
           <li data-i18n="librishelf.1">
-            Biblioteca pessoal para catalogar e acompanhar coleções de livros, com
-            <strong>Vue 3</strong>, PrimeVue, vue-i18n (português e inglês) e Chart.js no front-end
-            e <strong>Express 5</strong> + <strong>PostgreSQL</strong> no back-end, com migrations
-            próprias, autenticação JWT em cookie httpOnly, processamento de capas com sharp, e-mails
-            transacionais (Nodemailer) e testes com <strong>Jest</strong> e Supertest. Deploy com
+            Biblioteca pessoal para catalogar e acompanhar coleções de livros. Front-end
+            <strong>responsivo</strong> em <strong>Vue 3</strong>, PrimeVue, vue-i18n (português e
+            inglês) e Chart.js consumindo a <strong>API REST</strong> em <strong>Express 5</strong> +
+            <strong>PostgreSQL</strong>, com migrations próprias, autenticação JWT em cookie httpOnly,
+            processamento de capas com sharp, e-mails transacionais (Nodemailer) e
+            <strong>testes de integração</strong> com <strong>Jest</strong> e Supertest. Deploy com
             Docker Compose e Nginx.
           </li>
         </ul>
@@ -384,8 +448,7 @@
       <div class="education">
         <p data-i18n="edu.1">
           <strong>Bacharelado em Sistemas de Informação</strong><br />
-          IFMG, Ouro Branco - MG | 09/2021 - em andamento
-          <!-- TODO: trocar "em andamento" por "previsão de conclusão: MM/AAAA" -->
+          IFMG, Ouro Branco - MG | 09/2021 - 07/2027 (previsão de conclusão)
         </p>
       </div>
       <div class="education">
@@ -400,44 +463,43 @@
       <h2 data-i18n="h.skills">Tecnologias e Competências</h2>
       <ul>
         <li data-i18n="skills.1">
-          <strong>Linguagens:</strong> JavaScript, TypeScript, SQL, Java, Python, Kotlin.
+          <strong>Linguagens:</strong> JavaScript, TypeScript, Kotlin, SQL, Java, Python.
         </li>
         <li data-i18n="skills.2">
-          <strong>Back-end:</strong> Node.js, Express, APIs REST (RESTful), autenticação JWT,
-          microsserviços, ETL, integração de sistemas (SAP, Winthor, Salesforce), Design Patterns.
+          <strong>Back-end:</strong> Node.js, Express, APIs REST (RESTful), autenticação JWT, microsserviços, webhooks, ETL, integração de sistemas (SAP, Winthor, Salesforce), Design Patterns.
         </li>
         <li data-i18n="skills.3">
-          <strong>Front-end:</strong> Vue.js (Vue 3), HTML5, CSS3, Tailwind CSS, PrimeVue,
-          Bootstrap, Chart.js, PWA.
+          <strong>Front-end:</strong> Vue.js (Vue 3), HTML5, CSS3, Tailwind CSS, PrimeVue, Bootstrap, Chart.js, PWA.
         </li>
-        <li data-i18n="skills.4"><strong>Mobile:</strong> React Native (Expo, Expo Router).</li>
+        <li data-i18n="skills.4">
+          <strong>Mobile:</strong> React Native (Expo, Expo Router).
+        </li>
         <li data-i18n="skills.5">
           <strong>Banco de Dados:</strong> PostgreSQL, MySQL, Oracle, MongoDB.
         </li>
         <li data-i18n="skills.6">
-          <strong>DevOps &amp; Cloud:</strong> Docker, Docker Compose, Nginx, Git, GitHub Actions,
-          CI/CD, AWS (EC2), Linux (Debian, Ubuntu, CentOS).
+          <strong>DevOps &amp; Cloud:</strong> Docker, Docker Compose, Dokploy, Nginx, Git, GitHub, GitHub Actions, CI/CD, AWS (EC2), Linux.
         </li>
         <li data-i18n="skills.7">
-          <strong>Qualidade:</strong> Testes automatizados (Jest, Supertest), Code Review.
+          <strong>Qualidade:</strong> SOLID, Clean Code, code review, pull requests, testes automatizados (Jest, Supertest).
         </li>
-        <li data-i18n="skills.8"><strong>Metodologias:</strong> Metodologias Ágeis, Jira.</li>
+        <li data-i18n="skills.8">
+          <strong>Metodologias:</strong> Scrum (sprints), Jira, ClickUp.
+        </li>
         <li data-i18n="skills.9">
-          <strong>IA &amp; Mensageria:</strong> OpenAI API, chatbots no WhatsApp.
+          <strong>IA &amp; Mensageria:</strong> OpenAI API, WhatsApp (UAZAPI), chatbots, webhooks, mensageria multi-tenant.
         </li>
       </ul>
-      <!-- TODO (só se for verdade): citar Scrum/Kanban em "Metodologias" e SOLID/Clean Code em
-           "Qualidade"; o ATS não reconhece "Metodologias Ágeis" nem "código limpo" como sinônimos. -->
 
-      <!-- TODO: seção de idiomas — o ATS não encontra inglês no currículo atual.
-           Descomentar e ajustar o nível (e incluir o h2 também no CSS de cores, se quiser).
       <hr />
+
       <h2 data-i18n="h.languages">Idiomas</h2>
-      <ul>
-        <li data-i18n="lang.1"><strong>Português:</strong> nativo.</li>
-        <li data-i18n="lang.2"><strong>Inglês:</strong> [nível] — leitura técnica fluente.</li>
+      <ul class="languages">
+        <li data-i18n="lang.1">
+          <strong>Inglês:</strong> intermediário (conversação); leitura técnica avançada.
+        </li>
+        <li data-i18n="lang.2"><strong>Português:</strong> nativo.</li>
       </ul>
-      -->
 
       <footer class="cv-footer">
         <p>

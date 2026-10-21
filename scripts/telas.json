@@ -1,0 +1,20 @@
+{
+  "largura": 1280,
+  "altura": 800,
+  "qualidade": 82,
+  "aguardar": 1500,
+  "projetos": {
+    "librishelf": [
+      { "nome": "biblioteca-publica", "url": "https://librishelf.com/u/SEU_USUARIO" },
+      { "nome": "estante", "url": "https://librishelf.com/books" },
+      { "nome": "dashboard", "url": "https://librishelf.com/dashboard" }
+    ],
+    "arena": [
+      { "nome": "pagina-publica-da-liga", "url": "http://localhost:8080/l/ID_DA_LIGA" },
+      { "nome": "torneio", "url": "http://localhost:8080/tournament" }
+    ],
+    "mercadia": [
+      { "nome": "colecao", "url": "http://localhost:3003/" }
+    ]
+  }
+}
