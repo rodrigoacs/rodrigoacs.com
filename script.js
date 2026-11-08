@@ -101,6 +101,13 @@
     focusing on performance and maintainability.`,
     "b2list.3": `Worked in a team of 10 to 15 developers using <strong>Scrum</strong>,
     <strong>pull requests</strong> and <strong>code review</strong> (<strong>Git</strong>).`,
+    "csn.title": `<strong>Software Development Intern</strong><br />
+    <em>CSN Mineração | 08/2024 - 11/2024 | Congonhas - MG, Brazil</em>`,
+    "csn.1": `Took part in web solutions development in <strong>C#</strong> (<strong>.NET</strong>), working on both back-end and
+    front-end.`,
+    "csn.2": `Took part in requirements analysis, technical documentation and demand management.`,
+    "csn.3": `Worked with networking, servers, <strong>databases</strong> and application performance
+    tuning.`,
     "cli2.title": `<strong>Systems Development Analyst</strong><br />
     <em>CLI Consultoria | 03/2024 - 07/2024 | Remote</em>`,
     "cli2.1": `Reduced the runtime of a data integration from over 10 hours to about 15 minutes.`,
@@ -141,7 +148,7 @@
     IFMG, Ouro Branco - MG, Brazil | 09/2021 - 07/2027 (expected)`,
     "edu.2": `<strong>Technical Diploma in Mechanics (integrated with high school)</strong><br />
     IFMG, Congonhas - MG, Brazil | 01/2018 - 04/2021`,
-    "skills.1": "<strong>Programming Languages:</strong> JavaScript, TypeScript, Kotlin, SQL, Java, Python.",
+    "skills.1": "<strong>Programming Languages:</strong> JavaScript, TypeScript, Kotlin, C#, SQL, Java, Python.",
     "skills.2": "<strong>Back-end:</strong> Node.js, Express, REST (RESTful) APIs, JWT authentication, microservices, webhooks, ETL, systems integration (SAP, Winthor, Salesforce), Design Patterns.",
     "skills.3": "<strong>Front-end:</strong> Vue.js (Vue 3), HTML5, CSS3, Tailwind CSS, PrimeVue, Bootstrap, Chart.js, PWA.",
     "skills.4": "<strong>Mobile:</strong> React Native (Expo, Expo Router).",
@@ -316,6 +323,8 @@
     jest: "Jest",
     nginx: "Nginx",
     kotlin: "Kotlin",
+    csharp: "C#",
+    dotnet: ".NET",
   }
   const FEATURED = ["node", "postgres", "docker", "vue", "react-native", "openai", "sap", "etl"]
 
