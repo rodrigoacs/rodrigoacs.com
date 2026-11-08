@@ -238,11 +238,11 @@ hr {
   column-gap: 24px;
 }
 
-.cv-header > div:first-child {
+.cv-header>div:first-child {
   display: contents;
 }
 
-.cv-header > div:first-child > * {
+.cv-header>div:first-child>* {
   grid-column: 1;
   justify-self: start;
 }
@@ -252,11 +252,11 @@ hr {
   grid-row: 1;
 }
 
-.cv-header > div:first-child > h1,
-.cv-header > div:first-child > .contact-info,
-.cv-header > div:first-child > .headline,
-.cv-header > div:first-child > .headline-stack,
-.cv-header > div:first-child > .status {
+.cv-header>div:first-child>h1,
+.cv-header>div:first-child>.contact-info,
+.cv-header>div:first-child>.headline,
+.cv-header>div:first-child>.headline-stack,
+.cv-header>div:first-child>.status {
   grid-column: 1 / -1;
 }
 
@@ -1159,7 +1159,7 @@ kbd {
 /* ---------- Impressão / Salvar como PDF ---------- */
 @media print {
   @page {
-    margin: 12mm 15mm;
+    margin: 10mm 15mm;
   }
 
   /* PDF simples: preto no branco, uma fonte só, sem enfeites */

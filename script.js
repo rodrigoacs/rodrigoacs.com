@@ -62,7 +62,6 @@
     "h.projects": "Personal Projects",
     "h.education": "Education",
     "h.skills": "Skills &amp; Technologies",
-    "h.languages": "Languages",
     "filter.label": "Filter by technology",
     headline: "Full Stack Developer",
     summary: `Full Stack Developer with 3+ years of experience, focused on
@@ -139,7 +138,7 @@
     + <strong>PostgreSQL</strong>, with custom migrations,
     cover processing with sharp, transactional emails (Nodemailer) and <strong>integration
     tests</strong> with <strong>Jest</strong> and Supertest. <strong>CI/CD</strong> pipeline with GitHub
-    Actions (tests, build and automatic deployment on every push), deployed with Docker Compose and Nginx.`,
+    Actions (tests, lint and build on every push), deployed with Docker Compose and Nginx.`,
     "edu.1": `<strong>Bachelor's Degree in Information Systems</strong><br />
     IFMG, Ouro Branco - MG, Brazil | 09/2021 - 07/2027 (expected)`,
     "edu.2": `<strong>Technical Diploma in Mechanics (integrated with high school)</strong><br />
@@ -153,8 +152,7 @@
     "skills.7": "<strong>Quality:</strong> Clean Code, code review, pull requests, automated testing (Jest, Supertest).",
     "skills.8": "<strong>Methodologies:</strong> Scrum (sprints), Jira, ClickUp.",
     "skills.9": "<strong>AI &amp; Messaging:</strong> OpenAI API, WhatsApp (UAZAPI), chatbots, webhooks, multi-tenant messaging.",
-    "lang.1": "<strong>English:</strong> intermediate (conversational); advanced technical reading.",
-    "lang.2": "<strong>Portuguese:</strong> native.",
+    "skills.10": "<strong>Languages:</strong> Portuguese (native); English, intermediate (conversational) with advanced technical reading.",
     "footer.terminal": "open the terminal",
     "footer.note": "Hand-made with HTML, CSS and JavaScript",
   }
@@ -497,7 +495,7 @@
       })
     },
     skills() {
-      sectionText(".container > ul:not(.languages) li").forEach((line) => termPrint(`• ${line}`))
+      sectionText(".container > ul li").forEach((line) => termPrint(`• ${line}`))
     },
     contact() {
       printLink("  +55 (31) 99548-7310", "tel:+5531995487310")
