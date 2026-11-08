@@ -65,17 +65,16 @@
     "h.languages": "Languages",
     "filter.label": "Filter by technology",
     headline: "Full Stack Developer",
-    summary: `Full Stack Developer with 3+ years of experience (including an internship), focused on
+    summary: `Full Stack Developer with 3+ years of experience, focused on
     <strong>back-end</strong> and <strong>systems integration</strong>. I work with
     <strong>JavaScript</strong>, <strong>TypeScript</strong>, <strong>Node.js</strong>
     (<strong>Express</strong>), <strong>Kotlin</strong>, <strong>React Native</strong> (Expo),
     <strong>Vue.js</strong>, <strong>PostgreSQL</strong> and <strong>MongoDB</strong> on
     <strong>REST APIs</strong>, <strong>microservices</strong>, ETL pipelines and AI chatbots (OpenAI)
     on WhatsApp. Experienced with <strong>JWT</strong>, <strong>Docker</strong>, <strong>CI/CD</strong>, <strong>Nginx</strong>,
-    <strong>Linux</strong>, <strong>Git</strong>/GitHub and <strong>AWS</strong> (EC2). I work in teams
-    of 10 to 15 developers using <strong>Scrum</strong>, code review and pull requests, applying
-    <strong>SOLID</strong>, <strong>Clean Code</strong> and <strong>automated testing</strong>
-    (Jest).`,
+    <strong>Linux</strong>, <strong>Git</strong>/GitHub and <strong>AWS</strong> (EC2). I work in
+    development teams using <strong>Scrum</strong>, code review, <strong>testing</strong> and pull
+    requests.`,
     "scube.title": `<strong>Software Developer</strong><br />
     <em>S-Cube | 12/2025 - 10/2026 | Remote</em>`,
     "scube.1": `Built support, sales and triage chatbots in <strong>JavaScript</strong>
@@ -84,33 +83,29 @@
     "scube.2": `Built a <strong>multi-tenant</strong> messaging API in Node.js, Express and
     <strong>PostgreSQL</strong> that centralizes the services connected to UAZAPI, running on
     <strong>Docker Compose</strong>.`,
-    "scube.3": `Implemented conversation history persistence in PostgreSQL, <strong>JWT</strong>
-    authentication and <strong>automated tests</strong>; set up <strong>CI/CD</strong> with automatic
-    deployment on every push (<strong>Docker</strong> + Dokploy).`,
-    "scube.4": `Developed a <strong>React Native</strong> mobile app (Expo Router +
+    "scube.3": `Developed a <strong>React Native</strong> mobile app (Expo Router +
     <strong>TypeScript</strong>) for a client's member and event management and reduced the APK size
-    from ~109 MB to ~62 MB (−43%).`,
-    "scube.5": `Worked in a team of 10 to 15 developers using <strong>Scrum</strong> (sprints in
-    Jira/ClickUp), <strong>code review</strong> and version control with <strong>Git</strong>/GitHub.`,
+    from ~109 MB to ~17 MB (−84%).`,
     "b2list.title": `<strong>Software Developer</strong><br />
     <em>B2List | 09/2024 - 12/2025 | Remote</em>`,
-    "b2list.1": `Built and maintained 8 to 10 <strong>microservices</strong> and data pipelines
+    "b2list.1": `Built and maintained 10+ <strong>microservices</strong> and data pipelines
     (<strong>ETL</strong>) in <strong>JavaScript</strong> (<strong>Node.js</strong>) and <strong>Kotlin</strong>, processing about
     600,000 records.`,
     "b2list.2": `Developed <strong>APIs</strong> in Node.js for the platform's business rules,
     focusing on performance and maintainability.`,
-    "b2list.3": `Worked in a team of 10 to 15 developers using <strong>Scrum</strong>,
-    <strong>pull requests</strong> and <strong>code review</strong> (<strong>Git</strong>).`,
+    "b2list.3": `Worked in a team of 10 to 15 developers using <strong>Scrum</strong> (sprints in
+    Jira/ClickUp), <strong>code review</strong> and version control with <strong>Git</strong>/GitHub/Bitbucket.`,
     "csn.title": `<strong>Software Development Intern</strong><br />
     <em>CSN Mineração | 08/2024 - 11/2024 | Congonhas - MG, Brazil</em>`,
-    "csn.1": `Took part in web solutions development in <strong>C#</strong> (<strong>.NET</strong>), working on both back-end and
-    front-end.`,
+    "csn.1": `Followed the development of web solutions in <strong>C#</strong> (<strong>.NET</strong>),
+    working on both back-end and front-end.`,
     "csn.2": `Took part in requirements analysis, technical documentation and demand management.`,
     "csn.3": `Worked with networking, servers, <strong>databases</strong> and application performance
     tuning.`,
     "cli2.title": `<strong>Systems Development Analyst</strong><br />
     <em>CLI Consultoria | 03/2024 - 07/2024 | Remote</em>`,
-    "cli2.1": `Reduced the runtime of a data integration from over 10 hours to about 15 minutes.`,
+    "cli2.1": `Reduced the runtime of a data integration from over 10 hours to about 15 minutes by
+    optimizing <strong>SQL</strong> queries.`,
     "cli2.2": `Optimized <strong>RESTful APIs</strong> for real-time data consumption in critical
     systems, focusing on low latency and availability.`,
     "cli2.3": `Developed <strong>middleware</strong> to orchestrate and transform data between
@@ -130,31 +125,32 @@
     "librishelf.date": `Personal project | 06/2024 - Present`,
     "arena.title": "Arena — Magic: The Gathering League and Tournament Manager",
     "arena.1": `League and tournament manager for Magic: The Gathering with <strong>Vue 3</strong>,
-    PrimeVue and Tailwind on the front-end and an <strong>Express 5</strong> +
+    PrimeVue and Tailwind on the front-end and an <strong>Express</strong> +
     <strong>PostgreSQL</strong> API, featuring JWT authentication, round pairings, rankings with
-    tiebreakers and a public league page. Containerized with Docker and Nginx.`,
-    "mercadia.1": `Financial terminal and collection/deck manager for Magic: The Gathering. A
-    <strong>Node.js/Express</strong> + <strong>PostgreSQL</strong> back-end streams Scryfall's bulk
-    data and collects LigaMagic prices through web scraping (Cheerio), secured with JWT, Helmet and
-    rate limiting. Vanilla JavaScript front-end, installable as a <strong>PWA</strong>, with
-    Chart.js charts. Containerized with Docker.`,
+    tiebreakers and a public league page. Containerized with Docker, running behind Nginx.`,
+    "mercadia.1": `Financial terminal and collection/deck manager for Magic: The Gathering. An
+    <strong>Express</strong> + <strong>PostgreSQL</strong> back-end syncs Scryfall's bulk data and
+    collects LigaMagic prices through web scraping (Cheerio), secured with JWT, Helmet and rate
+    limiting. Vanilla JavaScript front-end, installable as a <strong>PWA</strong>, with Chart.js
+    charts. Containerized with Docker.`,
     "librishelf.1": `Personal library to catalog and track book collections. A
     <strong>responsive</strong> <strong>Vue 3</strong> front-end with PrimeVue, vue-i18n (Portuguese
     and English) and Chart.js consumes a <strong>REST API</strong> built with <strong>Express 5</strong>
-    + <strong>PostgreSQL</strong>, with custom migrations, JWT authentication in httpOnly cookies,
+    + <strong>PostgreSQL</strong>, with custom migrations,
     cover processing with sharp, transactional emails (Nodemailer) and <strong>integration
-    tests</strong> with <strong>Jest</strong> and Supertest. Deployed with Docker Compose and Nginx.`,
+    tests</strong> with <strong>Jest</strong> and Supertest. <strong>CI/CD</strong> pipeline with GitHub
+    Actions (tests, build and automatic deployment on every push), deployed with Docker Compose and Nginx.`,
     "edu.1": `<strong>Bachelor's Degree in Information Systems</strong><br />
     IFMG, Ouro Branco - MG, Brazil | 09/2021 - 07/2027 (expected)`,
     "edu.2": `<strong>Technical Diploma in Mechanics (integrated with high school)</strong><br />
     IFMG, Congonhas - MG, Brazil | 01/2018 - 04/2021`,
-    "skills.1": "<strong>Programming Languages:</strong> JavaScript, TypeScript, Kotlin, C#, SQL, Java, Python.",
+    "skills.1": "<strong>Programming Languages:</strong> JavaScript, TypeScript, Kotlin, C#, SQL, Java.",
     "skills.2": "<strong>Back-end:</strong> Node.js, Express, REST (RESTful) APIs, JWT authentication, microservices, webhooks, ETL, systems integration (SAP, Winthor, Salesforce), Design Patterns.",
-    "skills.3": "<strong>Front-end:</strong> Vue.js (Vue 3), HTML5, CSS3, Tailwind CSS, PrimeVue, Bootstrap, Chart.js, PWA.",
+    "skills.3": "<strong>Front-end:</strong> Vue.js (Vue 3), HTML5, CSS3, Tailwind CSS, PrimeVue, Chart.js, PWA.",
     "skills.4": "<strong>Mobile:</strong> React Native (Expo, Expo Router).",
     "skills.5": "<strong>Databases:</strong> PostgreSQL, MySQL, Oracle, MongoDB.",
     "skills.6": "<strong>DevOps &amp; Cloud:</strong> Docker, Docker Compose, Dokploy, Nginx, Git, GitHub, GitHub Actions, CI/CD, AWS (EC2), Linux.",
-    "skills.7": "<strong>Quality:</strong> SOLID, Clean Code, code review, pull requests, automated testing (Jest, Supertest).",
+    "skills.7": "<strong>Quality:</strong> Clean Code, code review, pull requests, automated testing (Jest, Supertest).",
     "skills.8": "<strong>Methodologies:</strong> Scrum (sprints), Jira, ClickUp.",
     "skills.9": "<strong>AI &amp; Messaging:</strong> OpenAI API, WhatsApp (UAZAPI), chatbots, webhooks, multi-tenant messaging.",
     "lang.1": "<strong>English:</strong> intermediate (conversational); advanced technical reading.",
@@ -325,6 +321,7 @@
     kotlin: "Kotlin",
     csharp: "C#",
     dotnet: ".NET",
+    cicd: "CI/CD",
   }
   const FEATURED = ["node", "postgres", "docker", "vue", "react-native", "openai", "sap", "etl"]
 
